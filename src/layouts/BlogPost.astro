@@ -1,0 +1,41 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+
+import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config";
+
+const {
+  image,
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  includeSidebar = true,
+  sideBarActiveItemID,
+  ogType,
+} = Astro.props;
+---
+
+<html>
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      ogType={ogType}
+    />
+    {TRANSITION_API && <ViewTransitions />}
+  </head>
+
+  <body>
+    <Header />
+    <article>
+      <div class="hero-image">...</div>
+      <div class="prose">
+        <div class="title">...</div>
+        <slot />
+      </div>
+    </article>
+    <Footer />
+  </body>
+</html>
