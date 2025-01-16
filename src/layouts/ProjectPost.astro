@@ -16,26 +16,31 @@ const {
 } = Astro.props;
 ---
 
-<html>
-  <head>
-    <BaseHead
-      title={title}
-      description={description}
-      image={image}
-      ogType={ogType}
-    />
-    {TRANSITION_API && <ViewTransitions />}
-  </head>
+<!doctype html>
+<head>
+  <BaseHead
+    title={title}
+    description={description}
+    image={image}
+    ogType={ogType}
+  />
+  {TRANSITION_API && <ViewTransitions />}
+</head>
 
-  <body>
-    <Header />
-    <article>
-      <div class="hero-image">...</div>
-      <div class="prose">
-        <div class="title">...</div>
-        <slot />
-      </div>
-    </article>
-    <Footer />
-  </body>
-</html>
+<body>
+  <Header />
+  <article>
+    <slot />
+  </article>
+  <Footer />
+</body>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(192, 207, 255);
+  }
+</style>
