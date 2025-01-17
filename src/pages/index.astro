@@ -12,7 +12,7 @@ const allPosts = await getCollection("projects");
     PROJECTS
     {
       allPosts.map((post: any) => (
-        <a href={"/projects/" + post.slug}>{post.data.title}</a>
+        <a href={"/blog/" + post.slug}>{post.data.title}</a>
       ))
     }
   </main>

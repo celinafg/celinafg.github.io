@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("posts");
+
+const postsWithContent = await Promise.all(
+  allPosts.map(async (post) => {
+    const { Content } = await post.render();
+    return {
+      ...post,
+      Content,
+    };
+  })
+);
+---
+
+<Layout>
+  <main>
+    <h1>Feed</h1>
+    {
+      postsWithContent.map((post: any) => (
+        <article>
+          <h2>
+            <a href={"/posts/" + post.slug}>{post.data.title}</a>
+          </h2>
+          {post.data.date && (
+            <p>
+              <small>{new Date(post.data.date).toLocaleDateString()}</small>
+            </p>
+          )}
+          <post.Content />
+        </article>
+      ))
+    }
+  </main>
+</Layout>
