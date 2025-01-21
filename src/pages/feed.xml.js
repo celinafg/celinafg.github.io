@@ -21,6 +21,7 @@ export async function GET(context) {
     title: "Thoughts, projects",
     description: "All my thoughts",
     site: context.site,
+    stylesheet: "/rss/styles.xsl",
     items,
   });
 }
