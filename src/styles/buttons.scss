@@ -1,0 +1,35 @@
+button {
+  @apply font-secondary font-bold text-black px-6 py-3 inline-flex items-center justify-center rounded-md transition duration-300 ease-in-out;
+
+  /* Default styles */
+  background-color: #d4ffc4;
+  border: 2px solid transparent;
+  text-transform: uppercase; /* Optional */
+  letter-spacing: 0.05em; /* Optional */
+  cursor: pointer;
+
+  /* Hover effect */
+  &:hover {
+    border-color: #a7ff83; /* Add border color on hover */
+    color: #000; /* Text color on hover */
+  }
+
+  /* Focus styles */
+  &:focus {
+    outline: 2px solid #a7ff83;
+    outline-offset: 2px;
+  }
+
+  /* Active styles */
+  &:active {
+    background-color: #d6d6d6; /* Darker background for active state */
+    transform: translateY(1px);
+  }
+}
+
+/* Add arrow for specific buttons */
+button.with-arrow::after {
+  content: " ↗"; /* Add arrow */
+  font-size: 0.9em;
+  margin-left: 0.5em; /* Space between text and arrow */
+}

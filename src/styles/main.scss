@@ -10,12 +10,12 @@
   @include meta.load-css("base");
 }
 
-// @layer components {
-//   @include meta.load-css("components");
-//   @include meta.load-css("navigation");
-//   @include meta.load-css("buttons");
-//   @include meta.load-css("search");
-// }
+@layer components {
+  // @include meta.load-css("components");
+  // @include meta.load-css("navigation");
+  @include meta.load-css("buttons");
+  // @include meta.load-css("search");
+}
 
 // @layer utilities {
 //   @include meta.load-css("utilities");
