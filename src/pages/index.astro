@@ -2,18 +2,12 @@
 import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import Projects from "../components/Projects.astro";
 
 const allPosts = await getCollection("projects");
 ---
 
 <Layout>
   <Welcome />
-  <main>
-    PROJECTS
-    {
-      allPosts.map((post: any) => (
-        <a href={"/projects/" + post.slug}>{post.data.title}</a>
-      ))
-    }
-  </main>
+  <Projects projects={allPosts} />
 </Layout>

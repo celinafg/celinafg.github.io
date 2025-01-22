@@ -24,10 +24,11 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>HELLO VISITOR</title>
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen">
     <Header />
-
-    <slot />
+    <main class="flex-grow">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
