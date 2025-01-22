@@ -17,18 +17,21 @@ const {
 
 <!doctype html>
 <html lang="en">
-  <head>
+  <head class="container-with-lines">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>HELLO VISITOR</title>
   </head>
+
   <body class="flex flex-col min-h-screen">
-    <Header />
-    <main class="flex-grow">
+    <main class="container-with-lines border">
+      <Header class="white-container border-t" />
+
       <slot />
     </main>
+
     <Footer />
-  </body>
+  </body><style></style>
 </html>

@@ -2,7 +2,7 @@
 const today = new Date();
 ---
 
-<footer class="py-4 text-center">
+<footer class="py-4 text-center border footer">
   <div class="">
     &copy; {today.getFullYear()} Design + code by celina ©
     <p>UX ENGINEER</p>
@@ -34,4 +34,13 @@ const today = new Date();
     Made with love and copious amounts of caffeine
   </div>
 </footer>
-<style></style>
+<style>
+  .footer {
+    width: 80vw;
+    margin: 0 auto;
+  }
+  .border {
+    border-left: 1px solid #a7ff83;
+    border-top: none;
+  }
+</style>
