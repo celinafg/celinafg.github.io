@@ -17,7 +17,9 @@ const { projects } = Astro.props;
 
 <section id="projects" class="project-section border-t border-b">
   <div class="project-container">
-    <h2 class="text-3xl font-semibold text-gray-800 mb-8">Projects</h2>
+    <h2 class="lowercase text-3xl font-semibold text-gray-800 mb-8">
+      Projects
+    </h2>
     <div class="projects-grid">
       {
         projects.map((project) => (
@@ -31,7 +33,9 @@ const { projects } = Astro.props;
                 />
               )}
               <div class="project-info">
-                <h3 class="project-title">{project.data.title}</h3>
+                <h3 class="sans uppercase project-title">
+                  {project.data.title}
+                </h3>
                 {project.data.description && (
                   <p class="project-description">{project.data.description}</p>
                 )}
@@ -107,5 +111,12 @@ const { projects } = Astro.props;
         }
       }
     }
+  }
+
+  .sans {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #444;
   }
 </style>

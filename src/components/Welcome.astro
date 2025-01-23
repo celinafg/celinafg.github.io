@@ -6,14 +6,14 @@ import Header from "./Header.astro";
 
 <div id="container">
   <main>
-    <section id="hero" class="white-container border-b">
-      <h1>HELLO VISITOR</h1>
-      <p>
+    <section id="hero" class="hero-container border-b">
+      <h1 class="uppercase">HELLO VISITOR</h1>
+      <p class="py-4 uppercase">
         I'm celina, resident jack of all trades, recent master of one (ms hcde).
         Product designer, frontend engineer, and 3d printing fanatic. I like
         building cool things, prototyping, and hardware.
       </p>
-      <p>
+      <p class="uppercase">
         You can find me on
         <a
           href="https://read.cv"
@@ -36,7 +36,7 @@ import Header from "./Header.astro";
           rel="noopener noreferrer">INSTAGRAM</a
         >.
       </p>
-      <button>MORE ABOUT ME</button>
+      <div class="pt-5"><button class="bl">MORE ABOUT ME</button></div>
     </section>
   </main>
 </div>
@@ -44,5 +44,13 @@ import Header from "./Header.astro";
 <style>
   #hero {
     min-height: 40vh;
+  }
+
+  .hero-container {
+    padding: 4rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
   }
 </style>

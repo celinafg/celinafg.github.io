@@ -1,13 +1,87 @@
+---
+const { currentPath } = Astro.props;
+
+const links = [
+  { href: "/", label: "/home/" },
+  { href: "/about/", label: "/about/" },
+  { href: "/feed/", label: "/feed/" },
+  { href: "/playground/", label: "/playground/" },
+];
+---
+
 <nav>
-  <div class="white-container border-t border-b">
-    <a href="/">/HOME/</a>
-    <a href="/about/">/ABOUT/</a>
-    <a href="/">/FEED/</a>
-    <a href="/">/PLAYGROUND/</a>
+  <div class="white-container border-t border-b py-4 px-8">
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class="nav-link"
+          aria-current={currentPath === link.href ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))
+    }
   </div>
 </nav>
 <style>
-  nav {
-    margin-top: 20px;
+  nav a {
+    font-family: "Space Mono", monospace;
+    font-size: 1rem;
+    color: #065f46;
+    text-decoration: none;
+    margin-right: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #065f46;
+    transition: width 0.3s ease-in-out;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  nav a:hover {
+    color: #333333;
+  }
+
+  nav a[aria-current="page"] {
+    font-weight: 700;
+    color: #333333;
+  }
+
+  nav a[aria-current="page"]::before {
+    content: "";
+    width: 0.6rem;
+    height: 0.6rem;
+    background-color: #ff6b6b;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: beat 0.8s ease infinite;
+  }
+
+  @keyframes beat {
+    0%,
+    100% {
+      transform: translateY(-50%) scale(1);
+    }
+    50% {
+      transform: translateY(-50%) scale(1.2);
+    }
   }
 </style>

@@ -13,6 +13,8 @@ const {
   sideBarActiveItemID,
   ogType,
 } = Astro.props;
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -25,13 +27,17 @@ const {
     <title>HELLO VISITOR</title>
   </head>
 
-  <body class="flex flex-col min-h-screen">
+  <body class="flex flex-col min-h-screen bgc">
     <main class="container-with-lines border">
-      <Header class="white-container border-t" />
+      <Header class="white-container border-t" currentPath={currentPath} />
 
       <slot />
     </main>
 
     <Footer />
-  </body><style></style>
+  </body><style>
+    .bgc {
+      background-color: #f5fff2;
+    }
+  </style>
 </html>
