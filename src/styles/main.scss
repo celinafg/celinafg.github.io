@@ -23,11 +23,14 @@
 //   @include meta.load-css("utilities");
 // }
 
-.container-with-lines {
+.cont {
   width: 80vw;
   margin: 0 auto;
   position: relative;
   padding: 2rem 0;
+}
+
+.with-lines {
   &::before {
     content: "";
     position: absolute;
@@ -42,7 +45,7 @@
         #f9f9f9 1px,
         #f9f9f9 20px
       ),
-      #f9f9f9; /* Fallback color */
+      #f9f9f9;
     z-index: -1;
     pointer-events: none;
   }

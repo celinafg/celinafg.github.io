@@ -19,7 +19,7 @@ const currentPath = Astro.url.pathname;
 
 <!doctype html>
 <html lang="en">
-  <head class="container-with-lines">
+  <head class="cont with-lines">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -28,7 +28,7 @@ const currentPath = Astro.url.pathname;
   </head>
 
   <body class="flex flex-col min-h-screen bgc">
-    <main class="container-with-lines border">
+    <main class="cont with-lines border">
       <Header class="white-container border-t" currentPath={currentPath} />
 
       <slot />

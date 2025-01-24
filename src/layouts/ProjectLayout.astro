@@ -1,0 +1,79 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+import "../styles/main.scss";
+import type { MarkdownHeading } from "astro";
+import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config";
+
+const {
+  image,
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  ogType,
+  headings,
+} = Astro.props;
+
+function filterHeadings(headings: MarkdownHeading[]): MarkdownHeading[] {
+  return headings.filter(
+    (heading) => heading.depth === 2 || heading.depth === 3
+  );
+}
+
+const filteredHeadings: MarkdownHeading[] = filterHeadings(headings ?? []);
+
+const hasToC: boolean = filteredHeadings.length > 0;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      ogType={ogType}
+    />
+    {TRANSITION_API && <ViewTransitions />}
+  </head>
+  <body class="cont">
+    <Header class="flex flex-col min-h-screen bgc" />
+    <section
+      class={`${hasToC ? "mx-auto max-w-7xl lg:grid lg:grid-cols-4" : ""}`}
+    >
+      {
+        hasToC && (
+          <aside class="toc p-4 border-l-4 border-[#a7ff83]">
+            <nav aria-label="Table of Contents">
+              <h2 class="text-emerald-400">Table of Contents</h2>
+              <ul>
+                {filteredHeadings.map((heading) => (
+                  <li
+                    class={`mb-2 ${
+                      heading.depth === 3
+                        ? "pl-4 text-gray-700"
+                        : "text-green-800"
+                    }`}
+                  >
+                    <a href={`#${heading.slug}`} class="hover:underline">
+                      {heading.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+        )
+      }
+      <article
+        class={`prose mx-auto px-4 py-10 dark:prose-invert sm:prose-lg lg:prose-xl ${
+          hasToC ? "lg:col-span-3" : ""
+        }`}
+      >
+        <slot />
+      </article>
+    </section>
+    <Footer />
+  </body>
+</html>

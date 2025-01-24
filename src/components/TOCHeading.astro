@@ -1,0 +1,28 @@
+---
+import type { MarkdownHeading } from "astro";
+
+export interface HeadingHierarchy extends MarkdownHeading {
+  subheadings: HeadingHierarchy[];
+}
+
+interface Props {
+  heading: HeadingHierarchy;
+}
+
+const { heading } = Astro.props as Props;
+---
+
+<li>
+  <a href={`#${heading.slug}`} class="hover:underline text-green-800">
+    {heading.text}
+  </a>
+  {
+    heading.subheadings.length > 0 && (
+      <ul class="pl-4">
+        {heading.subheadings.map((subheading) => (
+          <TOCHeading heading={subheading} />
+        ))}
+      </ul>
+    )
+  }
+</li>
