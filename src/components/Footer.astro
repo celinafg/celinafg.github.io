@@ -1,46 +1,155 @@
 ---
+interface SocialLink {
+  href: string;
+  label: string;
+}
+
 const today = new Date();
+
+const socialLinks: SocialLink[] = [
+  {
+    href: "https://read.cv",
+    label: "READ.CV",
+  },
+  {
+    href: "https://twitter.com",
+    label: "EMAIL",
+  },
+  {
+    href: "https://instagram.com",
+    label: "LINKEDIN",
+  },
+];
 ---
 
-<footer class="py-4 text-center border footer">
-  <div class="">
-    &copy; {today.getFullYear()} Design + code by celina ©
-    <p>UX ENGINEER</p>
-  </div>
-  <div class="">
-    <p>
-      <a
-        href="https://read.cv"
-        class="external"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        READ.CV
-      </a>
-      <a
-        href="https://twitter.com"
-        class="external"
-        target="_blank"
-        rel="noopener noreferrer">EMAIL</a
-      >
-      <a
-        href="https://instagram.com"
-        class="external"
-        target="_blank"
-        rel="noopener noreferrer">LINKEDIN</a
-      >.
-    </p>
+<footer class="footer white-container">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright heading-mono">
+        &copy; {today.getFullYear()} Design + code by celina
+      </p>
+      <p class="role text-body">UX ENGINEER</p>
+    </div>
 
-    Made with love and copious amounts of caffeine
+    <div class="footer-links">
+      <div class="social-links">
+        {
+          socialLinks.map((link, index) => (
+            <>
+              <a
+                href={link.href}
+                class="external heading-mono"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.label}
+              </a>
+              {index < socialLinks.length - 1 && (
+                <span class="link-separator">/</span>
+              )}
+            </>
+          ))
+        }
+      </div>
+      <p class="footer-tagline text-body">
+        Made with love and copious amounts of caffeine
+      </p>
+    </div>
   </div>
 </footer>
+
 <style>
   .footer {
-    width: 80vw;
+    width: 85vw;
     margin: 0 auto;
+    /* margin-top: calc(var(--spacing-unit) * 4); */
   }
-  .border {
-    border-left: 1px solid #a7ff83;
-    border-top: none;
+
+  .footer-content {
+    padding: calc(var(--spacing-unit) * 2);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-unit) * 2);
+    text-align: center;
+  }
+
+  .footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-unit) * 0.5);
+  }
+
+  .copyright {
+    font-size: 1rem;
+    color: var(--text-primary);
+  }
+
+  .role {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-unit) * 1.5);
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: calc(var(--spacing-unit) * 0.75);
+    flex-wrap: wrap;
+  }
+
+  .link-separator {
+    color: var(--text-secondary);
+    font-family: "Space Mono", monospace;
+  }
+
+  .footer-tagline {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .external {
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .external::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-in-out;
+  }
+
+  .external:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      width: 95vw;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .footer-content {
+      padding: calc(var(--spacing-unit) * 1.5);
+      gap: calc(var(--spacing-unit) * 1.5);
+    }
+
+    .social-links {
+      gap: calc(var(--spacing-unit) * 0.5);
+    }
   }
 </style>

@@ -16,8 +16,38 @@ export const getStaticPaths = (async () => {
 
 const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface GroupedHeading extends Heading {
+  subheadings: GroupedHeading[];
+}
+
+function groupHeadingsByHierarchy(headings: Heading[]): GroupedHeading[] {
+  const groupedHeadings: GroupedHeading[] = [];
+  let currentH2: GroupedHeading | null = null;
+
+  for (const heading of headings) {
+    if (heading.depth === 2) {
+      currentH2 = { ...heading, subheadings: [] };
+      groupedHeadings.push(currentH2);
+    } else if (heading.depth === 3 && currentH2) {
+      currentH2.subheadings.push({ ...heading, subheadings: [] });
+    }
+  }
+
+  return groupedHeadings;
+}
+
+const groupedHeadings: GroupedHeading[] = groupHeadingsByHierarchy(
+  headings ?? []
+);
 ---
 
-<ProjectLayout {...entry.data} headings={headings}>
+<ProjectLayout {...entry.data} groupedHeadings={groupedHeadings}>
   <Content />
 </ProjectLayout>

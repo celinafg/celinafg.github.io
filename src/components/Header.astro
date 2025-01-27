@@ -1,7 +1,9 @@
 ---
-const { currentPath } = Astro.props;
+import type { HeaderProps, NavLink } from "../types";
 
-const links = [
+const { currentPath } = Astro.props as HeaderProps;
+
+const links: NavLink[] = [
   { href: "/", label: "/home/" },
   { href: "/about/", label: "/about/" },
   { href: "/feed/", label: "/feed/" },
@@ -10,12 +12,12 @@ const links = [
 ---
 
 <nav>
-  <div class="white-container border-t border-b py-4 px-8">
+  <div class="nav-container white-container">
     {
       links.map((link) => (
         <a
           href={link.href}
-          class="nav-link"
+          class="nav-link heading-mono"
           aria-current={currentPath === link.href ? "page" : undefined}
         >
           {link.label}
@@ -24,64 +26,64 @@ const links = [
     }
   </div>
 </nav>
+
 <style>
-  nav a {
-    font-family: "Space Mono", monospace;
+  .nav-container {
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+    border-bottom: 1px solid var(--accent-color);
+    border-top: 1px solid var(--accent-color);
+  }
+
+  .nav-link {
     font-size: 1rem;
-    color: #065f46;
+    color: var(--text-secondary);
     text-decoration: none;
-    margin-right: 1.5rem;
+    margin-right: calc(var(--spacing-unit) * 2);
     display: inline-flex;
     align-items: center;
     position: relative;
     transition: color 0.3s ease;
   }
 
-  nav a::after {
+  .nav-link::after {
     content: "";
     position: absolute;
     bottom: -2px;
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #065f46;
+    background-color: var(--accent-color);
     transition: width 0.3s ease-in-out;
   }
 
-  nav a:hover::after {
+  .nav-link:hover::after {
     width: 100%;
   }
 
-  nav a:hover {
-    color: #333333;
-  }
-
-  nav a[aria-current="page"] {
+  .nav-link[aria-current="page"] {
+    color: var(--text-primary);
     font-weight: 700;
-    color: #333333;
   }
 
-  nav a[aria-current="page"]::before {
+  .nav-link[aria-current="page"]::before {
     content: "";
-    width: 0.6rem;
-    height: 0.6rem;
-    background-color: #ff6b6b;
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-color);
     border-radius: 50%;
-    margin-right: 0.5rem;
-    position: absolute;
-    left: -1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: beat 0.8s ease infinite;
+    margin-right: 8px;
   }
 
-  @keyframes beat {
-    0%,
-    100% {
-      transform: translateY(-50%) scale(1);
+  @media (max-width: 768px) {
+    .nav-container {
+      padding: var(--spacing-unit);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-unit);
     }
-    50% {
-      transform: translateY(-50%) scale(1.2);
+
+    .nav-link {
+      margin-right: 0;
     }
   }
 </style>
