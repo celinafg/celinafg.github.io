@@ -8,6 +8,7 @@ const projectsCollection = defineCollection({
       tags: z.array(z.string()),
       date: z.coerce.date(),
       excerpt: z.string(),
+      image: z.ostring(),
     }),
 });
 
@@ -20,6 +21,7 @@ const postsCollection = defineCollection({
       tags: z.array(z.string()),
       date: z.coerce.date(),
       excerpt: z.string(),
+      image: z.ostring(),
     }),
 });
 
