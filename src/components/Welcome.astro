@@ -1,56 +1,84 @@
----
-import astroLogo from "../assets/astro.svg";
-import background from "../assets/background.svg";
-import Header from "./Header.astro";
----
+<div class="welcome-container border-b">
+  <h1 class="heading-mono">HELLO VISITOR</h1>
 
-<div id="container">
-  <main>
-    <section id="hero" class="hero-container border-b">
-      <h1 class="uppercase">HELLO VISITOR</h1>
-      <p class="py-4 uppercase">
-        I'm celina, resident jack of all trades, recent master of one (ms hcde).
-        Product designer, frontend engineer, and 3d printing fanatic. I like
-        building cool things, prototyping, and hardware.
-      </p>
-      <p class="uppercase">
-        You can find me on
-        <a
-          href="https://read.cv"
-          class="external"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          READ.CV
-        </a>
-        <a
-          href="https://twitter.com"
-          class="external"
-          target="_blank"
-          rel="noopener noreferrer">TWITTER</a
-        >, or
-        <a
-          href="https://instagram.com"
-          class="external"
-          target="_blank"
-          rel="noopener noreferrer">INSTAGRAM</a
-        >.
-      </p>
-      <div class="pt-5"><button class="bl">MORE ABOUT ME</button></div>
-    </section>
-  </main>
+  <p class="description">
+    I'M CELINA, RESIDENT JACK OF ALL TRADES, RECENT MASTER OF ONE (MS HCDE).
+    PRODUCT DESIGNER, FRONTEND ENGINEER, AND 3D PRINTING FANATIC. I LIKE
+    BUILDING COOL THINGS, PROTOTYPING, AND HARDWARE.
+  </p>
+  <div class="flex-row flex pb-6">
+    <p>YOU CAN FIND ME ON &nbsp;</p>
+    <a
+      href="https://read.cv"
+      class="external"
+      target="_blank"
+      rel="noopener noreferrer">READ.CV</a
+    ><p>,&nbsp;</p>
+    <a
+      href="https://twitter.com"
+      class="external"
+      target="_blank"
+      rel="noopener noreferrer">TWITTER</a
+    >
+    <p>,&nbsp;</p>
+    <a
+      href="https://instagram.com"
+      class="external"
+      target="_blank"
+      rel="noopener noreferrer">INSTAGRAM</a
+    >
+  </div>
+  <button type="button" class="more-button">MORE ABOUT ME</button>
 </div>
 
 <style>
-  #hero {
-    min-height: 40vh;
+  .welcome-container {
+    padding: 4rem 4rem;
+    background-color: #f9f9f9;
   }
 
-  .hero-container {
-    padding: 4rem 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
+  .heading-mono {
+    font-family: "Space Mono", monospace;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 2rem;
+    max-width: 65ch;
+  }
+
+  .links {
+    font-family: "Space Mono", monospace;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .more-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #a7ff83;
+    color: #333;
+    text-decoration: none;
+    font-family: "Space Mono", monospace;
+    transition: transform 0.2s ease;
+  }
+
+  .more-button:hover {
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .welcome-container {
+      padding: 2rem 1rem;
+    }
+
+    .heading-mono {
+      font-size: 2rem;
+    }
   }
 </style>

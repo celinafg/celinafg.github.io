@@ -15,7 +15,7 @@ export interface Props {
 const { projects } = Astro.props;
 ---
 
-<section id="projects" class="project-section border-t border-b">
+<section id="projects" class="project-section">
   <div class="project-container">
     <h2 class="heading-mono text-4xl mb-16 text-center">
       projects
@@ -58,12 +58,7 @@ const { projects } = Astro.props;
   .project-section {
     position: relative;
     padding: 6rem 2rem;
-    background: linear-gradient(
-      to bottom,
-      #f9f9f9,
-      rgba(255, 255, 255, 0.9),
-      #f9f9f9
-    );
+    background: #f9f9f9;
   }
 
   .project-container {
@@ -216,6 +211,7 @@ const { projects } = Astro.props;
 
     .project-section {
       padding: 4rem 1rem;
+      width: 100%;
     }
 
     .project-info {

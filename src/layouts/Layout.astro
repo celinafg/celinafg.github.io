@@ -1,8 +1,8 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
+import "../styles/main.scss";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import "../styles/main.scss";
+import { generateThemeVars, getThemeName } from "../utils/themes";
 
 import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config";
 const {
@@ -15,11 +15,17 @@ const {
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
+const themeName = getThemeName(currentPath);
+const themeVars = generateThemeVars(themeName);
+
+const cssVars = Object.entries(themeVars)
+  .map(([key, value]) => `${key}: ${value}`)
+  .join(";");
 ---
 
 <!doctype html>
 <html lang="en">
-  <head class="cont with-lines">
+  <head class="">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -27,16 +33,57 @@ const currentPath = Astro.url.pathname;
     <title>HELLO VISITOR</title>
   </head>
 
-  <body class="flex flex-col min-h-screen bgc">
+  <body
+    class=` theme-${themeName} min-h-screen bg-gradient flex flex-col min-h-screen bgc`
+    style={cssVars}
+  >
     <main class="cont with-lines border">
-      <Header class="white-container border-t" currentPath={currentPath} />
+      <Header class="white-container" currentPath={currentPath} />
 
       <slot />
     </main>
-    <div class="footer-border"><Footer /></div>
-  </body><style>
-    .bgc {
-      background-color: #f5fff2;
-    }
-  </style>
+    <div class="footer-border border-l border-r">
+      <Footer />
+    </div>
+  </body>
 </html>
+<style is:global>
+  .footer-border {
+    margin: 0 auto;
+    padding: 0;
+    border-color: var(--theme-current);
+    width: 85vw;
+  }
+  .theme-home,
+  .theme-about,
+  .theme-feed,
+  .theme-playground {
+    transition:
+      background-color var(--transition-default),
+      color var(--transition-default);
+  }
+
+  .bg-gradient {
+    background: linear-gradient(
+      145deg,
+      var(--theme-gradient-primary),
+      var(--theme-gradient-secondary)
+    );
+  }
+
+  .glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+  }
+
+  .page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    line-height: var(--line-height-normal);
+  }
+</style>

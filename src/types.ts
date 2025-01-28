@@ -23,4 +23,6 @@ export interface HeaderProps {
 export interface NavLink {
   href: string;
   label: string;
+  color?: string;
+  theme?: string;
 }

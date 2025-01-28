@@ -3,37 +3,79 @@ import Layout from "../layouts/Layout.astro";
 import Projects from "../components/Projects.astro";
 import Welcome from "../components/Welcome.astro";
 import { getCollection } from "astro:content";
+import { getThemeValues } from "../utils/themes";
 
 const allProjects = await getCollection("projects");
+const themeValues = getThemeValues("home");
 ---
 
 <Layout>
-  <section id="main" class="main-section">
-    <div class="intro-container">
-      <Welcome />
-    </div>
+  <section id="main" class=`main-section `>
+    <div class="">
+      <div class="intro-container">
+        <Welcome />
+      </div>
 
-    <div class="projects-container">
-      <Projects projects={allProjects} />
+      <div class="border-t border-b">
+        <Projects projects={allProjects} />
+      </div>
     </div>
   </section>
 </Layout>
-<style>
-  body {
-    background-color: #f9f9f9;
-    color: #444;
-  }
 
-  .projects-container {
-    padding-top: 2rem;
-  }
-  .layout-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+<style>
+  .main-section {
+    color: var(--text-secondary);
+    min-height: 100vh;
+    position: relative;
   }
 
   .intro-container {
+    position: relative;
+    z-index: 2;
+    margin-bottom: var(--spacing-small);
+    border: 1px solid rgba(var(--theme-current-rgb), 0.1);
+    border-radius: var(--border-radius, 8px);
+    transition:
+      background-color var(--transition-default),
+      transform var(--transition-default);
+  }
+
+  Container sizes from theme @media (min-width: 1024px) {
+    .main-section {
+      /* max-width: var(--container-width, 1200px); */
+      margin: 0 auto;
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .main-section {
+      padding: 0;
+    }
+  }
+
+  /* Background gradient */
+  .main-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    z-index: 0;
     background-color: #f9f9f9;
+    pointer-events: none;
+  }
+
+  .main-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
   }
 </style>

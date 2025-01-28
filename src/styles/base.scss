@@ -9,7 +9,8 @@ body {
   font-family: "Work Sans", sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  color: #444;
+  color: var(--text-secondary);
+  min-height: 100vh;
 }
 
 h1,
@@ -21,29 +22,24 @@ h6 {
   font-family: "Space Mono", monospace;
   font-weight: 700;
   line-height: 1.2;
-  color: #222;
+  color: var(--text-primary);
 }
 
 h1 {
   font-size: 2.5rem;
 }
-
 h2 {
   font-size: 2rem;
 }
-
 h3 {
   font-size: 1.75rem;
 }
-
 h4 {
   font-size: 1.5rem;
 }
-
 h5 {
   font-size: 1.25rem;
 }
-
 h6 {
   font-size: 1rem;
 }
@@ -55,13 +51,29 @@ strong {
 
 code {
   font-family: "Space Mono", monospace;
-  background-color: #f5f5f5;
+  background-color: rgba(var(--theme-current-rgb), 0.1);
   padding: 0.2em 0.4em;
   border-radius: 4px;
 }
 
+/* Base Link Styles */
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Base Container Styles */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 a.external {
-  @apply text-black font-secondary relative inline-flex items-center;
+  @apply text-black  relative inline-flex items-center;
 
   &::after {
     content: "";
@@ -95,14 +107,33 @@ a.external {
   }
 }
 
-.border {
-  border: 1px solid #a7ff83;
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
 }
 
-.border-t {
-  border-top: 1px solid #a7ff83;
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
 }
 
-.border-b {
-  border-bottom: 1px solid #a7ff83;
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/* Base Spacing */
+.section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 }

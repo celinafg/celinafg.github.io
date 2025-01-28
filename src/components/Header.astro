@@ -1,24 +1,46 @@
 ---
 import type { HeaderProps, NavLink } from "../types";
+import themeConfig from "../config/themes.json";
 
 const { currentPath } = Astro.props as HeaderProps;
 
 const links: NavLink[] = [
-  { href: "/", label: "/home/" },
-  { href: "/about/", label: "/about/" },
-  { href: "/feed/", label: "/feed/" },
-  { href: "/playground/", label: "/playground/" },
+  {
+    href: "/",
+    label: "/home/",
+    color: themeConfig.themes.home.color.rgba,
+    theme: "home",
+  },
+  {
+    href: "/about/",
+    label: "/about/",
+    color: themeConfig.themes.about.color.rgba,
+    theme: "about",
+  },
+  {
+    href: "/feed/",
+    label: "/feed/",
+    color: themeConfig.themes.feed.color.rgba,
+    theme: "feed",
+  },
+  {
+    href: "/playground/",
+    label: "/playground/",
+    color: themeConfig.themes.playground.color.rgba,
+    theme: "playground",
+  },
 ];
 ---
 
-<nav>
-  <div class="nav-container white-container">
+<nav class="border-t border-b">
+  <div class="nav-container">
     {
       links.map((link) => (
         <a
           href={link.href}
-          class="nav-link heading-mono"
+          class:list={["nav-link", "heading-mono", `theme-${link.theme}`]}
           aria-current={currentPath === link.href ? "page" : undefined}
+          data-theme={link.theme}
         >
           {link.label}
         </a>
@@ -29,20 +51,23 @@ const links: NavLink[] = [
 
 <style>
   .nav-container {
-    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
-    border-bottom: 1px solid var(--accent-color);
-    border-top: 1px solid var(--accent-color);
+    padding: var(--spacing-medium) var(--spacing-large);
+
+    background-color: #f9f9f9;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    display: flex;
   }
 
   .nav-link {
-    font-size: 1rem;
+    font-size: var(--text-sm, 1rem);
     color: var(--text-secondary);
     text-decoration: none;
-    margin-right: calc(var(--spacing-unit) * 2);
+    margin-right: var(--spacing-large);
     display: inline-flex;
     align-items: center;
     position: relative;
-    transition: color 0.3s ease;
+    transition: all var(--transition-default);
   }
 
   .nav-link::after {
@@ -52,12 +77,34 @@ const links: NavLink[] = [
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--accent-color);
-    transition: width 0.3s ease-in-out;
+    opacity: 0;
+    transition:
+      width var(--transition-default),
+      opacity var(--transition-default),
+      background-color var(--transition-default);
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  /* Theme-specific underlines */
+  .theme-home::after {
+    background-color: var(--theme-home-rgb);
+  }
+  .theme-about::after {
+    background-color: var(--theme-about-rgb);
+  }
+  .theme-feed::after {
+    background-color: var(--theme-feed-rgb);
+  }
+  .theme-playground::after {
+    background-color: var(--theme-playground-rgb);
   }
 
   .nav-link:hover::after {
     width: 100%;
+    opacity: 0.7;
   }
 
   .nav-link[aria-current="page"] {
@@ -69,15 +116,37 @@ const links: NavLink[] = [
     content: "";
     width: 6px;
     height: 6px;
-    background-color: var(--accent-color);
     border-radius: 50%;
     margin-right: 8px;
+    transition:
+      background-color var(--transition-default),
+      box-shadow var(--transition-default);
+  }
+
+  /* Theme-specific dots */
+  .theme-home[aria-current="page"]::before {
+    background-color: rgb(var(--theme-home-rgb));
+    box-shadow: 0 0 12px rgba(var(--theme-home-rgb), 0.4);
+  }
+
+  .theme-about[aria-current="page"]::before {
+    background-color: rgb(var(--theme-about-rgb));
+    box-shadow: 0 0 12px rgba(var(--theme-about-rgb), 0.4);
+  }
+
+  .theme-feed[aria-current="page"]::before {
+    background-color: rgb(var(--theme-feed-rgb));
+    box-shadow: 0 0 12px rgba(var(--theme-feed-rgb), 0.4);
+  }
+
+  .theme-playground[aria-current="page"]::before {
+    background-color: rgb(var(--theme-playground-rgb));
+    box-shadow: 0 0 12px rgba(var(--theme-playground-rgb), 0.4);
   }
 
   @media (max-width: 768px) {
     .nav-container {
       padding: var(--spacing-unit);
-      display: flex;
       flex-wrap: wrap;
       gap: var(--spacing-unit);
     }
