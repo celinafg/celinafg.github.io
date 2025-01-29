@@ -1,4 +1,5 @@
 ---
+import "../styles/main.scss";
 import type { ProjectLayoutProps } from "../types";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
@@ -6,6 +7,7 @@ import Footer from "../components/Footer.astro";
 import TableOfContents from "../components/TOCHeading.astro";
 import { ViewTransitions } from "astro:transitions";
 import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config";
+import { generateThemeVars, getThemeName } from "../utils/themes";
 
 const {
   image,
@@ -14,6 +16,14 @@ const {
   ogType,
   groupedHeadings,
 } = Astro.props as ProjectLayoutProps;
+
+const currentPath = Astro.url.pathname;
+const themeName = getThemeName(currentPath);
+const themeVars = generateThemeVars(themeName);
+
+const cssVars = Object.entries(themeVars)
+  .map(([key, value]) => `${key}: ${value}`)
+  .join(";");
 ---
 
 <!doctype html>
@@ -27,17 +37,17 @@ const {
     />
     {TRANSITION_API && <ViewTransitions />}
   </head>
-  <body>
+  <body style={cssVars}>
     <div class="site-wrapper">
       <div class="cont border-t">
-        <Header />
+        <Header currentPath="currentPath" />
       </div>
       <div class="project-container">
         <aside class="sidebar">
           <TableOfContents headings={groupedHeadings} />
         </aside>
         <main class="main-content">
-          <div class="content-wrapper">
+          <div class="content-wrapper prose">
             <slot />
           </div>
         </main>
@@ -48,6 +58,9 @@ const {
 </html>
 
 <style>
+  .prose {
+    min-width: 65vw;
+  }
   .site-wrapper {
     min-height: 100vh;
     background-color: var(--bg-primary);
