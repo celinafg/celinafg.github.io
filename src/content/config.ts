@@ -9,6 +9,8 @@ const projectsCollection = defineCollection({
       date: z.coerce.date(),
       excerpt: z.string(),
       image: z.ostring(),
+      client: z.ostring(),
+      agency: z.ostring(),
     }),
 });
 

@@ -32,7 +32,7 @@ const links: NavLink[] = [
 ];
 ---
 
-<nav class="border-t border-b" id="header">
+<nav id="header">
   <div class="nav-container">
     {
       links.map((link) => (
@@ -51,11 +51,13 @@ const links: NavLink[] = [
 
 <style>
   .nav-container {
-    padding: var(--spacing-medium) var(--spacing-large);
     background-color: #f9f9f9;
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
     display: flex;
+    min-wdth: inherit;
+    height: 20vh;
+    padding-left: 4rem;
   }
 
   .nav-link {

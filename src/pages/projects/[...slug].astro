@@ -1,17 +1,16 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import "../../styles/main.scss";
+import { getCollection } from "astro:content";
+import TOCHeadings from "../../components/TOCHeading.astro";
 import type { GetStaticPaths } from "astro";
 
+import Layout from "../../layouts/Layout.astro";
 export const getStaticPaths = (async () => {
   const allProjects = await getCollection("projects");
-
-  const projects = allProjects.map((entry) => ({
+  return allProjects.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
-
-  return projects;
 }) satisfies GetStaticPaths;
 
 const { entry } = Astro.props;
@@ -43,11 +42,238 @@ function groupHeadingsByHierarchy(headings: Heading[]): GroupedHeading[] {
   return groupedHeadings;
 }
 
-const groupedHeadings: GroupedHeading[] = groupHeadingsByHierarchy(
-  headings ?? []
-);
+const groupedHeadings = groupHeadingsByHierarchy(headings);
 ---
 
-<ProjectLayout {...entry.data} groupedHeadings={groupedHeadings}>
-  <Content />
-</ProjectLayout>
+<Layout withDiagonalLines={false}>
+  <div class="project-layout">
+    <aside class="sidebar">
+      <TOCHeadings headings={groupedHeadings} />
+    </aside>
+
+    <main class="content bg-white rounded-md">
+      <header class="project-header glass-effect">
+        <div class="meta-grid">
+          {
+            entry.data.client && (
+              <div class="meta-item fade-in" style="--delay: 0.1s">
+                <div class="meta-content">
+                  <span class="label">Client</span>
+                  <span class="value">{entry.data.client}</span>
+                </div>
+                <div class="meta-indicator" />
+              </div>
+            )
+          }
+          {
+            entry.data.agency && (
+              <div class="meta-item fade-in" style="--delay: 0.2s">
+                <div class="meta-content">
+                  <span class="label">Agency</span>
+                  <span class="value">{entry.data.agency}</span>
+                </div>
+                <div class="meta-indicator" />
+              </div>
+            )
+          }
+          {
+            entry.data.date && (
+              <div class="meta-item fade-in" style="--delay: 0.3s">
+                <div class="meta-content">
+                  <span class="label">Year</span>
+                  <span class="value">{entry.data.date}</span>
+                </div>
+                <div class="meta-indicator" />
+              </div>
+            )
+          }
+        </div>
+
+        <div class="title-wrapper fade-in" style="--delay: 0.4s">
+          <h1 class="project-title">{entry.data.title}</h1>
+          <div class="title-decoration"></div>
+        </div>
+      </header>
+      <article class="project-content prose">
+        <Content />
+      </article>
+    </main>
+  </div>
+</Layout>
+<style>
+  .prose {
+    min-width: 60vw;
+    padding: 0 3rem;
+    margin: 0 auto;
+  }
+  .project-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 4rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .project-header {
+    padding: 3rem;
+    position: relative;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .meta-item {
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--delay, 0s);
+  }
+
+  .meta-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    opacity: 0.6;
+  }
+
+  .value {
+    font-family: "Space Mono", monospace;
+    font-size: 1rem;
+    color: var(--text-primary);
+  }
+
+  .meta-indicator {
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    width: 3px;
+    height: 0;
+    background: rgba(var(--theme-current-rgb), 0.3);
+    transform: translateY(-50%);
+    transition: height 0.3s ease;
+  }
+
+  .meta-item:hover .meta-indicator {
+    height: 100%;
+  }
+
+  .title-wrapper {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+
+  .project-title {
+    font-family: "Space Mono", monospace;
+    font-size: 3rem;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .title-decoration {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid rgba(var(--theme-current-rgb), 0.2);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+  }
+
+  .project-header:hover .title-decoration {
+    opacity: 1;
+    transform: scale(1) rotate(45deg);
+  }
+
+  .project-quote {
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 2rem;
+    background: rgba(var(--theme-current-rgb), 0.03);
+    border-radius: 12px;
+    margin: 0;
+    position: relative;
+  }
+
+  .project-content {
+    padding: 3rem 0;
+  }
+
+  .project-content :global(h2) {
+    font-family: "Space Mono", monospace;
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin: 4rem 0 2rem;
+    position: relative;
+  }
+
+  .project-content :global(h3) {
+    font-family: "Space Mono", monospace;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 3rem 0 1.5rem;
+  }
+
+  .project-content :global(p) {
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .project-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .project-header {
+      padding: 2rem;
+    }
+
+    .project-title {
+      font-size: 2rem;
+    }
+  }
+</style>

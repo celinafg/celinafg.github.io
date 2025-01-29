@@ -34,27 +34,22 @@ const cssVars = Object.entries(themeVars)
   </head>
 
   <body
-    class=` theme-${themeName} min-h-screen bg-gradient flex flex-col min-h-screen bgc`
+    class=` theme-${themeName} min-h-screen bg-gradient flex flex-col min-h-screen bg cont border with-lines`
     style={cssVars}
   >
-    <main class="cont with-lines border">
-      <Header class="white-container" currentPath={currentPath} />
-
+    <header class="">
+      <Header class="cont" currentPath={currentPath} />
+    </header>
+    <main>
       <slot />
     </main>
-    <div class="footer-border border-l border-r">
+    <footer class="border-t border-b">
       <Footer />
-    </div>
+    </footer>
   </body>
 </html>
+
 <style is:global>
-  .footer-border {
-    margin: 0 auto;
-    padding: 0;
-    border-color: var(--theme-current);
-    min-width: 80vw;
-    max-width: 2040px;
-  }
   .theme-home,
   .theme-about,
   .theme-feed,

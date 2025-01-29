@@ -1,25 +1,52 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("posts");
+
+const postsWithContent = await Promise.all(
+  allPosts.map(async (post) => {
+    const { Content } = await post.render();
+    return {
+      ...post,
+      Content,
+    };
+  })
+);
 ---
 
 <Layout>
-  <section class="white-container">
-    <div class="about border-b">
-      <p>
-        I am working through Astro's introductory tutorial. This is the second
-        page on my website, and it's the first one I built myself!
-      </p>
-
-      <p>
-        This site will update as I complete more of the tutorial, so keep
-        checking back and see how my journey is going!
-      </p>
-    </div>
+  <section class="">
+    <h1
+      class="py-8 block text-center mt-8 mb-8 white border-t border-b mx-0-auto"
+    >
+      feed
+    </h1>
+    {
+      postsWithContent.map((post: any) => (
+        <article class=" white  border-b border-t">
+          {/* <h2>
+            <a href={"/posts/" + post.slug}>{post.data.title}</a>
+          </h2>
+          {post.data.date && (
+            <p>
+              <small>{new Date(post.data.date).toLocaleDateString()}</small>
+            </p>
+          )} */}
+          <div class="prose article py-8">
+            <post.Content />
+          </div>
+        </article>
+      ))
+    }
   </section>
 </Layout>
 <style>
-  .about {
-    min-height: 40vh;
-    padding: 2rem 3rem;
+  .article {
+    width: auto;
+    margin: 0 auto;
+  }
+  .white {
+    background-color: #f9f9f9;
   }
 </style>

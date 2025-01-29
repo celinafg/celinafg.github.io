@@ -10,72 +10,23 @@ const themeValues = getThemeValues("home");
 ---
 
 <Layout>
-  <section id="main" class=`main-section `>
-    <div class="">
-      <div class="intro-container">
-        <Welcome />
-      </div>
+  <main class="home-page">
+    <Welcome />
 
-      <div class="border-t border-b">
-        <Projects projects={allProjects} />
-      </div>
-    </div>
-  </section>
+    <section class="projects-section">
+      <Projects projects={allProjects} />
+    </section>
+  </main>
 </Layout>
 
 <style>
-  .main-section {
-    color: var(--text-secondary);
+  .home-page {
     min-height: 100vh;
-    position: relative;
+    background-color: var(--bg-primary);
   }
 
-  .intro-container {
-    position: relative;
-    z-index: 2;
-    margin-bottom: var(--spacing-small);
-    border: 1px solid rgba(var(--theme-current-rgb), 0.1);
-    border-radius: var(--border-radius, 8px);
-    transition:
-      background-color var(--transition-default),
-      transform var(--transition-default);
-  }
-
-  Container sizes from theme @media (min-width: 1024px) {
-    .main-section {
-      /* max-width: var(--container-width, 1200px); */
-      margin: 0 auto;
-      padding: 0;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    .main-section {
-      padding: 0;
-    }
-  }
-
-  /* Background gradient */
-  .main-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
-    z-index: 0;
-    background-color: #f9f9f9;
-    pointer-events: none;
-  }
-
-  .main-section::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
+  .projects-section {
+    border-top: 1px solid rgba(var(--theme-current-rgb), 0.1);
+    border-bottom: 1px solid rgba(var(--theme-current-rgb), 0.1);
   }
 </style>

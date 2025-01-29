@@ -1,70 +1,124 @@
-<div class="welcome-container border-b">
-  <h1 class="heading-mono">HELLO VISITOR</h1>
+---
+// Welcome.astro
+---
 
-  <p class="description">
-    I'M CELINA, RESIDENT JACK OF ALL TRADES, RECENT MASTER OF ONE (MS HCDE).
-    PRODUCT DESIGNER, FRONTEND ENGINEER, AND 3D PRINTING FANATIC. I LIKE
-    BUILDING COOL THINGS, PROTOTYPING, AND HARDWARE.
-  </p>
-  <div class="flex-row flex pb-6">
-    <p>YOU CAN FIND ME ON &nbsp;</p>
-    <a
-      href="https://read.cv"
-      class="external"
-      target="_blank"
-      rel="noopener noreferrer">READ.CV</a
-    ><p>,&nbsp;</p>
-    <a
-      href="https://twitter.com"
-      class="external"
-      target="_blank"
-      rel="noopener noreferrer">TWITTER</a
-    >
-    <p>,&nbsp;</p>
-    <a
-      href="https://instagram.com"
-      class="external"
-      target="_blank"
-      rel="noopener noreferrer">INSTAGRAM</a
-    >
+<div class="welcome-section">
+  <div class="welcome-container">
+    <h1 class="heading-mono fade-in">HELLO VISITOR</h1>
+
+    <p class="description fade-in" style="--delay: 0.1s">
+      I'M CELINA, RESIDENT JACK OF ALL TRADES, RECENT MASTER OF ONE (MS HCDE).
+      PRODUCT DESIGNER, FRONTEND ENGINEER, AND 3D PRINTING FANATIC. I LIKE
+      BUILDING COOL THINGS, PROTOTYPING, AND HARDWARE.
+    </p>
+    <p>YOU CAN FIND ME ON</p>
+
+    <div class="social-links fade-in" style="--delay: 0.2s">
+      <a
+        href="https://read.cv"
+        class="external"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        READ.CV
+      </a>
+      <span>,</span>
+      <a
+        href="https://twitter.com"
+        class="external"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        TWITTER
+      </a>
+      <span>,</span>
+      <a
+        href="https://instagram.com"
+        class="external"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        INSTAGRAM
+      </a>
+    </div>
+    <div>
+      <button type="button" class="fade-in" style="--delay: 0.3s">
+        MORE ABOUT ME
+      </button>
+    </div>
   </div>
-  <button type="button">MORE ABOUT ME</button>
 </div>
 
 <style>
+  .welcome-section {
+    position: relative;
+    width: 100%;
+    background-color: var(--bg-primary);
+    overflow: hidden;
+  }
+
   .welcome-container {
-    padding: 4rem 4rem;
-    background-color: #f9f9f9;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .heading-mono {
     font-family: "Space Mono", monospace;
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 2rem;
+    font-size: 3rem;
+    color: var(--text-primary);
+    margin: 0;
   }
 
   .description {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #444;
-    margin-bottom: 2rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
     max-width: 65ch;
+    margin: 0;
   }
 
-  .links {
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
     font-family: "Space Mono", monospace;
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    color: var(--text-secondary);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--delay, 0s);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: 768px) {
     .welcome-container {
-      padding: 2rem 1rem;
+      padding: 4rem 1.5rem;
     }
 
     .heading-mono {
-      font-size: 2rem;
+      font-size: 2.5rem;
+    }
+
+    .description {
+      font-size: 1rem;
     }
   }
 </style>
