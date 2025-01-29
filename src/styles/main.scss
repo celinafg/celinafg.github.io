@@ -54,7 +54,8 @@
 
 /* Layout Utilities */
 .cont {
-  width: 85vw;
+  min-width: 80vw;
+  max-width: 2040px;
   margin: 0 auto;
   position: relative;
   padding: 3rem 0;
