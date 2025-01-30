@@ -94,7 +94,7 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
           <div class="title-decoration"></div>
         </div>
       </header>
-      <article class="project-content prose">
+      <article class="prose">
         <Content />
       </article>
     </main>
@@ -222,33 +222,6 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
     border-radius: 12px;
     margin: 0;
     position: relative;
-  }
-
-  .project-content {
-    padding: 3rem 0;
-  }
-
-  .project-content :global(h2) {
-    font-family: "Space Mono", monospace;
-    font-size: 2rem;
-    color: var(--text-primary);
-    margin: 4rem 0 2rem;
-    position: relative;
-  }
-
-  .project-content :global(h3) {
-    font-family: "Space Mono", monospace;
-    font-size: 1.5rem;
-    color: var(--text-primary);
-    margin: 3rem 0 1.5rem;
-  }
-
-  .project-content :global(p) {
-    font-family: "Work Sans", sans-serif;
-    font-size: 1.125rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
   }
 
   @keyframes fadeIn {
