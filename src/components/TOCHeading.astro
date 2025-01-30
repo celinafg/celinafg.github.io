@@ -22,7 +22,7 @@ const { headings } = Astro.props;
       {
         headings.map((h2) => (
           <li class="nav-item">
-            <details class="nav-details" open>
+            <details class="nav-details">
               <summary class="nav-h2">
                 <span class="toggle-icon">+</span>
                 <a href={`#${h2.slug}`}>{h2.text}</a>

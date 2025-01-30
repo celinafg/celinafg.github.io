@@ -12,6 +12,7 @@ const {
   includeSidebar = true,
   sideBarActiveItemID,
   ogType,
+  withDiagonalLines = true,
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -37,10 +38,10 @@ const cssVars = Object.entries(themeVars)
     class=` theme-${themeName} min-h-screen bg-gradient flex flex-col min-h-screen bg cont border with-lines`
     style={cssVars}
   >
-    <header class="">
+    <header class=``>
       <Header class="cont" currentPath={currentPath} />
     </header>
-    <main>
+    <main class=`${withDiagonalLines ? 'with-lines' : 'white-bg'}`>
       <slot />
     </main>
     <footer class="border-t border-b">
@@ -50,6 +51,9 @@ const cssVars = Object.entries(themeVars)
 </html>
 
 <style is:global>
+  .white-bg {
+    background-color: red !important;
+  }
   .theme-home,
   .theme-about,
   .theme-feed,
