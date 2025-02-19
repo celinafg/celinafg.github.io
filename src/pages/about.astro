@@ -20,25 +20,72 @@ const postsWithContent = await Promise.all(
     <h1
       class="py-8 block text-center mt-8 mb-8 white border-t border-b mx-0-auto"
     >
-      feed
+      about
     </h1>
-    {
-      postsWithContent.map((post: any) => (
-        <article class=" white  border-b border-t">
-          {/* <h2>
-            <a href={"/posts/" + post.slug}>{post.data.title}</a>
-          </h2>
-          {post.data.date && (
-            <p>
-              <small>{new Date(post.data.date).toLocaleDateString()}</small>
-            </p>
-          )} */}
-          <div class="prose article py-8">
-            <post.Content />
-          </div>
-        </article>
-      ))
-    }
+    <div class="prose">
+      <h2>I like making things, but I...</h2>
+      <p>...don’t stick to just one thing.</p>
+      <p>
+        I work at the intersection of <strong>design, research, and code</strong
+        >, figuring out how to break things, fix things, and make them better.
+        Whether it’s <strong>frontend engineering</strong>, <strong
+          >data-driven design</strong
+        >, or something in between, I like to explore, experiment, and build—and
+        when the right tools don’t exist, I create them.
+      </p>
+
+      <h2>A nonlinear path</h2>
+      <p>
+        My background isn’t a straight line—marketing → software engineering →
+        human-computer interaction. After managing a web project in a marketing
+        role, I decided to teach myself to code and ended up shifting my entire
+        career. Since then, I’ve worked on <strong
+          >frontend libraries for large systems</strong
+        >, <strong>conducted UX research for public transit</strong>, and found
+        ways to bring <strong>engineering, design, and data</strong> together to
+        solve real problems.
+      </p>
+
+      <h2>What I work on</h2>
+      <ul>
+        <li>
+          <strong>Designing and building for the web</strong> – Frontend, interaction
+          design, and making sure digital experiences are seamless.
+        </li>
+        <li>
+          <strong>Understanding users</strong> – UX research, usability testing,
+          and uncovering why people behave the way they do.
+        </li>
+        <li>
+          <strong>Experimenting with technology</strong> – Creative tech, prototyping,
+          and testing new ways to create.
+        </li>
+        <li>
+          <strong>Working with data</strong> – Cleaning, analyzing, and translating
+          complex information into something useful.
+        </li>
+      </ul>
+
+      <h2>Outside of work</h2>
+      <ul>
+        <li>
+          I 3D print <strong>over-engineered solutions</strong> to small, everyday
+          problems.
+        </li>
+        <li>
+          I take on <strong>multi-day baking projects</strong>, because good
+          things take time.
+        </li>
+        <li>
+          I research the <strong>latest e-ink tablets</strong>, even though I
+          already have more than enough.
+        </li>
+        <li>
+          I make <strong>onigiri</strong>, because I enjoy perfecting the little
+          details.
+        </li>
+      </ul>
+    </div>
   </section>
 </Layout>
 <style>
