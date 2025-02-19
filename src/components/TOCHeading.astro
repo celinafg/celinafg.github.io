@@ -11,11 +11,6 @@ const { headings } = Astro.props;
 <div class="toc-wrapper">
   <nav class="project-nav glass-effect" aria-label="Table of Contents">
     <div class="nav-header">
-      <div class="window-controls">
-        <span class="control"></span>
-        <span class="control"></span>
-        <span class="control"></span>
-      </div>
       <h2 class="nav-title">/contents/</h2>
     </div>
     <ul class="nav-list">
@@ -73,28 +68,6 @@ const { headings } = Astro.props;
     padding: 1rem;
     border-bottom: 1px solid rgba(var(--theme-current-rgb), 0.1);
     background: rgba(255, 255, 255, 0.9);
-  }
-
-  .window-controls {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .control {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
-
-  .control:nth-child(1) {
-    background: #ff5f57;
-  }
-  .control:nth-child(2) {
-    background: #febc2e;
-  }
-  .control:nth-child(3) {
-    background: #28c840;
   }
 
   .nav-title {
