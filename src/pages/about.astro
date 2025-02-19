@@ -1,99 +1,143 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
-
-const allPosts = await getCollection("posts");
-
-const postsWithContent = await Promise.all(
-  allPosts.map(async (post) => {
-    const { Content } = await post.render();
-    return {
-      ...post,
-      Content,
-    };
-  })
-);
 ---
 
 <Layout>
-  <section class="">
-    <h1
-      class="py-8 block text-center mt-8 mb-8 white border-t border-b mx-0-auto"
-    >
-      about
-    </h1>
-    <div class="prose">
-      <h2>I like making things, but I...</h2>
-      <p>...don’t stick to just one thing.</p>
-      <p>
-        I work at the intersection of <strong>design, research, and code</strong
+  <section class="bg-gray-50 py-16 px-6 sm:px-8">
+    <div class="text-center mb-12">
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">About Celina</h1>
+      <h2 class="text-xl sm:text-2xl font-medium text-gray-800 mt-4">
+        Celina is <span id="cycleText" class="inline-block min-w-[140px]"
+        ></span>
+        <span class="cursor">|</span>
+      </h2>
+      <p class="text-lg text-gray-600 mt-4">
+        I like making things, but I don’t stick to just one thing.
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto space-y-6 text-gray-700">
+      <p class="text-lg leading-relaxed">
+        I work at the intersection of <strong
+          class="font-semibold text-gray-800">design, research, and code</strong
         >, figuring out how to break things, fix things, and make them better.
-        Whether it’s <strong>frontend engineering</strong>, <strong
+        Whether it’s <strong class="font-semibold text-gray-800"
+          >frontend engineering</strong
+        >, <strong class="font-semibold text-gray-800"
           >data-driven design</strong
         >, or something in between, I like to explore, experiment, and build—and
         when the right tools don’t exist, I create them.
       </p>
 
-      <h2>A nonlinear path</h2>
-      <p>
+      <h3 class="text-2xl font-semibold text-gray-800 mt-8">
+        A nonlinear path
+      </h3>
+      <p class="text-lg leading-relaxed">
         My background isn’t a straight line—marketing → software engineering →
         human-computer interaction. After managing a web project in a marketing
         role, I decided to teach myself to code and ended up shifting my entire
         career. Since then, I’ve worked on <strong
+          class="font-semibold text-gray-800"
           >frontend libraries for large systems</strong
-        >, <strong>conducted UX research for public transit</strong>, and found
-        ways to bring <strong>engineering, design, and data</strong> together to
-        solve real problems.
+        >, <strong class="font-semibold text-gray-800"
+          >conducted UX research for public transit</strong
+        >, and found ways to bring <strong class="font-semibold text-gray-800"
+          >engineering, design, and data</strong
+        > together to solve real problems.
       </p>
 
-      <h2>What I work on</h2>
-      <ul>
-        <li>
-          <strong>Designing and building for the web</strong> – Frontend, interaction
-          design, and making sure digital experiences are seamless.
+      <h3 class="text-2xl font-semibold text-gray-800 mt-8">What I work on</h3>
+      <ul class="space-y-4 list-inside">
+        <li class="text-lg leading-relaxed">
+          <strong class="font-semibold text-gray-800"
+            >Designing and building for the web</strong
+          > – Frontend, interaction design, and making sure digital experiences are
+          seamless.
         </li>
-        <li>
-          <strong>Understanding users</strong> – UX research, usability testing,
-          and uncovering why people behave the way they do.
+        <li class="text-lg leading-relaxed">
+          <strong class="font-semibold text-gray-800"
+            >Understanding users</strong
+          > – UX research, usability testing, and uncovering why people behave the
+          way they do.
         </li>
-        <li>
-          <strong>Experimenting with technology</strong> – Creative tech, prototyping,
-          and testing new ways to create.
+        <li class="text-lg leading-relaxed">
+          <strong class="font-semibold text-gray-800"
+            >Experimenting with technology</strong
+          > – Creative tech, prototyping, and testing new ways to create.
         </li>
-        <li>
-          <strong>Working with data</strong> – Cleaning, analyzing, and translating
-          complex information into something useful.
+        <li class="text-lg leading-relaxed">
+          <strong class="font-semibold text-gray-800">Working with data</strong>
+          – Cleaning, analyzing, and translating complex information into something
+          useful.
         </li>
       </ul>
 
-      <h2>Outside of work</h2>
-      <ul>
-        <li>
-          I 3D print <strong>over-engineered solutions</strong> to small, everyday
-          problems.
+      <h3 class="text-2xl font-semibold text-gray-800 mt-8">Outside of work</h3>
+      <ul class="space-y-4 list-inside">
+        <li class="text-lg leading-relaxed">
+          I 3D print <strong class="font-semibold text-gray-800"
+            >over-engineered solutions</strong
+          > to small, everyday problems.
         </li>
-        <li>
-          I take on <strong>multi-day baking projects</strong>, because good
-          things take time.
+        <li class="text-lg leading-relaxed">
+          I take on <strong class="font-semibold text-gray-800"
+            >multi-day baking projects</strong
+          >, because good things take time.
         </li>
-        <li>
-          I research the <strong>latest e-ink tablets</strong>, even though I
-          already have more than enough.
+        <li class="text-lg leading-relaxed">
+          I research the <strong class="font-semibold text-gray-800"
+            >latest e-ink tablets</strong
+          >, even though I already have more than enough.
         </li>
-        <li>
-          I make <strong>onigiri</strong>, because I enjoy perfecting the little
-          details.
+        <li class="text-lg leading-relaxed">
+          I make <strong class="font-semibold text-gray-800">onigiri</strong>,
+          because I enjoy perfecting the little details.
         </li>
       </ul>
     </div>
   </section>
 </Layout>
-<style>
-  .article {
-    width: auto;
-    margin: 0 auto;
+
+<script>
+  const phrases = [
+    "an engineer",
+    "a designer",
+    "a researcher",
+    "an artist",
+    "a problem solver",
+  ];
+
+  let currentPhraseIndex = 0;
+  let currentText = "";
+  let isDeleting = false;
+
+  function typeEffect() {
+    const textElement = document.getElementById("cycleText");
+    if (!textElement) return;
+
+    const currentPhrase = phrases[currentPhraseIndex];
+
+    if (isDeleting) {
+      currentText = currentPhrase.substring(0, currentText.length - 1);
+    } else {
+      currentText = currentPhrase.substring(0, currentText.length + 1);
+    }
+
+    textElement.textContent = currentText;
+
+    let typeSpeed = isDeleting ? 50 : 150;
+
+    if (!isDeleting && currentText === currentPhrase) {
+      typeSpeed = 2000; // Pause after completing the word
+      isDeleting = true;
+    } else if (isDeleting && currentText === "") {
+      isDeleting = false;
+      currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+      typeSpeed = 500;
+    }
+
+    setTimeout(typeEffect, typeSpeed);
   }
-  .white {
-    background-color: #f9f9f9;
-  }
-</style>
+
+  document.addEventListener("DOMContentLoaded", typeEffect);
+</script>
