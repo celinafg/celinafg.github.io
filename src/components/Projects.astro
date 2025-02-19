@@ -1,4 +1,6 @@
 ---
+import { CldImage } from "astro-cloudinary";
+
 export interface Project {
   slug: string;
   data: {
@@ -53,7 +55,7 @@ const { projects } = Astro.props;
               </div>
               {project.data.image && (
                 <div class="image-container">
-                  <img
+                  <CldImage
                     src={project.data.image}
                     alt={project.data.title}
                     class="project-image"
