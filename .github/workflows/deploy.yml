@@ -1,8 +1,7 @@
 name: Deploy
 on:
   push:
-    branches: [main] # or whatever your default branch is
-
+    branches: [main]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -12,10 +11,20 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "20" # or whatever version you're using
+          node-version: "20"
 
       - name: Install Dependencies
         run: npm install --force
+        env:
+          CLOUDINARY_CLOUD_NAME: digifab
+          PUBLIC_CLOUDINARY_CLOUD_NAME: digifab
+          PUBLIC_CLOUDINARY_API_KEY: 294163575392916
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
 
       - name: Build
         run: npm run build
+        env:
+          CLOUDINARY_CLOUD_NAME: digifab
+          PUBLIC_CLOUDINARY_CLOUD_NAME: digifab
+          PUBLIC_CLOUDINARY_API_KEY: 294163575392916
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
