@@ -52,7 +52,7 @@
   "base": {
     "colors": {
       "background": {
-        "primary": "#f9f9f9",
+        "primary": "#ffffff",
         "secondary": "#ffffff"
       },
       "text": {

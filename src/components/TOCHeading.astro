@@ -51,17 +51,12 @@ const { headings } = Astro.props;
   }
 
   .project-nav {
-    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid rgba(var(--theme-current-rgb), 0.1);
+    border: 1px solid rgba(var(--theme-current-rgb), 0.9);
     transition: border-color 0.3s ease;
-  }
-
-  .project-nav:hover {
-    border-color: rgba(var(--theme-current-rgb), 0.2);
   }
 
   .nav-header {

@@ -51,60 +51,50 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
       <TOCHeadings headings={groupedHeadings} />
     </aside>
 
-    <main class="content bg-white rounded-md">
-      <header class="project-header glass-effect">
-        <div class="meta-grid">
-          {
-            entry.data.client && (
-              <div class="meta-item fade-in" style="--delay: 0.1s">
-                <div class="meta-content">
-                  <span class="label">Client</span>
-                  <span class="value">{entry.data.client}</span>
-                </div>
-                <div class="meta-indicator" />
-              </div>
-            )
-          }
-          {
-            entry.data.agency && (
-              <div class="meta-item fade-in" style="--delay: 0.2s">
-                <div class="meta-content">
-                  <span class="label">Agency</span>
-                  <span class="value">{entry.data.agency}</span>
-                </div>
-                <div class="meta-indicator" />
-              </div>
-            )
-          }
-          {
-            entry.data.date && (
-              <div class="meta-item fade-in" style="--delay: 0.3s">
-                <div class="meta-content">
-                  <span class="label">Year</span>
-                  <span class="value">{entry.data.date}</span>
-                </div>
-                <div class="meta-indicator" />
-              </div>
-            )
-          }
-        </div>
-
-        <div class="title-wrapper fade-in" style="--delay: 0.4s">
-          <h1 class="project-title">{entry.data.title}</h1>
-          <div class="title-decoration"></div>
-        </div>
-      </header>
-      <article class="prose">
-        <Content />
-      </article>
+    <main class="content">
+      <div class="content-container">
+        <header class="project-header">
+          <div class="header-content">
+            <div class="title-wrapper fade-in" style="--delay: 0.4s">
+              <h1 class="project-title">{entry.data.title}</h1>
+            </div>
+            <div class="meta-grid">
+              {
+                entry.data.role && (
+                  <div class="meta-item fade-in" style="--delay: 0.1s">
+                    <span class="label">my role</span>
+                    <span class="value">{entry.data.role}</span>
+                  </div>
+                )
+              }
+              {
+                entry.data.project && (
+                  <div class="meta-item fade-in" style="--delay: 0.2s">
+                    <span class="label">project</span>
+                    <span class="value">{entry.data.project}</span>
+                  </div>
+                )
+              }
+              {
+                entry.data.specs && (
+                  <div class="meta-item fade-in" style="--delay: 0.3s">
+                    <span class="label">specs</span>
+                    <span class="value">{entry.data.specs}</span>
+                  </div>
+                )
+              }
+            </div>
+          </div>
+        </header>
+        <article class="prose">
+          <Content />
+        </article>
+      </div>
     </main>
   </div>
 </Layout>
+
 <style>
-  .prose {
-    min-width: 80%;
-    margin: 0 auto;
-  }
   .project-layout {
     display: grid;
     grid-template-columns: 320px 1fr;
@@ -114,37 +104,49 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
     padding: 2rem;
   }
 
-  .glass-effect {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    border-radius: 24px;
-    overflow: hidden;
+  .content {
+    background-color: white;
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+
+  .content-container {
+    max-width: 65ch;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
 
   .project-header {
-    padding: 3rem;
-    position: relative;
+    padding: 4rem 0;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid rgb(229, 231, 235);
+  }
+
+  .header-content {
+    max-width: 65ch;
+    margin: 0 auto;
+  }
+
+  .title-wrapper {
+    margin-bottom: 3rem;
+  }
+
+  .project-title {
+    font-family: "Space Mono", monospace;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin: 0;
   }
 
   .meta-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
-    margin-bottom: 3rem;
+    margin-top: 3rem;
   }
 
   .meta-item {
-    position: relative;
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  .fade-in {
-    animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    animation-delay: var(--delay, 0s);
-  }
-
-  .meta-content {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -164,63 +166,51 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
     color: var(--text-primary);
   }
 
-  .meta-indicator {
-    position: absolute;
-    left: -1rem;
-    top: 50%;
-    width: 3px;
-    height: 0;
-    background: rgba(var(--theme-current-rgb), 0.3);
-    transform: translateY(-50%);
-    transition: height 0.3s ease;
+  /* Prose styles */
+  :global(.prose) {
+    @apply max-w-none text-gray-700 leading-relaxed;
   }
 
-  .meta-item:hover .meta-indicator {
-    height: 100%;
+  :global(.prose p) {
+    @apply mb-8;
   }
 
-  .title-wrapper {
-    position: relative;
-    margin-bottom: 3rem;
+  :global(.prose h2) {
+    @apply text-sm font-sans uppercase tracking-widest text-blue-600 font-semibold mt-16 mb-8;
   }
 
-  .project-title {
-    font-family: "Space Mono", monospace;
-    font-size: 3rem;
-    line-height: 1.2;
-    color: var(--text-primary);
-    margin: 0;
+  :global(.prose h3) {
+    @apply text-2xl font-sans text-gray-800 font-medium mt-12 mb-6;
   }
 
-  .title-decoration {
-    position: absolute;
-    top: -1rem;
-    right: -1rem;
-    width: 3rem;
-    height: 3rem;
-    border: 2px solid rgba(var(--theme-current-rgb), 0.2);
-    border-radius: 50%;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: all 0.3s ease;
+  :global(.prose blockquote) {
+    @apply border-l-4 border-gray-300 pl-6 italic my-8 text-gray-600;
   }
 
-  .project-header:hover .title-decoration {
-    opacity: 1;
-    transform: scale(1) rotate(45deg);
+  :global(.prose ul) {
+    @apply mt-6 mb-8 list-disc;
   }
 
-  .project-quote {
-    font-family: "Work Sans", sans-serif;
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    font-style: italic;
-    padding: 2rem;
-    background: rgba(var(--theme-current-rgb), 0.03);
-    border-radius: 12px;
-    margin: 0;
-    position: relative;
+  :global(.prose li) {
+    @apply text-gray-700 leading-relaxed mb-2;
+  }
+
+  :global(.prose a) {
+    @apply text-blue-600 no-underline hover:underline;
+  }
+
+  :global(.prose > *:first-child) {
+    @apply mt-0;
+  }
+
+  :global(.prose > *:last-child) {
+    @apply mb-0;
+  }
+
+  /* Animations */
+  .fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--delay, 0s);
   }
 
   @keyframes fadeIn {
@@ -234,18 +224,32 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
     }
   }
 
+  /* Mobile/tablet responsive adjustments */
   @media (max-width: 1024px) {
     .project-layout {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      padding: 0;
+    }
+
+    .content {
+      border-radius: 0;
+    }
+
+    .content-container {
+      padding: 1.5rem;
     }
 
     .project-header {
-      padding: 2rem;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
     }
 
     .project-title {
       font-size: 2rem;
+    }
+
+    .sidebar {
+      display: none;
     }
   }
 </style>

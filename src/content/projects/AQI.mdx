@@ -1,187 +1,101 @@
 ---
 title: "Designing for a future of wildfire"
 date: 2024-02-01
-excerpt: A full, step-by-step guide for developers seeking to implement a portfolio or blog publication with Astro.
-tags: [astro]
+excerpt: In 2023, the west coast of the United States experienced hazardous levels of air quality, leaving residents exposed to harmful air. With the regularity of wildfires in the United States, how might we co-exist and continue living as usual with our Environment?
+tags: [exploratory, physical prototype, ux research, ux design]
 image: https://res.cloudinary.com/digifab/image/upload/v1739958795/portfolio/home-assets-2-AQI_1_pafon0.png
 client: "518"
-agency: "celina"
+role: UX Researcher,Accessible storyboards
+project: "HCDE 518: Design for Beahviour Change"
+specs: ["October-December 22", "Figma"]
+team: ["celina garcia", "chloe reibold", "flo truong", "layal al-shaba"]
 ---
 
-**Role:** UX Researcher, BODYBREAK  
-**Team:** Celina Garcia, Chloe Reibold, flo truong, Layal Al-Shaba  
-**Duration:** October–December 2022
+In October 2022, Seattle's AQI plunged to an unsettling score of 168, ranking the worst in the world. Over the course of a few months, the region experienced hazardous air, disrupting everyday activities and affecting the health of residents. As fire season continues to plague the western region of the United States year after year, we felt compelled to explore the more immediate future of living in this environmental situation.
 
----
+The project prompted more exploratory design solutions, but given the results of our research, we pivoted from our initial design question to "How might we inform people of the effects of poor air quality, and influence their behavior to mitigate exposure"? something that educated and informed residents that find themselves living in calamity. Our final deliverable is 3 part air quality system that the City of Seattle, focusing on a physical prototype. It consists of an Air Quality Station, an alert system, and a reimagining of visualizations used in the air quality rating.
 
-## The Challenge
+[3d embed of the air station]
 
-Guiding Behavior Amid a Growing Health Crisis
+## Research
 
-> _“How can we empower Seattle residents to make healthier decisions when air quality is compromised?”_
+- secondary research
+- Surveys and questionnaires
+- interviews
 
-In October 2022, Seattle's air quality plunged to an alarming **AQI of 168**, marking one of the worst pollution levels globally. With wildfire smoke increasingly impacting public health, many Seattle residents lacked accurate information or tools to protect themselves. The challenge was twofold:
+### What is hazardous air?
 
-1. **Inform:** Educate people about the health risks of poor air quality.
-2. **Influence:** Guide safer behavior and empower decision-making during poor air conditions.
+> The size of the particle is so small, that it can travel deeply into the respiratory tract and reach the lungs.
 
----
+We chose to focus on the wildfire phenomenon, because we found our day to day affected by smoke season. We consulted the research experts have conducted on how air quality is affected by wildfires, and how it affects our health. Surprisingly, this phenomenon is quite recent, with studies only reflecting less than 10 years of results.
 
-## **Our Process**
+What makes wildfire smoke dangerous is particulate matter 2.5 (PM2.5), tiny particles that are 2.5 microns or less in width. The size of the particle is so small, that it can travel deeply into the respiratory tract and reach the lungs.
 
-We adopted a multi-layered research approach, combining **secondary research**, **surveys**, and **interviews** to understand how air quality impacts behavior and decision-making.
+### Who does this affect anyway?
 
-### **1. Secondary Research**
+Everyone!
+The most sensitive groups are outdoor workers, pregnant people, those with heart and lung disease, and those over the ages of 65 or under 18.
 
-To establish foundational knowledge, we explored existing studies and data on air quality and public health. Key takeaways:
+However, anyone exposed to this can experience eye, nose, throat and lung irritation, coughing, sneezing, runny nose, and shortness of breath. Studies have shown that there may be a relationship between inhaling PM2.5 and reduced lung function and chronic bronchitis, pneumonia, asthma ad COPD. (Youssouf et al., 2014; Liu et al., 2015; Reid et al., 2016a).
 
-- **Vulnerable groups**: Children, elderly, and outdoor workers face the highest risks.
-- **Current strategies**: People rely on weather apps, masks, and staying indoors, though knowledge gaps remain.
-- **Communication channels**: Social media, especially Facebook, is the most-used platform for smoke alerts.
+### What do Seattle residents know about PM2.5?
 
-### **2. Surveys**
+Given the alarming effects of wildfire smoke, we wanted to know:
 
-We surveyed **17 Seattle residents** to gather quantitative insights into beliefs, behaviors, and knowledge around air quality. Findings included:
+1. how are residents dealing with this problem today? What behavior or tools are they using?
+2. Which groups are interested / actively taking measures to protect themselves against hazardous air (and those that prefer not to do anything?
+3. Are the current official resources (epa/airnow.gov) and tiers of air quality being used by residents? How helpful are these diagrams?
 
-- **94%** relied on weather apps for air quality updates.
-- Most adjusted outdoor plans when AQI exceeded **101-150** (unhealthy for sensitive groups).
-- **75%** had someone in their household sensitive to poor air quality.
+We used surveys to quickly gather data on beliefs, sentiments, actions and knowledge of our Seattle-area network, which included family, friends, and co-workers. Given the short timespan of the project, we resorted to snowball sampling. The survey results were used as a basis for our semi-structured interviews.
 
-### **3. Semi-Structured Interviews**
+## Findings
 
-Through **9 interviews**, we uncovered the nuanced motivations and behaviors behind air quality decision-making.
+### The effects of wildfire smoke are misunderstood and underestimated.
 
-- People rarely followed strict rules; decisions were contextual (e.g., social events vs. personal health).
-- Visual cues like **AQI color scales** and outdoor visibility often dictated behavior.
+Based on our research, there are differing opinions and behaviors when it came to smoke season. When it came down to how deeply they understood the risks of wildfire smoke, participants often misunderstood or grossly underestimated effects.
 
----
+###
 
-## **Key Insight: The Power of Perception and Trust**
+### There's no general consensus when it comes to deciding to participate in activities that require consideration for air quality.
 
-Participants’ understanding of air quality risks was often **underestimated** or **misinformed**. Trust in information sources was critical, yet varied:
+Most survey respondents reported participating in outdoor activities at least several times a week, and consider themselves to be health conscious. However, we found that education on hazardous air was not clear to them. From not knowing who to trust as a source (most check weather apps, followed by news or a friend, and government communication), to what thresholds influence whether they decide to be exposed are not are a mixed bag. Some base their decisions on features of the api system like seeing the word "unhealthy" on the weather apps, or seeing the color of the AQI meter, or simply judging by looking outside.
 
-- Some relied on **official channels** like EPA reports.
-- Others prioritized **community-driven cues**, such as friends’ behavior or local Facebook posts.
+### Picvoting our design question:
 
-This led us to **pivot our design question**:
+Given the lack of clear official resource and the lack of knowledge residents have on AQI, we pivoted our design question from something that was a bit more speculative into something that could be implemented in the medium term.
 
-### **From:** _"How might we design safe outdoor gatherings during poor air quality?"_
+### Rather than a persona, a mindset
 
-### **To:** _"How might we inform people of the health effects of poor air quality and influence their behavior to mitigate exposure?"_
-
----
-
-## **Design Principles**
-
-From our research, we established six guiding principles to inform our solution:
-
-1. **Accessible**: Provide critical information to everyone, regardless of internet access or physical abilities.
-2. **Trustworthy**: Leverage reliable, unbiased data to build confidence in the system.
-3. **Informative**: Educate users about air quality risks and their health implications.
-4. **Timely**: Offer real-time, location-specific updates.
-5. **Clear**: Avoid jargon; make the messaging easy to understand at a glance.
-6. **Calming**: Present information in a way that avoids panic while encouraging action.
+[empiric] [rationalist] [impressionable]
+For this project, we found that persona's were not the best way to describe residents. When probed about their mask wearing behaviors or their considerations on when they could be exposed to hazardous air, they would react to the circumstance vs. follow the strict guidelines. Most participants when describing their decision making process, shift between one or more personas, compromising to meet social demands (e.g. friends visiting) or personal goals (hiking without a mask), despite describing themselves as health conscious.
 
 ---
 
-## **Our Solution: The Seattle Air Quality System**
+## the solution: 3-part air quality system
 
-We envisioned a **three-part system** designed to deliver timely, trustworthy, and actionable air quality information:
+### imagine this...
 
-### **1. Air Quality Stations**
+{/* <audio storyboards x 3> */}
 
-Physical kiosks placed in high-traffic areas like bus stops, parks, and downtown hubs.
+Given the lack of knowledge around air quality, we chose to create a 3-part system instead of a single solution in order to increase chances of residents encountering information about air quality. It consists of the air quality station, texts alerts, and a website. We believe having multiple reminders about air quality will spark interest in being informed about air. Read more about this [here].
 
-- **Features**:
-  - **Visual AQI displays**: Easy-to-read, color-coded indicators for air quality levels.
-  - **Mask dispensers**: Free N95 masks available via a secure, SMS-based system.
-  - **Audio instructions**: Accessibility features for visually impaired users.
-- **Rationale**: Many people base decisions on visual cues. By integrating these stations into their daily routines, we reinforced awareness at key decision points.
+### Air station
 
-### **2. SMS Alert System**
+### Texts and alerts
 
-A text-based notification service delivering real-time air quality updates and personalized alerts.
+### Reimagining AQI tiers
 
-- Users can customize thresholds (e.g., notifications for AQI >100).
-- Emergency alerts sent automatically when AQI exceeds **150**.
-- **Rationale**: Text messages ensure inclusivity, reaching people without smartphones or reliable internet access.
+[sample video]
 
-### **3. Educational Website**
+> The design should be accessible, trustworthy, have calm but firm messaging, informative, and easily understandable.
 
-A central hub for air quality resources, including:
+We decided to focus on testing the Air Quality Station, since of the three, it was the most novel item. The design should communicate critical public health information to as many people as possible, and as many circumstances within the city. Therefore, it should be widespread (i.e. doesn't rely on internet connection) 2) support multiple modalities (touch, sight, etc), informative, and as easy to understand for the public to make the best decision for themselves at a glance.
+The physical prototype went through three stages of iteration, with the last on the right our final version. We asked users to perform a set of 3 tasks, first guessing what the air station is for, second, understanding the visualization, and third, getting a mask from the air station.
 
-- Health tips for mitigating exposure.
-- Scientific explanations of AQI and its impacts.
-- Tools to customize SMS alerts.
-- **Rationale**: Deepened engagement by empowering users to learn more at their own pace.
+### testing testing
 
----
+[photo of iterations in 3]
 
-## **Outcomes and Impact**
+### reworking the visualization of air quality
 
-### **Prototyping and Testing**
-
-- Built and tested **three iterations** of the Air Quality Station with users.
-- Conducted usability tests for the SMS system and website with 6 participants.
-
-### **Key Results**
-
-1. **Increased Awareness**: Over 80% of users reported learning new health risks related to air quality.
-2. **Behavior Change**: Testing participants said they were more likely to wear masks and adjust outdoor plans based on the system’s information.
-3. **Positive Feedback**: Users appreciated the **clarity** of the AQI visualization and the **reliability** of the SMS notifications.
-
----
-
-## **Reflection**
-
-This project was a powerful reminder of how design can influence public health and behavior. By prioritizing accessibility, trust, and clarity, we crafted a system that didn’t just inform—it empowered.
-
-As a researcher, I learned the importance of being adaptable, particularly when our findings led to a pivot in the design focus. Collaboration with a multidisciplinary team enriched the process, allowing us to address challenges from multiple angles.
-
----
-
-### **Takeaways**
-
-- **Iterate with Purpose**: Testing early and often helped us refine our designs to better align with user needs.
-- **Adaptability is Key**: The pivot in our design question was a turning point, enabling us to address the root cause of behavior.
-- **Empathy First**: Understanding the diverse needs and mindsets of our audience ensured that our solution was both inclusive and impactful.
-
-This case study demonstrates my ability to lead user research, synthesize complex data, and translate insights into actionable, user-centered designs.
-
-## **Challenges and Solutions**
-
-### **Challenge:** Behavior Complexity
-
-**Solution:** Developed fluid mindsets instead of fixed personas, acknowledging shifts in user behavior.
-
----
-
-### **Challenge:** Balancing Accessibility with Cost\*\*
-
-**Solution:** Introduced an OTP system for mask dispensing to prevent misuse while maintaining accessibility.
-
----
-
-## **Impact and Reflection**
-
-### **Impact**
-
-- Provided equitable access to life-saving health information and masks.
-- Sparked community engagement with AQI awareness.
-- Influenced behavior changes that mitigate health risks.
-
-### **Reflection**
-
-This project emphasized the importance of empathy in UX research. Understanding the diverse mindsets and behaviors of Seattle residents informed an inclusive, human-centered design approach.
-
-### **Takeaway**
-
-When addressing public health challenges, solutions must blend education, accessibility, and adaptability to meet users where they are.
-
----
-
-### **Links**
-
-- **[Prototype Video](#)**
-- **[Research Findings](#)**
-- **[User Testing Results](#)**
+Many participants reported using at-a-glance judgement make decisions, and this compelled us to rework the current visualization of air quality. We reduced the number of levels and improved the color scheme based on our research and usability testing. The visualizations went through user testing, and are understandable regardless of whether or not you are color blind.

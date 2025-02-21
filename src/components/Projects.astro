@@ -9,8 +9,9 @@ export interface Project {
     image?: string;
     client?: string;
     year?: string;
-    agency?: string;
+    project?: string;
     role?: string;
+    specs?: string[];
   };
 }
 
@@ -36,8 +37,8 @@ const { projects } = Astro.props;
                   {project.data.client && (
                     <span class="client">Client: {project.data.client}</span>
                   )}
-                  {project.data.agency && (
-                    <span class="agency">via {project.data.agency}</span>
+                  {project.data.project && (
+                    <span class="project">via {project.data.project}</span>
                   )}
                 </div>
                 {project.data.description && (
@@ -143,8 +144,9 @@ const { projects } = Astro.props;
 
   .project-title {
     font-family: "Space Mono", monospace;
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(0.8rem, 5vw, 3.5rem);
     font-weight: 500;
+    padding-top: 2rem;
     color: var(--text-primary);
     line-height: 1.1;
     letter-spacing: -0.02em;

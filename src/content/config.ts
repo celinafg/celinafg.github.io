@@ -7,10 +7,11 @@ const projectsCollection = defineCollection({
       title: z.string(),
       tags: z.array(z.string()),
       date: z.coerce.date(),
-      excerpt: z.string(),
+      excerpt: z.ostring(),
       image: z.ostring(),
-      client: z.ostring(),
-      agency: z.ostring(),
+      role: z.ostring(),
+      project: z.ostring(),
+      specs: z.array(z.ostring()),
     }),
 });
 
