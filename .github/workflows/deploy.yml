@@ -1,36 +1,21 @@
-name: Deploy to GitHub Pages
-
+name: Deploy
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    branches: [main] # or whatever your default branch is
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v4
-      - name: Install, build, and upload your site
-        uses: withastro/action@v3
-        with:
-          # Add this to force install dependencies
-          package-manager: npm
-          node-version: 20
-          install-command: npm install --force
+      - uses: actions/checkout@v3
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20" # or whatever version you're using
+
+      - name: Install Dependencies
+        run: npm install --force
+
+      - name: Build
+        run: npm run build
