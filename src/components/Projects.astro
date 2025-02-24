@@ -343,6 +343,9 @@ const { projects } = Astro.props;
   }
 
   @media (max-width: 1024px) {
+    .project-description {
+      max-width: 90ch;
+    }
     .projects-list {
       gap: clamp(6rem, 12vh, 8rem);
     }
