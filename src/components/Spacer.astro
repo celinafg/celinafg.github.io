@@ -1,23 +1,22 @@
 ---
-const { size = "large" } = Astro.props;
+export interface Props {
+  size: "xsmall" | "small" | "medium" | "large" | "xlarge";
+}
+
+const { size = "medium" } = Astro.props;
+
+// Define the heights with proper types
+const heights: Record<Props["size"], string> = {
+  xsmall: "0.1rem",
+  small: "1.5rem",
+  medium: "3rem",
+  large: "5rem",
+  xlarge: "8rem",
+};
+
+// Get the actual height value
+const height = heights[size];
 ---
 
-<div class={`spacer ${size}`}></div>
-
-<style>
-  .spacer {
-    width: 100%;
-  }
-  .small {
-    height: 1.5rem;
-  }
-  .medium {
-    height: 3rem;
-  }
-  .large {
-    height: 5rem;
-  }
-  .xlarge {
-    height: 8rem;
-  }
-</style>
+<!-- src/components/Spacer.astro -->
+<div style={`height: ${height}; width: 100%;`}></div>
