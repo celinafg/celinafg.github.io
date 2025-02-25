@@ -1,0 +1,23 @@
+---
+const { size = "large" } = Astro.props;
+---
+
+<div class={`spacer ${size}`}></div>
+
+<style>
+  .spacer {
+    width: 100%;
+  }
+  .small {
+    height: 1.5rem;
+  }
+  .medium {
+    height: 3rem;
+  }
+  .large {
+    height: 5rem;
+  }
+  .xlarge {
+    height: 8rem;
+  }
+</style>

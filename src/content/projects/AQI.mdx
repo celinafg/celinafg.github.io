@@ -14,6 +14,8 @@ team: ["celina garcia", "chloe reibold", "flo truong", "layal al-shaba"]
 import FigmaEmbed from "../../components/FigmaEmbed.astro";
 import AudioPlayer from "../../components/Audiostoryboard.astro";
 import ImageTextLayout from "../../components/ImageTextLayout.astro";
+import Spacer from "../../components/Spacer.astro";
+import SectionDivider from "../../components/Divider.astro";
 
 In October 2022, Seattle's AQI plunged to an unsettling score of 168, ranking the worst in the world. Over the course of a few months, the region experienced hazardous air, disrupting everyday activities and affecting the health of residents. As fire season continues to plague the western region of the United States year after year, we felt compelled to explore the more immediate future of living in this environmental situation.
 
@@ -21,6 +23,7 @@ The project prompted more exploratory design solutions, but given the results of
 
 [3d embed of the air station]
 
+<SectionDivider type="line" label="Findings" color="#0056b3" />
 <div style="padding:56.25% 0 0 0;position:relative;">
   <iframe
     src="https://player.vimeo.com/video/1060132774?h=9ba30364bc&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
@@ -31,6 +34,8 @@ The project prompted more exploratory design solutions, but given the results of
   ></iframe>
 </div>
 <script src="https://player.vimeo.com/api/player.js"></script>
+
+<Spacer size="large" />
 
 ## Research
 
@@ -63,6 +68,8 @@ Given the alarming effects of wildfire smoke, we wanted to know:
 
 We used surveys to quickly gather data on beliefs, sentiments, actions and knowledge of our Seattle-area network, which included family, friends, and co-workers. Given the short timespan of the project, we resorted to snowball sampling. The survey results were used as a basis for our semi-structured interviews.
 
+<Spacer size="large" />
+
 ## Findings
 
 ### The effects of wildfire smoke are misunderstood and underestimated.
@@ -88,7 +95,7 @@ Given the lack of clear official resource and the lack of knowledge residents ha
 [empiric] [rationalist] [impressionable]
 For this project, we found that persona's were not the best way to describe residents. When probed about their mask wearing behaviors or their considerations on when they could be exposed to hazardous air, they would react to the circumstance vs. follow the strict guidelines. Most participants when describing their decision making process, shift between one or more personas, compromising to meet social demands (e.g. friends visiting) or personal goals (hiking without a mask), despite describing themselves as health conscious.
 
----
+<Spacer size="large" />
 
 ## the solution: 3-part air quality system
 

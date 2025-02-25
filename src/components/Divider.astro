@@ -1,0 +1,73 @@
+---
+const { type = "line", label = "", color = "#3182ce" } = Astro.props;
+---
+
+<div class={`section-divider ${type}`} style={`--divider-color: ${color};`}>
+  {label && <span class="divider-label">{label}</span>}
+</div>
+
+<style>
+  .section-divider {
+    width: 100%;
+    margin: 4rem 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .line {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--divider-color, #3182ce),
+      transparent
+    );
+  }
+
+  .line::before {
+    content: "";
+    height: 3px;
+    width: 60px;
+    background-color: var(--divider-color, #3182ce);
+    border-radius: 2px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .dots::before,
+  .dots::after {
+    content: "•••";
+    letter-spacing: 0.5rem;
+    color: var(--divider-color, #3182ce);
+  }
+
+  .symbol::before {
+    content: "• — •";
+    display: block;
+    text-align: center;
+    color: var(--divider-color, #3182ce);
+    letter-spacing: 0.5rem;
+    font-weight: bold;
+  }
+
+  .divider-label {
+    background: white;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--divider-color, #3182ce);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+</style>
