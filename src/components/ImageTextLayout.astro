@@ -1,0 +1,61 @@
+---
+import { CldImage } from "astro-cloudinary";
+
+const {
+  imageUrl,
+  alt,
+  width = 800,
+  height = 600,
+  reverse = false,
+} = Astro.props;
+---
+
+<!-- src/components/CloudinaryImageText.astro -->
+<div class="image-text-container">
+  <div class="image-container">
+    <CldImage
+      src={imageUrl}
+      width={width}
+      height={height}
+      alt={alt}
+      loading="lazy"
+      class="rounded-lg"
+    />
+  </div>
+  <div class="text-container">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .image-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .image-text-container {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .image-container {
+      flex: 0 0 45%; /* Image takes exactly 45% of the space */
+      max-width: 45%;
+    }
+
+    .text-container {
+      flex: 1; /* Text takes the remaining space */
+    }
+  }
+
+  /* For smaller screens */
+  @media (max-width: 767px) {
+    .image-container,
+    .text-container {
+      width: 100%;
+    }
+  }
+</style>

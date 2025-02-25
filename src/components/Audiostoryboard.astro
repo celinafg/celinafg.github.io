@@ -1,0 +1,87 @@
+---
+
+---
+
+<div class="audio-grid">
+  <div class="audio-box">
+    <h3 class="audio-title">User Journey Introduction</h3>
+    <p class="audio-description">George</p>
+    <audio
+      controls
+      src="https://res.cloudinary.com/digifab/video/upload/v1740494718/portfolio/GEORGE_FINAL_ddxmtz.mp3"
+    ></audio>
+  </div>
+
+  <div class="audio-box">
+    <h3 class="audio-title">Feature Walkthrough</h3>
+    <p class="audio-description">Eric</p>
+    <audio
+      controls
+      src="https://res.cloudinary.com/digifab/video/upload/v1740494718/portfolio/ERIC_FINAL_fx0kbv.mp3"
+    ></audio>
+  </div>
+
+  <div class="audio-box">
+    <h3 class="audio-title">Customer Testimonial</h3>
+    <p class="audio-description">Elaine</p>
+    <audio
+      controls
+      src="https://res.cloudinary.com/digifab/video/upload/v1740494718/portfolio/ELAINE_VER_2_FINAL_d9dn3y.mp3"
+    ></audio>
+  </div>
+</div>
+
+<style>
+  .audio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  @media (min-width: 640px) {
+    .audio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .audio-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .audio-box {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .audio-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .audio-title {
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #2d3748;
+  }
+
+  .audio-description {
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  audio {
+    width: 100%;
+    margin-top: auto;
+  }
+</style>

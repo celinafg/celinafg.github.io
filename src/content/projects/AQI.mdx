@@ -11,11 +11,26 @@ specs: ["October-December 22", "Figma"]
 team: ["celina garcia", "chloe reibold", "flo truong", "layal al-shaba"]
 ---
 
+import FigmaEmbed from "../../components/FigmaEmbed.astro";
+import AudioPlayer from "../../components/Audiostoryboard.astro";
+import ImageTextLayout from "../../components/ImageTextLayout.astro";
+
 In October 2022, Seattle's AQI plunged to an unsettling score of 168, ranking the worst in the world. Over the course of a few months, the region experienced hazardous air, disrupting everyday activities and affecting the health of residents. As fire season continues to plague the western region of the United States year after year, we felt compelled to explore the more immediate future of living in this environmental situation.
 
 The project prompted more exploratory design solutions, but given the results of our research, we pivoted from our initial design question to "How might we inform people of the effects of poor air quality, and influence their behavior to mitigate exposure"? something that educated and informed residents that find themselves living in calamity. Our final deliverable is 3 part air quality system that the City of Seattle, focusing on a physical prototype. It consists of an Air Quality Station, an alert system, and a reimagining of visualizations used in the air quality rating.
 
 [3d embed of the air station]
+
+<div style="padding:56.25% 0 0 0;position:relative;">
+  <iframe
+    src="https://player.vimeo.com/video/1060132774?h=9ba30364bc&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+    title="BodyBreak_Final_Showcase_Video"
+  ></iframe>
+</div>
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 ## Research
 
@@ -79,15 +94,28 @@ For this project, we found that persona's were not the best way to describe resi
 
 ### imagine this...
 
-{/* <audio storyboards x 3> */}
+<AudioPlayer />
 
 Given the lack of knowledge around air quality, we chose to create a 3-part system instead of a single solution in order to increase chances of residents encountering information about air quality. We envisioned a three part system designed to deliver timely, trustworthy and actionable air quality information.
 
 > The design should be accessible, trustworthy, have calm but firm messaging, informative, and easily understandable.
 
+### how it works
+
+<FigmaEmbed
+  url="https://www.figma.com/proto/EXxD7yGYL7zjq8NKxhBhvF/Prototyping?node-id=258-790&t=NS2BhPjfASjBz6fA-1"
+  height="600px"
+/>
+
 ### Air station
 
-1. Air Quality Stations
+<ImageTextLayout 
+imageUrl='https://res.cloudinary.com/digifab/image/upload/v1740497578/portfolio/bodyBreak-prototype_Large_tzt3ns.jpg'
+  alt="Air Quality Station in a downtown area"
+  width={600}
+  height={800}
+>
+  1. Air Quality Stations
    Physical kiosks placed in high-traffic areas like bus stops, parks, and downtown hubs.
 
 - Features:
@@ -97,6 +125,8 @@ Given the lack of knowledge around air quality, we chose to create a 3-part syst
   - **Audio instructions:** Accessibility features for visually impaired users.
 
 - **Rationale:** Many people base decisions on visual cues. By integrating these stations into their daily routines, we reinforced awareness at key decision points.
+
+</ImageTextLayout>
 
 ### Texts and alerts
 
@@ -119,7 +149,7 @@ A central hub for air quality resources, including:
 
 ### prototyping and testing
 
-[photo of iterations in 3]
+![three iterations of the physical prototype](https://res.cloudinary.com/digifab/image/upload/v1740493536/portfolio/home-assets-6s_hhmi49.png)
 
 - Built and tested three iterations of the Air Quality Station with users.
 - Conducted usability tests for the SMS system and website with 6 participants.
@@ -131,6 +161,8 @@ A central hub for air quality resources, including:
 3. Positive Feedback: Users appreciated the clarity of the AQI visualization and the reliability of the SMS notifications.
 
 ### reworking the visualization of air quality
+
+![reworked air quality visualizations with color palette](https://res.cloudinary.com/digifab/image/upload/v1740496078/portfolio/home-assets-7_slwqhq.png)
 
 Many participants reported using at-a-glance judgement make decisions, and this compelled us to rework the current visualization of air quality. We reduced the number of levels and improved the color scheme based on our research and usability testing. The visualizations went through user testing, and are understandable regardless of whether or not you are color blind.]
 
