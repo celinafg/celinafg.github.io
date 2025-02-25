@@ -25,8 +25,6 @@ The project prompted more exploratory design solutions, but given the results of
 
 [3d embed of the air station]
 
-{/* <SectionDivider type="line" label="Findings" color="#0056b3" /> */}
-
 <div style="padding:56.25% 0 0 0;position:relative;">
   <iframe
     src="https://player.vimeo.com/video/1060132774?h=9ba30364bc&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
@@ -37,8 +35,6 @@ The project prompted more exploratory design solutions, but given the results of
   ></iframe>
 </div>
 <script src="https://player.vimeo.com/api/player.js"></script>
-
-<Spacer size="" />
 
 <SectionDivider type="dots" label=" " color="#0056b3" />
 
@@ -58,12 +54,16 @@ We chose to focus on the wildfire phenomenon, because we found our day to day af
 
 What makes wildfire smoke dangerous is particulate matter 2.5 (PM2.5), tiny particles that are 2.5 microns or less in width. The size of the particle is so small, that it can travel deeply into the respiratory tract and reach the lungs.
 
+<Spacer size="xsmall" />
+
 ### Who does this affect anyway?
 
 Everyone!
 The most sensitive groups are outdoor workers, pregnant people, those with heart and lung disease, and those over the ages of 65 or under 18.
 
 However, anyone exposed to this can experience eye, nose, throat and lung irritation, coughing, sneezing, runny nose, and shortness of breath. Studies have shown that there may be a relationship between inhaling PM2.5 and reduced lung function and chronic bronchitis, pneumonia, asthma ad COPD. (Youssouf et al., 2014; Liu et al., 2015; Reid et al., 2016a).
+
+<Spacer size="xsmall" />
 
 ### What do Seattle residents know about PM2.5?
 
@@ -76,6 +76,7 @@ Given the alarming effects of wildfire smoke, we wanted to know:
 We used surveys to quickly gather data on beliefs, sentiments, actions and knowledge of our Seattle-area network, which included family, friends, and co-workers. Given the short timespan of the project, we resorted to snowball sampling. The survey results were used as a basis for our semi-structured interviews.
 
 <Spacer size="large" />
+<SectionDivider type="dots" label=" " color="#0056b3" />
 
 ## Findings
 
@@ -83,19 +84,27 @@ We used surveys to quickly gather data on beliefs, sentiments, actions and knowl
 
 Based on our research, there are differing opinions and behaviors when it came to smoke season. When it came down to how deeply they understood the risks of wildfire smoke, participants often misunderstood or grossly underestimated effects.
 
+<Spacer size="xsmall" />
+
 ### People rarely followed strict rules; decisions were contextual (social events vs. personal health)
 
 There's no general consensus when it comes to deciding to participate in activities that require consideration for air quality.
 
 Some base their decisions on features of the api system like seeing the word "unhealthy" on the weather apps, or seeing the color of the AQI meter, or simply judging by looking outside.
 
+<Spacer size="xsmall" />
+
 ### Visual cues like AQI color scales and outdoor visibility often dictated behavior
 
 Most survey respondents reported participating in outdoor activities at least several times a week, and consider themselves to be health conscious. However, we found that education on hazardous air was not clear to them. From not knowing who to trust as a source (most check weather apps, followed by news or a friend, and government communication), to what thresholds influence whether they decide to be exposed are not are a mixed bag.
 
+<Spacer size="xsmall" />
+
 ### Pivoting our design question:
 
 Given the lack of clear official resource and the lack of knowledge residents have on AQI, we pivoted our design question from something that was a bit more speculative into something that could be implemented in the medium term.
+
+<Spacer size="xsmall" />
 
 ### Rather than a persona, a mindset
 
@@ -103,6 +112,7 @@ Given the lack of clear official resource and the lack of knowledge residents ha
 For this project, we found that persona's were not the best way to describe residents. When probed about their mask wearing behaviors or their considerations on when they could be exposed to hazardous air, they would react to the circumstance vs. follow the strict guidelines. Most participants when describing their decision making process, shift between one or more personas, compromising to meet social demands (e.g. friends visiting) or personal goals (hiking without a mask), despite describing themselves as health conscious.
 
 <Spacer size="large" />
+<SectionDivider type="dots" label=" " color="#0056b3" />
 
 ## the solution: 3-part air quality system
 
@@ -114,12 +124,15 @@ Given the lack of knowledge around air quality, we chose to create a 3-part syst
 
 > The design should be accessible, trustworthy, have calm but firm messaging, informative, and easily understandable.
 
+<Spacer size="xsmall" />
+
 ### how it works
 
 <FigmaEmbed
   url="https://www.figma.com/proto/EXxD7yGYL7zjq8NKxhBhvF/Prototyping?node-id=258-790&t=NS2BhPjfASjBz6fA-1"
   height="600px"
 />
+<Spacer size="xsmall" />
 
 ### Air station
 
@@ -142,6 +155,8 @@ imageUrl='https://res.cloudinary.com/digifab/image/upload/v1740497578/portfolio/
 
 </ImageTextLayout>
 
+<Spacer size="xsmall" />
+
 ### Texts and alerts
 
 A text-based notification service delivering real-time air quality updates and personalized alerts.
@@ -159,14 +174,24 @@ A central hub for air quality resources, including:
 - Tools to customize SMS alerts.
 - **Rationale:** Deepened engagement by empowering users to learn more at their own pace.
 
-[sample video]
+<SectionDivider type="dots" label=" " color="#0056b3" />
 
 ### prototyping and testing
 
 ![three iterations of the physical prototype](https://res.cloudinary.com/digifab/image/upload/v1740493536/portfolio/home-assets-6s_hhmi49.png)
 
+<Spacer size="xsmall" />
+
 - Built and tested three iterations of the Air Quality Station with users.
 - Conducted usability tests for the SMS system and website with 6 participants.
+
+### reworking the visualization of air quality
+
+![reworked air quality visualizations with color palette](https://res.cloudinary.com/digifab/image/upload/v1740496078/portfolio/home-assets-7_slwqhq.png)
+
+Many participants reported using at-a-glance judgement make decisions, and this compelled us to rework the current visualization of air quality. We reduced the number of levels and improved the color scheme based on our research and usability testing. The visualizations went through user testing, and are understandable regardless of whether or not you are color blind.]
+
+<SectionDivider type="dots" label=" " color="#0056b3" />
 
 ### Key Results
 
@@ -174,11 +199,9 @@ A central hub for air quality resources, including:
 2. Behavior Change: Testing participants said they were more likely to wear masks and adjust outdoor plans based on the system’s information.
 3. Positive Feedback: Users appreciated the clarity of the AQI visualization and the reliability of the SMS notifications.
 
-### reworking the visualization of air quality
+<Spacer size="medium" />
 
-![reworked air quality visualizations with color palette](https://res.cloudinary.com/digifab/image/upload/v1740496078/portfolio/home-assets-7_slwqhq.png)
-
-Many participants reported using at-a-glance judgement make decisions, and this compelled us to rework the current visualization of air quality. We reduced the number of levels and improved the color scheme based on our research and usability testing. The visualizations went through user testing, and are understandable regardless of whether or not you are color blind.]
+<SectionDivider type="dots" label=" " color="#0056b3" />
 
 ### Takeaways
 
