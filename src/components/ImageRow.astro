@@ -1,0 +1,90 @@
+---
+interface Props {
+  minPerRow?: number;
+  marginBottom?: string;
+  marginRight?: string;
+  justify?:
+    | "space-between"
+    | "space-around"
+    | "space-evenly"
+    | "flex-start"
+    | "center";
+}
+
+const {
+  minPerRow = 2,
+  marginBottom = "8",
+  marginRight = "6",
+  justify = "flex-start",
+} = Astro.props;
+
+// Calculate image width as percentage with explicit margin
+const marginRightRem = parseInt(marginRight) * 0.25;
+const imageWidth = minPerRow
+  ? `calc((100% - ${(minPerRow - 1) * marginRightRem}rem) / ${minPerRow})`
+  : "100%";
+---
+
+<div class="image-row" data-min-per-row={minPerRow}>
+  <slot />
+</div>
+
+<style
+  define:vars={{
+    imageWidth,
+    marginBottom: `${parseInt(marginBottom) * 0.25}rem`,
+    marginRight: `${marginRightRem}rem`,
+    justify,
+  }}
+>
+  .image-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: var(--justify);
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  :global([data-min-per-row] > img) {
+    width: var(--imageWidth);
+    flex: 0 0 var(--imageWidth);
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: var(--marginBottom);
+    margin-right: var(--marginRight);
+  }
+
+  :global([data-min-per-row] > img:nth-child(2n)) {
+    margin-right: 0;
+  }
+
+  :global([data-min-per-row] > p) {
+    margin: 0;
+    padding: 0;
+    width: var(--imageWidth);
+    flex: 0 0 var(--imageWidth);
+    margin-bottom: var(--marginBottom);
+    margin-right: var(--marginRight);
+  }
+
+  :global([data-min-per-row] > p:nth-child(2n)) {
+    margin-right: 0;
+  }
+
+  :global([data-min-per-row] > p > img) {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    :global([data-min-per-row] > img),
+    :global([data-min-per-row] > p) {
+      width: 100%;
+      flex: 0 0 100%;
+      margin-right: 0;
+    }
+  }
+</style>

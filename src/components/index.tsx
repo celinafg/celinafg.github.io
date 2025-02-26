@@ -6,3 +6,4 @@ export { default as SectionDivider } from "./Divider.astro";
 export { default as Spacer } from "./Spacer.astro";
 export { default as AudioPlayer } from "./Audiostoryboard.astro";
 export { default as FigmaEmbed } from "./FigmaEmbed.astro";
+export { default as ImageRow } from "./ImageRow.astro";

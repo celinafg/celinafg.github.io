@@ -9,16 +9,26 @@ specs: ["jan-mar 2023"]
 project: HCDE 517
 ---
 
+import { ImageTextLayout, ImageRow, Spacer } from "../../components";
+
+![gif of how contextual search and novel keyboard layout work](https://res.cloudinary.com/digifab/image/upload/v1739881708/portfolio/kloa-home_swgwfk.gif)
+
 In today's mobile-first world, efficient typing on smartphones remains a persistent challenge. KLOA, a startup focused on improving mobile search efficiency, developed a novel typing interface designed to integrate with shopping platforms like Instacart. While innovative, KLOA's approach required users to adapt to a new input method—a significant challenge as we discovered through usability testing. Users expressed frustration with the transition: _"This could be useful, but the effort to adapt is just too much."_
+
 The project prompted us to explore the balance between innovation and usability in mobile search. Our research led us to focus on the question: "How might we create a typing interface that enhances search efficiency while minimizing the learning curve for users?" Our final deliverable is a set of recommendations for improving KLOA's typing experience across three key areas: onboarding, visual feedback, and interface design.
 
-[gif of typing]
+<Spacer size="medium" />
 
 ---
 
 ### How does the interface work?
 
-[description here]
+![image describing how kloa works from our one pager](https://res.cloudinary.com/digifab/image/upload/v1740567013/portfolio/iPad_mini_8.3_-_1_upcdeq.png)
+
+1. Novel layout
+2. Contextual search algorithm
+
+<Spacer size="xsmall" />
 
 ## Research Questions
 
@@ -30,13 +40,56 @@ Given the dominance of QWERTY keyboards, we wanted to know:
 
 We conducted usability tests with five participants selected based on their recent mobile shopping habits, asking them to complete tasks like adding "Apples" and "Broccoli" to their carts using KLOA integrated with Instacart.
 
+<Spacer size="xsmall" />
+
 ## Approach
 
-### Methodology
+![image of testing setup](https://res.cloudinary.com/digifab/image/upload/v1740567765/portfolio/Frame_3_wellvs.png)
 
-- **Participants:** 5 individuals that shopped online in the last month using a smart phone
-- **Tasks:** Adding grocery items using KLOA with an Instacard prototype
-- **Data Collection:** Think aloud protocols, structured interviews, and task performance metrics
+<Spacer size="medium" />
+
+## Methodology
+
+### Who participated in the study?
+
+| Participant | Age/Gender      | Occupation            | Used mobile apps to shop in the past month | Typing behavior               |
+| ----------- | --------------- | --------------------- | ------------------------------------------ | ----------------------------- |
+| P1          | Female, 18 ~ 24 | Graduate student      | Once or twice                              | Tap, Two fingers              |
+| P2          | Male, 25 ~ 34   | Graduate student      | Once or twice                              | Slide/Swipe, Two fingers      |
+| P3          | Male, 35 ~ 44   | Full-time employee    | Multiple times                             | Slide/Swipe, One finger       |
+| P4          | Female, 35 ~ 44 | PhD student           | Multiple times                             | Tap, Slide/Swipe, Two fingers |
+| P5          | Male, 18 ~ 24   | Undergraduate student | Once or twice                              | Tap, Two fingers              |
+
+<Spacer size="xsmall" />
+
+### How was it conducted?
+
+<ImageRow minPerRow={2} marginBottom="6" marginRight="12">
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1740567752/portfolio/Frame_2_hnziez.png)
+![image](https://res.cloudinary.com/digifab/image/upload/v1740567729/portfolio/Frame_1_1_vqf7d3.png)
+
+<Spacer size="xsmall" />
+
+</ImageRow>
+
+### What were the tasks?
+
+<ImageTextLayout
+imageUrl='https://res.cloudinary.com/digifab/image/upload/v1740571224/portfolio/iPad_mini_8.3_-_2_pxz9iq.png'
+alt="Air Quality Station in a downtown area"
+>
+
+1. Warm up
+2. Tasks: one pager and familiarize yourself with Instacart
+3. Post task questions
+4. Task: find 4 items
+5. Post-task questions (UBS)
+6. Likert questions
+
+</ImageTextLayout>
+
+<Spacer size="medium" />
 
 ### Key Metrics
 
@@ -44,7 +97,19 @@ We conducted usability tests with five participants selected based on their rece
 - User burden Scale for difficulty assessment
 - Qualitative feedback on experience and frustration points
 
+<Spacer size="xsmall" />
+
 ## Findings
+
+| Participant | Age/Gender      | Occupation            | Used mobile apps to shop in the past month | Typing behavior               |
+| ----------- | --------------- | --------------------- | ------------------------------------------ | ----------------------------- |
+| P1          | Female, 18 ~ 24 | Graduate student      | Once or twice                              | Tap, Two fingers              |
+| P2          | Male, 25 ~ 34   | Graduate student      | Once or twice                              | Slide/Swipe, Two fingers      |
+| P3          | Male, 35 ~ 44   | Full-time employee    | Multiple times                             | Slide/Swipe, One finger       |
+| P4          | Female, 35 ~ 44 | PhD student           | Multiple times                             | Tap, Slide/Swipe, Two fingers |
+| P5          | Male, 18 ~ 24   | Undergraduate student | Once or twice                              | Tap, Two fingers              |
+
+<Spacer size="xsmall" />
 
 ### What worked well
 
@@ -57,6 +122,8 @@ We conducted usability tests with five participants selected based on their rece
 
 - Despite initial frustration, 4 out of 5 participants expressed curiosity about KLOA’s unique approach.
   > _I might share this with my coworkers—they’d find it interesting as a case study._ – P2
+
+<Spacer size="medium" />
 
 ---
 
