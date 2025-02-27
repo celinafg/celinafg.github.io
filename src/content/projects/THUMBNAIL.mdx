@@ -10,6 +10,7 @@ project: HCDE 516
 ---
 
 import { CldImage } from "astro-cloudinary";
+import { TextRow, Column } from "../../components";
 
 <CldImage
   src={
@@ -28,8 +29,6 @@ The findings have practical implications for content creators and platform desig
 
 ## Research
 
-![image of experiment design](https://res.cloudinary.com/digifab/image/upload/v1740574223/portfolio/Modern_Pastel_Flowchart_i7dx7s.jpg)
-
 - 2x2 factorial design study
 - Quantitative analysis of user preferences
 - Cross-category comparison
@@ -37,9 +36,11 @@ The findings have practical implications for content creators and platform desig
 
 ### What makes thumbnails effective?
 
-> "Including a person in the thumbnail improved CTR by 146.8%, showing consistent effectiveness across all video types."
+> Including a person in the thumbnail improved CTR by 146.8%, showing consistent effectiveness across all video types.
 
-We chose to focus on thumbnails because they represent a critical decision point in the user journey. Through our factorial design study, we explored how specific visual elements impact engagement across different content categories. Unlike general design guidelines, our research provided category-specific insights based on empirical data.
+We chose to focus on thumbnails because they represent a critical decision point in the user journey. Through our factorial design study, we explored how specific visual elements impact engagement across different content categories.
+
+Unlike general design guidelines, our research provided category-specific insights based on empirical data.
 What makes our approach unique is the systematic testing of two key attributes - text overlays and human presence - across three distinct video categories, allowing us to identify both universal principles and context-specific recommendations.
 
 ### For content creators
@@ -50,8 +51,8 @@ We decided to focus on content creators seeking to grow their audience, platform
 
 Given the importance of thumbnails in the user decision journey, we wanted to know:
 
-- Which visual attributes (text, human presence) have the greatest impact on click-through rates?
-- How do user preferences vary across different video categories (music, product reviews, reaction videos)?
+- **RQ1:** Which visual attributes (text, human presence) have the greatest impact on click-through rates?
+- **RQ2:** How do user preferences vary across different video categories (music, product reviews, reaction videos)?
 - What mediating factors influence these decisions?
 
 We developed 72 thumbnails across three video categories, modifying each to test combinations of text and human presence. Participants reviewed randomized thumbnail sets and ranked their selections, providing us with rich data on user preferences.
@@ -60,17 +61,43 @@ We developed 72 thumbnails across three video categories, modifying each to test
 
 ## Approach
 
+**Hypothesis 1:** Having people on the thumbnail will increase click through rate.
+
+**Hypothesis 2:** Having text on the thumbnail will increase click through rate.
+
+For the purpose of this project, we focused on **music videos, product reviews, and reaction videos**.
+
 ### Study Design
 
+![image of experiment design](https://res.cloudinary.com/digifab/image/upload/v1740574223/portfolio/Modern_Pastel_Flowchart_i7dx7s.jpg)
 A 2x2 factorial design was used to test the presence of two key attributes:
 
-- **Text:** Informative overlays summarizing video content.
-- **Human Presence:** Thumbnails featuring a face to establish trust and relatability.
+Factorial design:
+| | **People** | **No People** |
+| ----------- | ---------------- | ------------------- |
+| **Text** | People + Text | No People + Text |
+| **No Text** | People + No Text | No People + No Text |
+
+{/* prettier-ignore */}
+<TextRow padding="py-3">
+  <Column padding="1rem">
+  #### Experiment: 
+    - Within subjects 
+    - Factorial
+  </Column>
+  <Column padding='1rem'>
+  #### Control: 
+    - Quality of thumbnail 
+    - View counts 
+    - Length of video
+  </Column>
+</TextRow>
+{/* prettier-ignore */}
 
 ### Participants
 
 - **Demographic:** YouTube users aged 18-34.
-- **Usage:** Active users who consume diverse video categories.
+- **Usage:** Have used YouTube in the past 3 months.
 - **Devices:** Desktop or laptop as primary viewing platforms.
 
 ### Research Methods
@@ -93,18 +120,17 @@ A 2x2 factorial design was used to test the presence of two key attributes:
 
 ## Key Findings
 
+![image of sample survey](https://res.cloudinary.com/digifab/image/upload/v1740664098/portfolio/home-assets-8_1_w6z7r5.png)
+
 ### 1. Text improves clarity but its effectiveness varies by content category.
 
 - Thumbnails with text increased CTR by 114%, particularly for informational videos like product reviews.
 - However, text had minimal impact on categories where visual appeal (e.g., music videos) is prioritized.
 
-> _"I need to know exactly what the video is about before I click. Text helps me decide if it's worth my time."_ – Participant
-
 ### 2. Human presence creates trust and relatability across all video types.
 
 - Including a person in the thumbnail improved CTR by 146.8%, showing consistent effectiveness across all video types.
 - Human faces enhanced trust and relatability, especially for reaction videos.
-  > _"When I see a face, I feel like I can trust the content more. It feels less like clickbait."_ – Participant
 
 ### 3. Different video categories have distinct thumbnail requirements.
 
@@ -120,7 +146,7 @@ A 2x2 factorial design was used to test the presence of two key attributes:
 
 ## Research Challenges
 
-### Simulating Real-World Conditions
+### Challenge 1: Simulating Real-World Conditions
 
 **Solution:** Thumbnails were randomized in diverse blocks to mimic user decision-making in a competitive environment.
 
@@ -135,6 +161,13 @@ A 2x2 factorial design was used to test the presence of two key attributes:
 ---
 
 ## Findings: Category-specific thumbnail strategies
+
+Our factorial design allowed us to quantify the impact of different visual attributes:
+| Attribute | Overall CTR Increase | Best Category Fit |
+| --------- | -------------------- | ----------------- |
+| Text Only | +114% | Product Reviews |
+| Human Presence Only | +146.8% | Reaction Videos |
+| Combined Attributes | +187.2% | Tutorials |
 
 ### Optimize for your content type
 
@@ -157,13 +190,6 @@ Given the significant variation in user preferences across video categories, we 
 - Feature expressive facial emotions
 - Include contextual text about what's being reacted to
 - Use split-screen layouts showing both reactor and stimulus
-
-Our factorial design allowed us to quantify the impact of different visual attributes:
-| Attribute | Overall CTR Increase | Best Category Fit |
-| --------- | -------------------- | ----------------- |
-| Text Only | +114% | Product Reviews |
-| Human Presence Only | +146.8% | Reaction Videos |
-| Combined Attributes | +187.2% | Tutorials |
 
 ## Next Steps
 
