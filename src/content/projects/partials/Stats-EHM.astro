@@ -1,0 +1,141 @@
+---
+export const partial = true;
+
+export const impactStats = [
+  {
+    number: "19",
+    text: "initiatives tested<br />and deployed",
+  },
+  {
+    number: "19x",
+    text: "increase in visitors<br />(compared to May 2018)",
+  },
+  {
+    number: "41x",
+    text: "increase in donations<br />(compared to May 2018)",
+  },
+  {
+    number: "300+",
+    text: "interactions<br />through initiatives",
+  },
+];
+---
+
+<section class="impact-section">
+  <div class="stats-container">
+    {
+      impactStats.map((stat) => (
+        <div class="stat-item">
+          <div class="stat-number">{stat.number}</div>
+          <p class="stat-text" set:html={stat.text} />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .impact-section {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5%;
+    row-gap: 5%;
+    max-width: 1000px;
+    margin: 4rem auto;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(var(--theme-current-rgb), 0.9);
+    border-radius: 8px;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .stat-number {
+    font-size: 3.5rem;
+    line-height: 1;
+    font-weight: 300;
+    color: #c67c63;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-text {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: #4b5563;
+    margin: 0;
+    width: 100%;
+  }
+
+  /* Remove min-width since we're centering */
+
+  /* Large desktop - keep layout */
+  @media (min-width: 1400px) {
+    .stats-container {
+      max-width: 1200px;
+    }
+
+    .stat-number {
+      font-size: 4rem;
+    }
+
+    .stat-item {
+      padding: 2.5rem;
+    }
+  }
+
+  /* Tablet - reduce spacing but keep 2x2 */
+  @media (max-width: 992px) {
+    .stats-container {
+      column-gap: 5%;
+      row-gap: 3rem;
+    }
+
+    .stat-number {
+      font-size: 3.25rem;
+    }
+
+    .stat-item {
+      padding: 1.75rem;
+    }
+  }
+
+  /* Small tablet - move to single column */
+  @media (max-width: 768px) {
+    .stats-container {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+  }
+
+  /* Mobile - adjust spacing and sizes */
+  @media (max-width: 576px) {
+    .stats-container {
+      gap: 2rem;
+      margin: 3rem auto;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .stat-text {
+      font-size: 0.875rem;
+    }
+
+    .stat-item {
+      padding: 1.5rem;
+    }
+  }
+</style>
