@@ -1,0 +1,65 @@
+---
+interface Props {
+  padding?: string;
+  bg?: string;
+  border?: string;
+  rounded?: string;
+  width?: string;
+  grow?: number;
+  shrink?: number;
+  basis?: string;
+}
+
+const {
+  padding = "20px",
+  bg = "",
+  border = "",
+  rounded = "rounded-lg",
+  width = "",
+  grow = 1,
+  shrink = 1,
+  basis = "",
+} = Astro.props;
+
+const flexStyle = `${grow} ${shrink} ${basis}`;
+---
+
+<div
+  class={`column ${bg} ${border} ${rounded} ${width}`}
+  style={basis ? `flex: ${flexStyle}` : ""}
+>
+  <slot />
+</div>
+
+<style define:vars={{ padding }}>
+  .column {
+    height: 100%;
+    margin-bottom: 0;
+    padding: var(--padding);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column :global(h1:first-child),
+  .column :global(h2:first-child),
+  .column :global(h3:first-child),
+  .column :global(h4:first-child),
+  .column :global(h5:first-child),
+  .column :global(h6:first-child) {
+    margin-top: 0;
+  }
+
+  .column :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .column :global(ul),
+  .column :global(ol) {
+    padding-left: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .column {
+    }
+  }
+</style>

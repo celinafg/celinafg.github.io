@@ -1,0 +1,55 @@
+---
+interface Props {
+  gap?: string;
+  columns?: number;
+  equalHeight?: boolean;
+  border?: string;
+  padding?: string;
+}
+
+const {
+  gap = "8",
+  columns = 2,
+  equalHeight = true,
+  padding = "py-9",
+} = Astro.props;
+
+const basis = `${Math.floor(100 / columns)}%`;
+---
+
+<div class={`${padding}`}>
+  <div
+    class={`text-row flex flex-wrap gap-${gap} border border-gray-200 rounded-lg`}
+  >
+    <slot />
+  </div>
+</div>
+
+<style define:vars={{ basis, gap: `var(--tw-space-${gap})` }}>
+  .text-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+
+  .text-row :global(> *) {
+    flex: 1 1 var(--basis);
+    min-width: 250px;
+  }
+
+  .text-row:has([data-equal-height="true"]) :global(> *) {
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .text-row :global(> *) {
+      flex-basis: 100%;
+      margin: 0;
+    }
+  }
+</style>
+
+<script define:vars={{ equalHeight }}>
+  document.currentScript.parentElement.dataset.equalHeight = equalHeight;
+</script>
