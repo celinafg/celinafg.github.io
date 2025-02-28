@@ -7,12 +7,24 @@ const {
   width = 800,
   height = 600,
   reverse = false,
+  imageWidth = 45,
+  textWidth = 55,
+  margin = "2rem",
 } = Astro.props;
+
+const imageFlexBasis = `${imageWidth}%`;
+const textFlexBasis = `${textWidth}%`;
+
+// Determine order based on reverse prop
+const imageOrder = reverse ? 2 : 1;
+const textOrder = reverse ? 1 : 2;
 ---
 
-<!-- src/components/CloudinaryImageText.astro -->
 <div class="image-text-container">
-  <div class="image-container">
+  <div
+    class="image-container"
+    style={`--image-width: ${imageFlexBasis}; --image-order: ${imageOrder};`}
+  >
     <CldImage
       src={imageUrl}
       width={width}
@@ -22,32 +34,45 @@ const {
       class="rounded-lg"
     />
   </div>
-  <div class="text-container">
+  <div
+    class="text-container"
+    style={`--text-width: ${textFlexBasis}; --text-order: ${textOrder};`}
+  >
     <slot />
   </div>
 </div>
 
-<style>
+<style define:vars={{ margin }}>
   .image-text-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin: 2rem 0;
+    margin: var(--margin) 0;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   @media (min-width: 768px) {
     .image-text-container {
       flex-direction: row;
       align-items: flex-start;
+      justify-content: space-between;
     }
 
     .image-container {
-      flex: 0 0 45%; /* Image takes exactly 45% of the space */
-      max-width: 45%;
+      flex: 0 0 var(--image-width);
+      max-width: var(--image-width);
+      order: var(--image-order);
     }
 
     .text-container {
-      flex: 1; /* Text takes the remaining space */
+      flex: 0 0 var(--text-width);
+      max-width: var(--text-width);
+      order: var(--text-order);
     }
   }
 
@@ -56,6 +81,16 @@ const {
     .image-container,
     .text-container {
       width: 100%;
+      order: initial; /* Reset order for mobile */
+    }
+
+    /* Always show image first on mobile regardless of desktop order */
+    .image-container {
+      order: 1;
+    }
+
+    .text-container {
+      order: 2;
     }
   }
 </style>

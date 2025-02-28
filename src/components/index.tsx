@@ -9,3 +9,5 @@ export { default as FigmaEmbed } from "./FigmaEmbed.astro";
 export { default as ImageRow } from "./ImageRow.astro";
 export { default as TextRow } from "./TextRow.astro";
 export { default as Column } from "./Column.astro";
+export { default as BeforeAfterSlider } from "./ImageSlider.astro";
+export { default as ImageCarousel } from "./ImageCarousel.astro";
