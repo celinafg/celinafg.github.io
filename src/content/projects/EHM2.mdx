@@ -10,18 +10,64 @@ specs: ["September 2023 - May 2024", "physical prototype", "service design"]
 project: MS Capstone
 ---
 
-import { SectionDivider } from "../../components";
+import {
+  SectionDivider,
+  BeforeAfterSlider,
+  ImageCarousel,
+  Spacer,
+  ImageTextLayout,
+  TextRow,
+  Column,
+} from "../../components";
 import Stats from "./partials/Stats-EHM.astro";
 
-![Cover slide showing the Edmonds Historical Museum title and subtitle about transforming from passive exhibits to interactive engagement]
+<BeforeAfterSlider
+  beforeImage="https://res.cloudinary.com/digifab/image/upload/v1740749052/Edmonds-Public-Library-1910_dwglyd.jpg"
+  afterImage="https://res.cloudinary.com/digifab/image/upload/v1740748125/portfolio/ehm/07F38B59-E660-46AC-9AC0-AAD6FDCC23E2_1_105_c_aqww67.jpg"
+  beforeAlt="Damaged historical photograph"
+  afterAlt="Restored photograph"
+  width="auto"
+  height="300px"
+  initialPosition={70}
+  caption="Edmond's Historical Museum from 1901 vs. 2024"
+/>
 
 ## Overview
 
 The Edmonds Historical Museum (EHM) faced significant challenges: declining visitor numbers, limited volunteer engagement, and an urgent need for modernization. Our team developed an iterative approach to transform EHM from a passive exhibit space into an interactive, engaging destination that would appeal to families and revitalize the museum's community presence.
 
+<Spacer size="xsmall" />
+
 ## The Challenge
 
-![Background slide showing the museum's location map and challenges]
+<ImageCarousel
+  images={[
+    {
+      src: "https://res.cloudinary.com/digifab/image/upload/v1740750339/R0000153_Medium_ctgohy.jpg",
+      alt: "Sunset over the beach",
+      caption: "Diorama of logging in Edmonds",
+    },
+    {
+      src: "https://res.cloudinary.com/digifab/image/upload/v1740750621/R0000164_Medium_kp4ufe.jpg",
+      alt: "Mountain landscape",
+      caption: "Section of their notable doll house",
+    },
+    {
+      src: "https://res.cloudinary.com/digifab/image/upload/v1740750339/R0000151_Medium_jovogq.jpg",
+      alt: "City skyline",
+      caption: "Diorama of an old working station",
+    },
+    {
+      src: "https://res.cloudinary.com/digifab/image/upload/v1740750037/home-assets-9_sffru4.png",
+      alt: "Desert landscape",
+      caption: "Their most famous exhibits, the train and the jail cell",
+    },
+  ]}
+  width="auto"
+  height="400px"
+  autoplay={false}
+  interval={4000}
+/>
 
 Located in Edmonds, WA (population 42,000), EHM struggled with:
 
@@ -29,6 +75,8 @@ Located in Edmonds, WA (population 42,000), EHM struggled with:
 - Limited operational budget and resources
 - Low community awareness despite central location
 - Insufficient volunteer participation despite strong community volunteerism
+
+<Spacer size="large" />
 
 ## Research Insights
 
@@ -42,68 +90,133 @@ We gathered insights from **118 participants** through 3 primary research method
 | **Observations** | 10           | Understand visitor behavior patterns within the museum               |
 | **Interviews**   | 13           | Gather in-depth perspectives from stakeholders and community members |
 
-RESEARCH INSIGHT: MOTIVATION BASED MUSEUM VISITOR TYPES
+<Spacer size="medium" />
 
-## **Visitor Motivations Matter More Than Demographics**
+## insights
 
-Following John Falk's museum visitorship research, we identified five key visitor archetypes based on motivations rather than demographics:
+<Spacer size="xsmall" />
 
-![Research Insight 01 slide showing the visitor archetypes with icons and detailed descriptions](https://res.cloudinary.com/digifab/image/upload/v1740670028/portfolio/12_Findings_ov9kel.png)
+<ImageCarousel
+  images={[
+    {
+      src: "https://res.cloudinary.com/digifab/image/upload/v1740750339/portfolio/ehm/R0000157_Medium_fgyudi.jpg",
+      alt: "Sunset over the beach",
+    },
+    {
+      src: "https://res.cloudinary.com/digifab/image/upload/v1740753210/portfolio/ehm/R0000117_Large_hotqvk.jpg",
+      alt: "Mountain landscape",
+    },
+    {
+      src: "https://res.cloudinary.com/digifab/image/upload/v1740750339/portfolio/ehm/R0000151_Medium_jovogq.jpg",
+      alt: "City skyline",
+    },
+  ]}
+  width="auto"
+  height="400px"
+  autoplay={false}
+  interval={4000}
+/>
 
-## **Exhibit Functionality Impacts Experience**
+### 1. Exhibit Functionality Impacts Experience
 
 Poor lighting, hard-to-read labels, and limited accessibility negatively influenced visitor perception and created barriers to engagement.
 
-> I tried to visit twice before, but it was always closed.– Community member
+> I tried to visit twice before, but it was always closed.
+> – Community member
 
-## **Visitors Seek Interactive Experiences**
+<Spacer size="xsmall" />
+
+### 2. Visitors Seek Interactive Experiences
 
 Modern visitors wanted exhibits that offered deeper connections through interaction, diverse narratives, and creative displays.
 
-> “My kids get bored with just looking at things behind glass.” – Parent visitor
+<Spacer size="xsmall" />
 
-## **Volunteer Engagement Gap**
+### 3. Volunteer Engagement Gap
 
 Despite high community volunteerism in Edmonds, the museum struggled to attract and retain volunteers, highlighting an opportunity to enhance operations.
 
-## Awareness =/= recommendation
+<Spacer size="xsmall" />
+
+### 4. Awareness ≠ recommendation
 
 While 95% of surveyed community members were aware of the museum, only 1 out of 31 explicitly mentioned it as a recommended destination when asked about local attractions.
 
 > I know it’s there but never really thought to visit. – Edmonds resident
 
+### 5. Visitor Motivations Matter More Than Demographics
+
+Following John Falk's museum visitorship research, we identified five key visitor archetypes based on motivations rather than demographics:
+
+![Research Insight 01 slide showing the visitor archetypes with icons and detailed descriptions](https://res.cloudinary.com/digifab/image/upload/v1740751228/portfolio/ehm/12_Findings_1_xuj9oc.png)
+
+<Spacer size="large" />
+
 ## Solution
 
 We developed a "Kids' Gallery" as a dynamic test bed, implementing 19 interactive initiatives over a 7-week period:
 
-{/* ![Final Solution slide showing the Kids' Gallery with families engaging in activities](https://res.cloudinary.com/digifab/image/upload/v1740668775/portfolio/8_Final_Solution_urhhlb.png) */}
+<ImageCarousel
+  images={[
+    {
+      src: "https://res.cloudinary.com/digifab/image/upload/v1740668781/portfolio/14_Design_Principles_botow4.png",
+      alt: "Sunset over the beach",
+    },
+    {
+      src: "https://res.cloudinary.com/digifab/image/upload/v1740668784/portfolio/14_Design_Principles_2_qenzay.png",
+      alt: "Mountain landscape",
+    },
+    {
+      src: "https://res.cloudinary.com/digifab/image/upload/v1740668787/portfolio/14_Design_Principles_1_geyyle.png",
+      alt: "City skyline",
+    },
+  ]}
+  width="auto"
+  height="400px"
+  autoplay={false}
+  interval={4000}
+/>
 
 1. **Interactive Elements**: Photo booth, train play station, coloring activities, and scavenger hunts
+
 2. **Community Engagement**: Mascot naming contest with visitor-submitted names
-   ![d](https://res.cloudinary.com/digifab/image/upload/v1740668781/portfolio/14_Design_Principles_botow4.png)
-   ![sdf](https://res.cloudinary.com/digifab/image/upload/v1740668784/portfolio/14_Design_Principles_2_qenzay.png)
 
 3. **Operational Improvements**: Extended hours, opened previously closed upper-level doors
 
 4. **Visibility Enhancements**: Updated signage, promotional posters, and sidewalk chalk art
-   ![dfg](https://res.cloudinary.com/digifab/image/upload/v1740668787/portfolio/14_Design_Principles_1_geyyle.png)
 
 Our approach embraced four core design principles:
 
-- **Easy implementation**: Low-barrier activities that could be quickly deployed
-- **Low technology**: Budget-friendly solutions avoiding expensive tech
-- **Encouraging interactions**: Activities fostering longer, more meaningful visits
-- **Increasing awareness**: Strategic marketing to improve community visibility
+<TextRow gap="3" columns={2} padding="0">
+  <Column>
+    - **Easy implementation**: Low-barrier activities that could be quickly
+    deployed
+  </Column>
+  <Column>
+    - **Low technology**: Budget-friendly solutions avoiding expensive tech
+  </Column>
+  <Column>
+    - **Encouraging interactions**: Activities fostering longer, more meaningful
+    visits
+  </Column>
+  <Column>
+    - **Increasing awareness**: Strategic marketing to improve community
+    visibility
+  </Column>
+</TextRow>
 
 ## Results
 
 Our initiatives dramatically transformed the museum's performance:
+![s](https://res.cloudinary.com/digifab/image/upload/v1740748009/portfolio/9_Outcome_3_iapzyx.png)
 
-![Outcome slide showing the visitor and donation comparison metrics](https://res.cloudinary.com/digifab/image/upload/v1740668789/portfolio/9_Outcome_cuqbns.png)
 Additionally, we achieved:
 
 <Stats />
+
 ## Process & Implementation
+
+![2 Phases and 19 Initiatives schedule showing the project timeline and implementation](https://res.cloudinary.com/digifab/image/upload/v1740668904/portfolio/8_Final_Solution_1_f7fi2s.png)
 
 We followed a two-phase approach based on the UK Design Council's design process:
 
@@ -120,7 +233,7 @@ We followed a two-phase approach based on the UK Design Council's design process
 - Collected feedback through observation and surveys
 - Made weekly adjustments based on visitor responses
 
-![2 Phases and 19 Initiatives schedule showing the project timeline and implementation](https://res.cloudinary.com/digifab/image/upload/v1740668904/portfolio/8_Final_Solution_1_f7fi2s.png)
+<Spacer size="large" />
 
 ## Key Learnings
 
