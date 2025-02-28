@@ -14,20 +14,21 @@ export interface Project {
     specs?: string[];
     excerpt?: string;
     tags?: string[];
+    draft?: boolean;
   };
 }
 
-export interface Props {
-  projects: Project[];
-}
+const { projects, showDrafts = false } = Astro.props;
 
-const { projects } = Astro.props;
+const visibleProjects = projects.filter((project: Project) => {
+  return showDrafts || project.data.draft !== true;
+});
 ---
 
 <section id="projects" class="project-section">
   <div class="projects-list">
     {
-      projects.map((project) => (
+      visibleProjects.map((project: Project) => (
         <article class="project-item border-t">
           <a href={`/projects/${project.slug}`} class="project-link">
             <div class="project-content">

@@ -3,10 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Projects from "../components/Projects.astro";
 import Welcome from "../components/Welcome.astro";
 import { getCollection } from "astro:content";
-import { getThemeValues } from "../utils/themes";
 
 const allProjects = await getCollection("projects");
-const themeValues = getThemeValues("home");
 ---
 
 <Layout>
