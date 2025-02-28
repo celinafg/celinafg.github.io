@@ -11,7 +11,7 @@ interface Props {
 }
 
 const {
-  padding = "20px",
+  padding = "0 20px",
   bg = "",
   border = "",
   rounded = "rounded-lg",
@@ -59,7 +59,18 @@ const flexStyle = `${grow} ${shrink} ${basis}`;
   }
 
   @media (max-width: 768px) {
+    .prose ul {
+      padding: 0;
+      margin-bottom: 0;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
     .column {
+      display: block;
     }
   }
 </style>

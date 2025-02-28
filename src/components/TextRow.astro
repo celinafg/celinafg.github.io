@@ -11,13 +11,13 @@ const {
   gap = "8",
   columns = 2,
   equalHeight = true,
-  padding = "py-9",
+  padding = "py-9 ",
 } = Astro.props;
 
 const basis = `${Math.floor(100 / columns)}%`;
 ---
 
-<div class={`${padding}`}>
+<div class="outside">
   <div
     class={`text-row flex flex-wrap gap-${gap} border border-gray-200 rounded-lg`}
   >
@@ -25,11 +25,13 @@ const basis = `${Math.floor(100 / columns)}%`;
   </div>
 </div>
 
-<style define:vars={{ basis, gap: `var(--tw-space-${gap})` }}>
+<style define:vars={{ padding, basis, gap: `var(--tw-space-${gap})` }}>
+  .outside {
+    padding: var(--padding);
+  }
   .text-row {
     display: flex;
     flex-wrap: wrap;
-    margin: 1.5rem 0;
     width: 100%;
   }
 
