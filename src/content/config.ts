@@ -11,6 +11,7 @@ const projectsCollection = defineCollection({
       image: z.string().optional(),
       role: z.string().optional(),
       project: z.string().optional(),
+      order: z.number().optional(),
       specs: z.array(z.string().optional()),
       draft: z.boolean().optional(),
     }),

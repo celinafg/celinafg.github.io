@@ -5,6 +5,12 @@ import Welcome from "../components/Welcome.astro";
 import { getCollection } from "astro:content";
 
 const allProjects = await getCollection("projects");
+const sortedPosts = allProjects.sort((a, b) => {
+  // Default to a high number if order is not specified
+  const orderA = a.data.order ?? 999;
+  const orderB = b.data.order ?? 999;
+  return orderA - orderB;
+});
 ---
 
 <Layout>
@@ -12,7 +18,7 @@ const allProjects = await getCollection("projects");
     <Welcome />
 
     <section class="projects-section">
-      <Projects projects={allProjects} />
+      <Projects projects={sortedPosts} />
     </section>
   </main>
 </Layout>
