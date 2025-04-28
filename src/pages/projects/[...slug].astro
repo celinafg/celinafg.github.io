@@ -50,7 +50,7 @@ function groupHeadingsByHierarchy(headings: Heading[]): GroupedHeading[] {
 const groupedHeadings = groupHeadingsByHierarchy(headings);
 ---
 
-<Layout withDiagonalLines={false}>
+<Layout withDiagonalLines={false} withContainer={false}>
   <div class="project-layout">
     <aside class="sidebar">
       <TOCHeadings headings={groupedHeadings} />
@@ -102,11 +102,12 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
 <style>
   .project-layout {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 180px 1fr;
     gap: 1rem;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
   }
 
   .content {
@@ -138,7 +139,11 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
 
   .project-title {
     line-height: 1.2;
+    letter-spacing: -1.8px;
+    word-spacing: -1px;
+    font-weight: 500;
     margin: 0;
+    text-align: center;
   }
 
   .meta-grid {

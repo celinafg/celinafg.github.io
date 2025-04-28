@@ -35,26 +35,13 @@ const visibleProjects = projects.filter((project: Project) => {
             <div class="project-content">
               <div class="project-text">
                 <div class="project-header">
-                  <h3 class="project-title">
-                    <span class="title-prefix">
-                      {project.data.title.split(" ").slice(0, -1).join(" ")}
-                    </span>
-                    <span class="title-focus">
-                      {project.data.title.split(" ").pop()}
-                    </span>
-                  </h3>
+                  <h3 class="project-title">{project.data.title}</h3>
                 </div>
                 <div class="project-meta" />
                 {project.data.excerpt && (
                   <p class="project-description">{project.data.excerpt}</p>
                 )}
-                {project.data.tags && project.data.tags.length > 0 && (
-                  <div class="tags-container">
-                    {project.data.tags.map((tag) => (
-                      <span class="tag">{tag}</span>
-                    ))}
-                  </div>
-                )}
+
                 <div class="project-footer">
                   <div class="see-more-wrapper">
                     <span class="see-more">See case study</span>
@@ -141,8 +128,9 @@ const visibleProjects = projects.filter((project: Project) => {
     display: grid;
     grid-template-columns: 1.3fr 2fr;
     gap: clamp(1rem, 4vw, 2rem);
-    align-items: flex-start;
-    min-height: clamp(400px, 60vh, 600px);
+    min-height: 300px;
+    align-items: center;
+    min-height: 3rem;
   }
 
   .project-header {
@@ -151,16 +139,16 @@ const visibleProjects = projects.filter((project: Project) => {
 
   .project-title {
     font-family: "Space Mono", monospace;
-    font-size: clamp(0.8rem, 5vw, 2.4rem);
+    font-size: clamp(0.2rem, 2vw, rem);
     font-weight: 500;
     padding-top: 2rem;
     color: var(--text-primary);
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    line-height: 1.3;
     transform: translateZ(0);
     transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     display: flex;
     flex-direction: column;
+    letter-spacing: -1.7px;
   }
 
   /* Clean, consistent title styling */
@@ -198,11 +186,11 @@ const visibleProjects = projects.filter((project: Project) => {
   }
 
   .project-description {
-    font-family: "Work Sans", sans-serif;
-    line-height: 1.6;
+    /* font-family: "Work Sans", sans-serif; */
+    /* line-height: 1.6; */
     color: var(--text-secondary);
     margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
-    max-width: 40ch;
+    max-width: 30ch;
     transform: translateZ(0);
     transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     border-left: 2px solid rgba(var(--theme-current-rgb), 0.1);
@@ -252,13 +240,6 @@ const visibleProjects = projects.filter((project: Project) => {
 
   .project-item:hover .see-more-wrapper {
     background-color: rgba(var(--theme-current-rgb), 0.85);
-  }
-
-  .see-more {
-    color: var(--text-primary);
-    opacity: 0.9;
-    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-    transform: translateZ(0);
   }
 
   .arrow {
