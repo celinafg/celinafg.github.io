@@ -45,7 +45,7 @@ const { headings } = Astro.props;
 <style>
   .toc-wrapper {
     position: sticky;
-    top: 30rem;
+    top: 2rem;
     height: fit-content;
     max-height: calc(100vh - 4rem);
   }
@@ -56,7 +56,6 @@ const { headings } = Astro.props;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid rgba(var(--theme-current-rgb), 0.9);
-    border-left: none;
     transition: border-color 0.3s ease;
   }
 
@@ -75,8 +74,7 @@ const { headings } = Astro.props;
 
   .nav-list {
     list-style: none;
-    /* padding: 1rem; */
-    margin: 0;
+    padding: 0.8rem 0 1.7rem 1rem;
     max-height: calc(100vh - 8rem);
     overflow-y: auto;
   }

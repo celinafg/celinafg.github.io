@@ -3,6 +3,7 @@ import "../../styles/main.scss";
 import { getCollection } from "astro:content";
 import TOCHeadings from "../../components/TOCHeading.astro";
 import type { GetStaticPaths } from "astro";
+import { CldImage } from "astro-cloudinary";
 
 import Layout from "../../layouts/Layout.astro";
 export const getStaticPaths = (async () => {
@@ -50,7 +51,21 @@ function groupHeadingsByHierarchy(headings: Heading[]): GroupedHeading[] {
 const groupedHeadings = groupHeadingsByHierarchy(headings);
 ---
 
-<Layout withDiagonalLines={false} withContainer={false}>
+<Layout withDiagonalLines={false} withCont={false}>
+  <div>
+    {
+      entry.data.image && (
+        <div class="image-container">
+          <CldImage
+            src={entry.data.image}
+            alt={entry.data.title}
+            class="project-image"
+            loading="lazy"
+          />
+        </div>
+      )
+    }
+  </div>
   <div class="project-layout">
     <aside class="sidebar">
       <TOCHeadings headings={groupedHeadings} />
@@ -100,14 +115,23 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
 </Layout>
 
 <style>
+  .image-container {
+    height: 40vh;
+    max-width: 1069px;
+    overflow: hidden;
+    /* aspect-ratio: 16/9; */
+    transform: translateZ(0);
+    object-fit: cover;
+    margin: 0 auto;
+  }
+
   .project-layout {
     display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 1rem;
+    grid-template-columns: 270px 1fr;
     max-width: 1600px;
     margin: 0 auto;
-    padding-right: 2rem;
-    padding-top: 1rem;
+    padding: 1rem;
+    margin: 2rem;
   }
 
   .content {

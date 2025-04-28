@@ -12,6 +12,7 @@ const {
   includeSidebar = true,
   sideBarActiveItemID,
   ogType,
+  withCont = true,
   withDiagonalLines = true,
 } = Astro.props;
 
@@ -35,11 +36,11 @@ const cssVars = Object.entries(themeVars)
   </head>
 
   <body
-    class=` theme-${themeName} min-h-screen bg-gradient flex flex-col bg cont border with-lines`
+    class=` theme-${themeName} min-h-screen bg-gradient flex flex-col bg ${withCont ? 'cont' : ''} border with-lines`
     style={cssVars}
   >
     <header class=``>
-      <Header class="cont" currentPath={currentPath} />
+      <Header currentPath={currentPath} />
     </header>
     <main class=`${withDiagonalLines ? 'with-lines' : 'white-bg'}`>
       <slot />
