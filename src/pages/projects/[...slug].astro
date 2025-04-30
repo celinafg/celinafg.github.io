@@ -4,8 +4,11 @@ import { getCollection } from "astro:content";
 import TOCHeadings from "../../components/TOCHeading.astro";
 import type { GetStaticPaths } from "astro";
 import { CldImage } from "astro-cloudinary";
+import { getPrevNextPost } from "../../utils/getPrevNextPost";
+import { PrevNext } from "../../components";
 
 import Layout from "../../layouts/Layout.astro";
+
 export const getStaticPaths = (async () => {
   const allProjects = await getCollection("projects");
 
@@ -13,14 +16,21 @@ export const getStaticPaths = (async () => {
     ? allProjects.filter((project) => !project.data.draft)
     : allProjects;
 
-  return filteredProjects.map((entry) => ({
+  return filteredProjects.map((entry, i) => ({
     params: { slug: entry.slug },
-    props: { entry },
+    props: {
+      entry,
+    },
   }));
 }) satisfies GetStaticPaths;
 
 const { entry } = Astro.props;
+const { slug } = Astro.params;
+const allProjects = await getCollection("projects");
+
 const { Content, headings } = await entry.render();
+
+const { prev, next } = getPrevNextPost(allProjects, slug);
 
 interface Heading {
   depth: number;
@@ -51,7 +61,7 @@ function groupHeadingsByHierarchy(headings: Heading[]): GroupedHeading[] {
 const groupedHeadings = groupHeadingsByHierarchy(headings);
 ---
 
-<Layout withDiagonalLines={false} withCont={false}>
+<Layout withDiagonalLines={false} withCont={false} isProject={true}>
   <div>
     {
       entry.data.imageCover && (
@@ -112,13 +122,16 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
       </div>
     </main>
   </div>
+
+  <PrevNext prev={prev} next={next} />
 </Layout>
 
 <style>
   .image-container {
-    width: 100%;
     aspect-ratio: 16 / 9;
     overflow: hidden;
+    max-height: 50vh;
+    width: 100%;
   }
 
   .project-layout {

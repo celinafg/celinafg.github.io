@@ -11,3 +11,4 @@ export { default as TextRow } from "./TextRow.astro";
 export { default as Column } from "./Column.astro";
 export { default as BeforeAfterSlider } from "./ImageSlider.astro";
 export { default as ImageCarousel } from "./ImageCarousel.astro";
+export { default as PrevNext } from "./PrevNext.astro";

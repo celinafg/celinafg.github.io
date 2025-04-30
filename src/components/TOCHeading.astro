@@ -10,6 +10,7 @@ const { headings } = Astro.props;
 
 <div class="toc-wrapper">
   <nav class="project-nav glass-effect" aria-label="Table of Contents">
+    <a href="/" class="heading-mono back-link"> ← home </a>
     <div class="nav-header">
       <h2 class="nav-title">/contents/</h2>
     </div>
@@ -93,6 +94,12 @@ const { headings } = Astro.props;
     transition: all 0.3s ease;
   }
 
+  .back-link {
+    border-bottom: 1px solid rgba(var(--theme-current-rgb), 0.9);
+    display: block;
+    margin: 0.4rem 0;
+    padding: 0 0.7rem 0.7rem 0.7rem;
+  }
   .nav-h2:hover {
     background: rgba(var(--theme-current-rgb), 0.05);
   }
