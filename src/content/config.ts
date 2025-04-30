@@ -9,6 +9,7 @@ const projectsCollection = defineCollection({
       date: z.coerce.date(),
       excerpt: z.string().optional(),
       image: z.string().optional(),
+      imageCover: z.string().optional(),
       role: z.string().optional(),
       project: z.string().optional(),
       order: z.number().optional(),

@@ -54,10 +54,10 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
 <Layout withDiagonalLines={false} withCont={false}>
   <div>
     {
-      entry.data.image && (
+      entry.data.imageCover && (
         <div class="image-container">
           <CldImage
-            src={entry.data.image}
+            src={entry.data.imageCover}
             alt={entry.data.title}
             class="project-image"
             loading="lazy"
@@ -116,13 +116,9 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
 
 <style>
   .image-container {
-    height: 40vh;
-    max-width: 1069px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
-    /* aspect-ratio: 16/9; */
-    transform: translateZ(0);
-    object-fit: cover;
-    margin: 0 auto;
   }
 
   .project-layout {
