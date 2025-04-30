@@ -10,7 +10,9 @@
 }
 @layer components {
   @include meta.load-css("buttons");
+  @include meta.load-css("responsive-tables");
 }
+
 :root {
   --theme-home: rgba(167, 255, 131, 0.8);
   --theme-about: rgba(224, 236, 255, 0);

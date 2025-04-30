@@ -1,0 +1,119 @@
+$breakpoint-mobile: 640px;
+$table-border-color: #f2f2f2;
+$table-header-bg: var(--theme-home);
+$card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+
+// Styles for responsive tables
+.prose {
+  .table-responsive {
+    overflow-x: auto;
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+
+    @media (max-width: $breakpoint-mobile) {
+      position: relative;
+
+      &::after {
+        content: "→";
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(100, 100, 100, 0.5);
+        font-size: 1.5rem;
+        pointer-events: none;
+        animation: fadeInOut 2s infinite;
+        opacity: 0;
+
+        @keyframes fadeInOut {
+          0%,
+          100% {
+            opacity: 0;
+          }
+          50% {
+            opacity: 0.7;
+          }
+        }
+
+        @media (min-width: $breakpoint-mobile) {
+          display: none;
+        }
+      }
+    }
+
+    // Basic table styling
+    table {
+      min-width: 100%; // Ensures the table takes at least the full width
+      border-collapse: collapse;
+
+      th {
+        background-color: rgb(255, 255, 235);
+        font-weight: 600;
+        text-align: left;
+        padding: 0.75rem;
+        border: 1px solid $table-border-color;
+      }
+
+      td {
+        padding: 0.75rem;
+        border: 1px solid $table-border-color;
+      }
+
+      tr:hover {
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+    }
+  }
+
+  .table-cards {
+    @media (max-width: $breakpoint-mobile) {
+      table {
+        width: 100%;
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tbody {
+        display: block;
+
+        tr {
+          display: block;
+          margin-bottom: 1rem;
+          border-radius: 0.5rem;
+          box-shadow: $card-shadow;
+          background: white;
+          padding: 1rem;
+          border: none;
+
+          &:hover {
+            background-color: white;
+          }
+        }
+
+        td {
+          display: flex;
+          justify-content: space-between;
+          text-align: right;
+          padding: 0.5rem 0;
+          border: none;
+          border-bottom: 1px solid $table-border-color;
+
+          &::before {
+            content: attr(data-label);
+            font-weight: 600;
+            text-align: left;
+          }
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}
