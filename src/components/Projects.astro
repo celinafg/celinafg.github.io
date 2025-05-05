@@ -11,7 +11,7 @@ export interface Project {
     client?: string;
     year?: string;
     project?: string;
-    role?: string;
+    role?: string[];
     specs?: string[];
     excerpt?: string;
     tags?: string[];
@@ -28,6 +28,8 @@ const visibleProjects = projects.filter((project: Project) => {
 ---
 
 <section id="projects" class="project-section">
+  <h2>Selected Projects</h2>
+
   <div class="projects-list">
     {
       visibleProjects.map((project: Project) => (

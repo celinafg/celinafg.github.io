@@ -12,3 +12,4 @@ export { default as Column } from "./Column.astro";
 export { default as BeforeAfterSlider } from "./ImageSlider.astro";
 export { default as ImageCarousel } from "./ImageCarousel.astro";
 export { default as PrevNext } from "./PrevNext.astro";
+export { default as CallOut } from "./CallOut.astro";

@@ -1,0 +1,217 @@
+---
+title: "KLOA"
+date: 2024-02-03
+excerpt: Exploring the balance between innovation and user expectations
+tags: [usability testing, physical prototype, software prototype, ux research]
+image: https://res.cloudinary.com/digifab/image/upload/v1739881708/portfolio/kloa-home_swgwfk.gif
+imageCover: https://res.cloudinary.com/digifab/image/upload/v1746043247/portfolio/kloa/project-head-assets-1-kloa_enolkb.png
+role:
+  [
+    UX Researcher,
+    "Survey creation, led and moderated usability studies, data analysis",
+  ]
+team: ["2 - UX Researcher", "2 - UX Designer"]
+specs: ["January-March 2023"]
+project: HCDE 517
+order: 2
+summary: |
+  KLOA is a startup that focuses on making search easier by saving users typing effort. This new search experience consists of an input interface and a contextual search algorithm. Ideally, businesses with mobile shopping apps like Amazon or Instacart would be potential clients. 
+
+  Previous diary studies on KLOA highlighted usability issues that the team is currently iterating on, including what types of feedback to provide users. This research then seeks to understand: 1) what effect would priming participants have on their experience (i.e. prefacing it as a search experience versus a keyboard) 2) how willing participants would be to learn how to use KLOA, and 3) barriers and frustrations participants encounter when using KLOA in the context of shopping on a mobile app. 
+
+  As the UX Researcher, I created survey questions, and conducted usability testing.
+---
+
+import { Icon } from "astro-icon/components";
+
+import {
+  ImageTextLayout,
+  ImageRow,
+  Spacer,
+  Column,
+  TextRow,
+} from "../../components";
+
+## Context
+
+##### Can users shift their mental model to a new kind of keyboard layout?
+
+<Spacer size="small" />
+
+![sdf](https://res.cloudinary.com/digifab/image/upload/v1740567013/portfolio/kloa/iPad_mini_8.3_-_1_upcdeq.png)
+
+The design of the search interface is based on the principle that larger tap targets lead to less mistakes when typing, making it a more efficient experience. KLOA is aware of usability issues, and are iterating on the design, so our study focused on these two hypotheses. We combined task based activities with self-evaluation questions.
+
+- **Hypothesis 1:** If users don't think of KLOA as a keyboard, they won't try and use it like a QWERTY keyboard
+- **Hypothesis 2:** Users will be able to use KLOA if onboarding instructions
+- are provided (a variation of best case testing)
+
+<Spacer size="large" />
+
+## Methodology
+
+<Spacer size="small" />
+
+#### Participant profile
+
+We mapped our recruitment criteria to the customer base of popular shopping apps, such as Amazon and Instacart (the same apps KLOA intends to integrate with). We looked for participants who shopped on mobile apps within the last month at least a few times, English speaking, and at least 18 years old.
+
+Based on our research questions and hypotheses, we combined task based activities with self evaluation questions for this study. We conducted the tests in person at Odegaard Library (UW Seattle). We provided participants with the iPhone KLOA leant to use that had the most recent stable build, and our one-pager instruction.
+
+<ImageRow minPerRow={2} marginBottom="6" marginRight="12">
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1740567752/portfolio/Frame_2_hnziez.png)
+![image](https://res.cloudinary.com/digifab/image/upload/v1740567729/portfolio/Frame_1_1_vqf7d3.png)
+
+</ImageRow>
+
+<Spacer size="large" />
+
+#### What we tested
+
+![rr](https://res.cloudinary.com/digifab/image/upload/v1740567765/portfolio/kloa/Frame_3_wellvs.png)
+
+1. **Last stable build**: <br/>
+   Per our client's request to better mimic the newest version of their design, we taped over the search bar and word ribbon that exist in this iteration
+
+<Spacer size="xxsmall" />
+
+2. **Onboarding instruction**: <br/>
+   To understand users’ initial impression of KLOA and how new mental model can be constructed in a short amount of time, we designed a one-page instruction, iintroducing the basic functionality of the keyboard.
+
+<Spacer size="medium" />
+
+#### What were the tasks?
+
+<ImageTextLayout
+imageUrl='https://res.cloudinary.com/digifab/image/upload/v1740571224/portfolio/iPad_mini_8.3_-_2_pxz9iq.png'
+alt="Air Quality Station in a downtown area"
+>
+
+1. Warm up
+2. Tasks: one pager and familiarize yourself with Instacart
+3. Post task questions
+4. Task: find 4 items
+5. Post-task questions (UBS)
+6. Likert questions
+
+</ImageTextLayout>
+
+<Spacer size="medium" />
+
+#### Mixed Methods
+
+We collected both quantitative and qualitative data.
+
+<Spacer size="small" />
+
+<TextRow gap='3' columns={2} padding='2rem 0 0 2rem'>
+    <Column>
+        <Icon name="solar:calculator-broken" class="mb-4" size={"20px"}  />
+
+        ##### Quantitative
+            - User Burden Scale (Difficulty of Use)
+            - Rating scales
+            - Task completion
+    </Column>
+    <Column>
+        <Icon name="solar:notebook-bookmark-bold" class="mb-4" size={"20px"}  />
+
+        ##### Qualitative
+         - Observed behavior
+         - Probing questions
+    </Column>
+
+</TextRow>
+
+<Spacer size="xlarge" />
+
+## Findings
+
+<Spacer size="small" />
+
+We based our findings on Sauro's Severity Scale. Severity ratings can be provided upon request. The general sentiment was that participants felt frustrated by the overall experience. Most felt the keyboard created a barrier to mobile shopping, and all participants preferred the QWERTY keyboard.
+
+<Spacer size="medium" />
+
+###### 1. "Search experience" encompasses more actions than just typing.
+
+To achieve expected outcomes, how customers discover products must be considered.
+Observation: When asked to use search, 3/5 participants browsed/scrolled instead of typing.
+
+<Spacer size="medium" />
+
+###### 2. Quick, relevant suggestions are valued.
+
+3/5 participants found search suggestions relevant, locating items with just 1-2 taps.
+
+<Spacer size="medium" />
+
+###### 3. Instructions weren't retained and keyboard guidance was needed.
+
+3/5 participants requested the one-pager multiple times. Users struggled with typing basics.
+
+<Spacer size="medium" />
+
+###### 4. ❗Users need visual feedback while typing.
+
+Participants expressed frustration when unable to see their typing, creating a major adoption barrier.
+**_"I didn't know if I was typing correctly. It felt like a guessing game." – P4_**
+
+<Spacer size="medium" />
+
+###### 5. ❗QWERTY layouts strongly preferred.
+
+Most participants reverted to traditional keyboards after initial difficulties.
+**_"Usually you see what you're typing... I felt I did something wrong." – P5_**
+
+<Spacer size="medium" />
+
+###### 6. ❗Confusing key layout created uncertainty.
+
+Multi-letter keys confused users about input accuracy. The keyboard arrangement lacked intuitive organization.
+**_"I don't get why two letters are on one key—it's not intuitive." – P1_**
+
+<Spacer size="medium" />
+
+###### 7. ❗Onboarding information wasn't retained.
+
+Participants quickly forgot instructions from the one-pager.
+**_"It seemed simple, but I forgot it immediately." – P4_**
+
+<Spacer size="large" />
+
+## Opportunities for improvement
+
+<Spacer size="small" />
+
+##### 1. Improve and explore onboarding methods
+
+- Introduce interactive onboarding elements such as in-app tooltips and progressive disclosure.
+- Test the effectiveness of short video tutorials for explaining key interactions.
+
+##### 2. Provide Real-Time Feedback
+
+- Display typed letters dynamically to give users confirmation of input.
+- Use subtle animations or haptics to reinforce action feedback.
+
+##### 3. Refine the Keyboard Layout
+
+- Explore a QWERTY-inspired version to lower cognitive load.
+
+##### 4. Optimize Search Algorithm
+
+- Fine-tune predictive accuracy to ensure consistently relevant suggestions.
+- Reduce the number of interactions required to select a desired search result.
+
+<Spacer size="medium" />
+
+## Results
+
+This can be provided upon request.
+
+<Spacer size="large" />
+
+## Reflection
+
+We were able to deliver the presentation to our client KLOA, who appreciated the research we did. I learned a lot about working with an early stage app, where design and development are quickly changing by the week. We decided as a group to mimic the recent design changes that had not been implemented fully yet by taping over the search bar as seen in the photo. It's not usually best practice to do that, but we weighed our options and ultimately wanted to hand over research the client could benefit from. Testing on an obsolete build would not be any added information.

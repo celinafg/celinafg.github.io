@@ -87,28 +87,49 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
             <div class="title-wrapper fade-in" style="--delay: 0.4s">
               <h1 class="project-title">{entry.data.title}</h1>
             </div>
-            <div class="meta-grid">
+            <div class="meta-container">
+              <div class="meta-column prose fade-in" style="--delay: 0.1s">
+                {
+                  entry.data.role && (
+                    <div class="meta-block">
+                      <h2 class="section-title">My Role</h2>
+                      {entry.data.role.map((role) => (
+                        <p class="role">{role}</p>
+                      ))}
+                    </div>
+                  )
+                }
+
+                {
+                  entry.data.project && (
+                    <div class="meta-block fade-in" style="--delay: 0.2s">
+                      <h2 class="section-title">Project</h2>
+                      <p>{entry.data.project}</p>
+                    </div>
+                  )
+                }
+                {
+                  entry.data.specs && (
+                    <div class="meta-block fade-in" style="--delay: 0.3s">
+                      <h2 class="section-title">Specs</h2>
+                      {entry.data.specs.map((spec) => (
+                        <p class="role">{spec}</p>
+                      ))}
+                    </div>
+                  )
+                }
+              </div>
+
               {
-                entry.data.role && (
-                  <div class="meta-item fade-in" style="--delay: 0.1s">
-                    <span class="label">my role</span>
-                    <span class="value">{entry.data.role}</span>
-                  </div>
-                )
-              }
-              {
-                entry.data.project && (
-                  <div class="meta-item fade-in" style="--delay: 0.2s">
-                    <span class="label">project</span>
-                    <span class="value">{entry.data.project}</span>
-                  </div>
-                )
-              }
-              {
-                entry.data.specs && (
-                  <div class="meta-item fade-in" style="--delay: 0.3s">
-                    <span class="label">specs</span>
-                    <span class="value">{entry.data.specs}</span>
+                entry.data.summary && (
+                  <div
+                    class="summary-column prose fade-in"
+                    style="--delay: 0.4s"
+                  >
+                    <h2 class="section-title">Summary</h2>
+                    {entry.data.summary.split("\n\n").map((paragraph) => (
+                      <p>{paragraph}</p>
+                    ))}
                   </div>
                 )
               }
@@ -126,6 +147,11 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
 </Layout>
 
 <style>
+  .specs {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
   .image-container {
     overflow: hidden;
     max-height: 80vh;
@@ -134,9 +160,13 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
     object-fit: contain;
   }
 
+  .prose .role {
+    margin: 0.3rem 0 0 0;
+  }
+
   .project-layout {
     display: grid;
-    grid-template-columns: 270px 1fr;
+    grid-template-columns: 200px 1fr;
     max-width: 1600px;
     margin: 0 auto;
     padding: 1rem;
@@ -157,8 +187,6 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
 
   .project-header {
     padding: 4rem 0;
-    margin-bottom: 4rem;
-    border-bottom: 1px solid rgb(229, 231, 235);
   }
 
   .header-content {
@@ -176,34 +204,36 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
     word-spacing: -1px;
     font-weight: 500;
     margin: 0;
-    text-align: center;
+    text-align: flex-start;
+    padding-bottom: 2rem;
+    font-size: 2.6rem;
   }
 
-  .meta-grid {
+  .meta-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
   }
 
-  .meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  .meta-column,
+  .summary-column {
+    position: relative;
   }
 
-  .label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-secondary);
-    opacity: 0.6;
+  .meta-column.prose,
+  .summary-column.prose {
+    /* Keep the prose styling contained within the columns */
+    max-width: 100%;
   }
 
-  .value {
-    font-family: "Space Mono", monospace;
-    font-size: 1rem;
-    color: var(--text-primary);
+  .meta-block {
+    margin-bottom: 2.4rem;
+  }
+
+  .section-title {
+    letter-spacing: normal;
+    margin-bottom: 1.25rem;
+    margin-top: 0 !important;
   }
 
   :global(.prose) {
@@ -211,11 +241,17 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
   }
 
   :global(.prose p) {
-    @apply mb-8;
+    @apply mb-2 mt-2;
+
+    line-height: 1.6;
+    font-size: 0.9rem;
   }
 
   :global(.prose h2) {
     @apply text-sm font-sans uppercase tracking-widest text-blue-600 font-semibold mt-16 mb-8;
+    font-size: 0.78rem;
+    letter-spacing: 0.09rem !important;
+    font-family: "Space Mono", monospace;
   }
 
   :global(.prose h3) {
@@ -231,7 +267,9 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
   }
 
   :global(.prose li) {
-    @apply text-gray-700 leading-relaxed mb-2;
+    @apply text-gray-700 leading-relaxed;
+    font-size: 0.8rem;
+    line-height: 1.4;
   }
 
   :global(.prose a) {
@@ -246,6 +284,26 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
     @apply mb-0;
   }
 
+  :global(.prose blockquote) {
+    @apply border-l-4 border-green-600 bg-gray-50 px-6 py-4 my-6 mx-8 rounded-r-md shadow-sm;
+    font-style: italic;
+  }
+
+  :global(.prose blockquote p) {
+    @apply text-gray-700 m-0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  :global(.prose blockquote cite) {
+    @apply block text-right  mt-3;
+    font-size: 0.8rem;
+    font-style: normal;
+  }
+
+  :global(.prose blockquote cite::first-letter) {
+    @apply text-green-600;
+  }
   /* Animations */
   .fade-in {
     animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -265,6 +323,9 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
 
   /* Mobile/tablet responsive adjustments */
   @media (max-width: 1024px) {
+    :global(.prose blockquote) {
+      margin: 2rem 0;
+    }
     .project-layout {
       grid-template-columns: 1fr;
       padding: 0;
@@ -275,7 +336,7 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
     }
 
     .content-container {
-      padding: 1.5rem;
+      padding: 0.04rem;
     }
 
     .project-header {
@@ -285,6 +346,17 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
 
     .sidebar {
       display: none;
+    }
+
+    .meta-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .summary-column {
+      margin-top: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(229, 231, 235, 0.5);
     }
   }
 </style>

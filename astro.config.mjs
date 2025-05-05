@@ -5,6 +5,8 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import rehypeUnwrapImages from "./src/plugins/rehype-unwrap-images.mjs";
 import remarkResponsiveTables from "./src/plugins/remark-responsive-tables";
+import icon from "astro-icon";
+
 export default defineConfig({
   integrations: [
     mdx({
@@ -16,6 +18,7 @@ export default defineConfig({
     }),
     tailwind(),
     sitemap(),
+    icon(),
   ],
   site: "https://celinafg.github.io",
 });
