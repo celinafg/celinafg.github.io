@@ -25,8 +25,6 @@ const themeVars = generateThemeVars(themeName);
 const cssVars = Object.entries(themeVars)
   .map(([key, value]) => `${key}: ${value}`)
   .join(";");
-
-
 ---
 
 <!doctype html>
@@ -44,7 +42,18 @@ const cssVars = Object.entries(themeVars)
     style={cssVars}
   >
     <header class=``>
-      {isProject ? <></>:<Header currentPath={currentPath} />}
+      {
+        isProject ? (
+          <>
+            <a href="/" class="heading-mono back-link mobile-only">
+              {" "}
+              ← home{" "}
+            </a>
+          </>
+        ) : (
+          <Header currentPath={currentPath} />
+        )
+      }
     </header>
     <main class=`${withDiagonalLines ? 'with-lines' : 'white-bg'}`>
       <slot />
@@ -56,6 +65,26 @@ const cssVars = Object.entries(themeVars)
 </html>
 
 <style is:global>
+  .mobile-only {
+    display: none;
+  }
+
+  .back-link {
+    position: fixed;
+    background-color: #d5f3d5;
+    top: 4;
+    z-index: 9;
+    padding: 0.5rem 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-only {
+      display: block;
+    }
+  }
   .white-bg {
     background-color: #ffffff !important;
   }
@@ -74,13 +103,6 @@ const cssVars = Object.entries(themeVars)
       var(--theme-gradient-primary),
       var(--theme-gradient-secondary)
     );
-  }
-
-  .glass-effect {
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid var(--glass-border);
   }
 
   .page-wrapper {

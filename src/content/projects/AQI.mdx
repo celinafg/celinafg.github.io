@@ -4,14 +4,18 @@ date: 2024-02-01
 excerpt: With the regularity of wildfires in the United States, how might we co-exist and continue living as usual with our Environment?
 tags: [physical prototype, ux research, ux design]
 image: https://res.cloudinary.com/digifab/image/upload/v1739958795/portfolio/home-assets-2-AQI_1_pafon0.png
-imageCover: https://res.cloudinary.com/digifab/image/upload/v1746042541/portfolio/project-head-assets-2-AQI_cpkshq.png
+imageCover: https://res.cloudinary.com/digifab/image/upload/v1746043248/portfolio/aqi/project-head-assets-2-AQI_dupgk4.png
 client: "518"
 role: [UX Researcher, Accessible storyboards]
 project: "HCDE 518"
 specs: ["October-December 22", "Figma"]
 team: ["celina garcia", "chloe reibold", "flo truong", "layal al-shaba"]
 order: 3
-draft: true
+draft: false
+summary: |
+  In October 2022, Seattle's AQI plunged to an unsettling score of 168, ranking the worst in the world. Over the course of a few months, the region experienced hazardous air, disrupting everyday activities and affecting the health of residents. As fire season continues to plague the western region of the United States year after year, we felt compelled to explore the more immediate future of living in this environmental situation.
+
+  The project prompted more exploratory design solutions, but given the results of our research, we pivoted from our initial design question to "How might we inform people of the effects of poor air quality, and influence their behavior to mitigate exposure"? something that educated and informed residents that find themselves living in calamity. Our final deliverable is 3 part air quality system that the City of Seattle, focusing on a physical prototype. It consists of an Air Quality Station, an alert system, and a reimagining of visualizations used in the air quality rating.
 ---
 
 import {
@@ -21,10 +25,6 @@ import {
   Spacer,
   SectionDivider,
 } from "../../components";
-
-In October 2022, Seattle's AQI plunged to an unsettling score of 168, ranking the worst in the world. Over the course of a few months, the region experienced hazardous air, disrupting everyday activities and affecting the health of residents. As fire season continues to plague the western region of the United States year after year, we felt compelled to explore the more immediate future of living in this environmental situation.
-
-The project prompted more exploratory design solutions, but given the results of our research, we pivoted from our initial design question to "How might we inform people of the effects of poor air quality, and influence their behavior to mitigate exposure"? something that educated and informed residents that find themselves living in calamity. Our final deliverable is 3 part air quality system that the City of Seattle, focusing on a physical prototype. It consists of an Air Quality Station, an alert system, and a reimagining of visualizations used in the air quality rating.
 
 {/* [3d embed of the air station] */}
 
@@ -49,7 +49,7 @@ The project prompted more exploratory design solutions, but given the results of
 
 <Spacer size="xsmall" />
 
-### What is hazardous air?
+#### What is hazardous air?
 
 > The size of the particle is so small, that it can travel deeply into the respiratory tract and reach the lungs.
 
@@ -59,7 +59,7 @@ What makes wildfire smoke dangerous is particulate matter 2.5 (PM2.5), tiny part
 
 <Spacer size="xsmall" />
 
-### Who does this affect anyway?
+#### Who does this affect anyway?
 
 Everyone!
 The most sensitive groups are outdoor workers, pregnant people, those with heart and lung disease, and those over the ages of 65 or under 18.
@@ -68,7 +68,7 @@ However, anyone exposed to this can experience eye, nose, throat and lung irrita
 
 <Spacer size="xsmall" />
 
-### What do Seattle residents know about PM2.5?
+#### What do Seattle residents know about PM2.5?
 
 Given the alarming effects of wildfire smoke, we wanted to know:
 
@@ -83,33 +83,33 @@ We used surveys to quickly gather data on beliefs, sentiments, actions and knowl
 
 ## Findings
 
-### The effects of wildfire smoke are misunderstood and underestimated.
+#### The effects of wildfire smoke are misunderstood and underestimated.
 
 Based on our research, there are differing opinions and behaviors when it came to smoke season. When it came down to how deeply they understood the risks of wildfire smoke, participants often misunderstood or grossly underestimated effects.
 
-<Spacer size="xsmall" />
+<Spacer size="small" />
 
-### People rarely followed strict rules; decisions were contextual (social events vs. personal health)
+#### People rarely followed strict rules; decisions were contextual (social events vs. personal health)
 
 There's no general consensus when it comes to deciding to participate in activities that require consideration for air quality.
 
 Some base their decisions on features of the api system like seeing the word "unhealthy" on the weather apps, or seeing the color of the AQI meter, or simply judging by looking outside.
 
-<Spacer size="xsmall" />
+<Spacer size="small" />
 
-### Visual cues like AQI color scales and outdoor visibility often dictated behavior
+#### Visual cues like AQI color scales and outdoor visibility often dictated behavior
 
 Most survey respondents reported participating in outdoor activities at least several times a week, and consider themselves to be health conscious. However, we found that education on hazardous air was not clear to them. From not knowing who to trust as a source (most check weather apps, followed by news or a friend, and government communication), to what thresholds influence whether they decide to be exposed are not are a mixed bag.
 
-<Spacer size="xsmall" />
+<Spacer size="small" />
 
-### Pivoting our design question:
+#### Pivoting our design question:
 
 Given the lack of clear official resource and the lack of knowledge residents have on AQI, we pivoted our design question from something that was a bit more speculative into something that could be implemented in the medium term.
 
-<Spacer size="xsmall" />
+<Spacer size="small" />
 
-### Rather than a persona, a mindset
+#### Rather than a persona, a mindset
 
 [empiric] [rationalist] [impressionable]
 For this project, we found that persona's were not the best way to describe residents. When probed about their mask wearing behaviors or their considerations on when they could be exposed to hazardous air, they would react to the circumstance vs. follow the strict guidelines. Most participants when describing their decision making process, shift between one or more personas, compromising to meet social demands (e.g. friends visiting) or personal goals (hiking without a mask), despite describing themselves as health conscious.
@@ -119,7 +119,9 @@ For this project, we found that persona's were not the best way to describe resi
 
 ## the solution: 3-part air quality system
 
-### imagine this...
+##### Imagine this...
+
+Take a listen to any of the audio storyboards of the situation below that I made.
 
 <AudioPlayer />
 
@@ -129,7 +131,7 @@ Given the lack of knowledge around air quality, we chose to create a 3-part syst
 
 <Spacer size="xsmall" />
 
-### how it works
+## User flow
 
 <FigmaEmbed
   url="https://www.figma.com/proto/EXxD7yGYL7zjq8NKxhBhvF/Prototyping?node-id=258-790&t=NS2BhPjfASjBz6fA-1"
@@ -137,10 +139,10 @@ Given the lack of knowledge around air quality, we chose to create a 3-part syst
 />
 <Spacer size="xsmall" />
 
-### Air station
+#### air station
 
 <ImageTextLayout 
-imageUrl='https://res.cloudinary.com/digifab/image/upload/v1740497578/portfolio/bodyBreak-prototype_Large_tzt3ns.jpg'
+imageUrl='https://res.cloudinary.com/digifab/image/upload/v1740497578/portfolio/aqi/bodyBreak-prototype_Large_tzt3ns.jpg'
   alt="Air Quality Station in a downtown area"
   width={600}
   height={800}
@@ -160,7 +162,7 @@ imageUrl='https://res.cloudinary.com/digifab/image/upload/v1740497578/portfolio/
 
 <Spacer size="xsmall" />
 
-### Texts and alerts
+#### texts and alerts
 
 A text-based notification service delivering real-time air quality updates and personalized alerts.
 
@@ -168,7 +170,9 @@ A text-based notification service delivering real-time air quality updates and p
 - Emergency alerts sent automatically when AQI exceeds 150.
 - **Rationale:** Text messages ensure inclusivity, reaching people without smartphones or reliable internet access.
 
-### Educational website
+<Spacer size="small" />
+
+#### educational website
 
 A central hub for air quality resources, including:
 
@@ -179,16 +183,18 @@ A central hub for air quality resources, including:
 
 <SectionDivider type="dots" label=" " color="#0056b3" />
 
-### prototyping and testing
+## Iterations
 
-![three iterations of the physical prototype](https://res.cloudinary.com/digifab/image/upload/v1740493536/portfolio/home-assets-6s_hhmi49.png)
-
-<Spacer size="xsmall" />
+#### prototyping and testing
 
 - Built and tested three iterations of the Air Quality Station with users.
 - Conducted usability tests for the SMS system and website with 6 participants.
 
-### reworking the visualization of air quality
+![three iterations of the physical prototype](https://res.cloudinary.com/digifab/image/upload/v1740493536/portfolio/aqi/home-assets-6s_hhmi49.png)
+
+#### reworking the visualization of air quality
+
+<Spacer size="small" />
 
 ![reworked air quality visualizations with color palette](https://res.cloudinary.com/digifab/image/upload/v1740496078/portfolio/home-assets-7_slwqhq.png)
 
@@ -196,7 +202,7 @@ Many participants reported using at-a-glance judgement make decisions, and this 
 
 <SectionDivider type="dots" label=" " color="#0056b3" />
 
-### Key Results
+## Key Results
 
 1. Increased Awareness: Over 80% of users reported learning new health risks related to air quality.
 2. Behavior Change: Testing participants said they were more likely to wear masks and adjust outdoor plans based on the system’s information.
@@ -206,7 +212,7 @@ Many participants reported using at-a-glance judgement make decisions, and this 
 
 <SectionDivider type="dots" label=" " color="#0056b3" />
 
-### Takeaways
+## Takeaways
 
 - Iterate with Purpose: Testing early and often helped us refine our designs to better align with user needs.
 - Adaptability is Key: The pivot in our design question was a turning point, enabling us to address the root cause of behavior.
