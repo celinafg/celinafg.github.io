@@ -45,9 +45,8 @@ const cssVars = Object.entries(themeVars)
       {
         isProject ? (
           <>
-            <a href="/" class="heading-mono back-link mobile-only">
-              {" "}
-              ← home{" "}
+            <a href="/" class="back-links mobile-only">
+              ← home
             </a>
           </>
         ) : (
@@ -65,11 +64,7 @@ const cssVars = Object.entries(themeVars)
 </html>
 
 <style is:global>
-  .mobile-only {
-    display: none;
-  }
-
-  .back-link {
+  .back-links {
     position: fixed;
     background-color: #d5f3d5;
     top: 4;
@@ -78,10 +73,11 @@ const cssVars = Object.entries(themeVars)
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    display: none;
   }
 
   @media (max-width: 768px) {
-    .mobile-only {
+    .back-links {
       display: block;
     }
   }
