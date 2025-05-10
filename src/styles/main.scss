@@ -11,18 +11,19 @@
 @layer components {
   @include meta.load-css("buttons");
   @include meta.load-css("responsive-tables");
+  @include meta.load-css("experiments");
 }
 
 :root {
   --theme-home: rgba(167, 255, 131, 0.8);
   --theme-about: rgba(224, 236, 255, 0);
   --theme-feed: rgba(253, 179, 166, 0.478);
-  --theme-playground: rgba(214, 161, 255, 0.445);
+  --theme-experiments: rgba(214, 161, 255, 0.445);
 
   --theme-home-rgb: 167, 255, 131;
   --theme-about-rgb: 157, 193, 255;
   --theme-feed-rgb: 253, 179, 166;
-  --theme-playground-rgb: 214, 161, 255;
+  --theme-experiments-rgb: 214, 161, 255;
 
   --theme-current: var(--theme-home);
   --theme-current-rgb: var(--theme-home-rgb);
@@ -49,9 +50,9 @@
   --theme-current-rgb: var(--theme-feed-rgb);
 }
 
-.theme-playground {
-  --theme-current: var(--theme-playground);
-  --theme-current-rgb: var(--theme-playground-rgb);
+.theme-experiments {
+  --theme-current: var(--theme-experiments);
+  --theme-current-rgb: var(--theme-experiments-rgb);
 }
 
 /* Layout Utilities */
@@ -61,7 +62,6 @@
   max-width: 204ch;
   margin: 0 auto;
   position: relative;
-  padding: 3rem 0;
 }
 
 .content-section {

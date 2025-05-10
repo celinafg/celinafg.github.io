@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import { generateThemeVars, getThemeName } from "../utils/themes";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+
 const {
   image,
   title = SITE_TITLE,
@@ -12,12 +13,19 @@ const {
   includeSidebar = true,
   sideBarActiveItemID,
   ogType,
-  isProject = false,
+  pageType = "standard",
   withCont = true,
   currentSlug = "",
-
   withDiagonalLines = true,
 } = Astro.props;
+
+const { isProject, ...otherProps } = Astro.props;
+const finalPageType =
+  typeof pageType === "string"
+    ? pageType
+    : isProject === true
+      ? "page"
+      : "standard";
 
 const currentPath = Astro.url.pathname;
 const themeName = getThemeName(currentPath);
@@ -38,23 +46,25 @@ const cssVars = Object.entries(themeVars)
   </head>
 
   <body
-    class=` theme-${themeName} min-h-screen bg-gradient flex flex-col bg ${withCont ? 'cont' : ''} border with-lines`
+    class=`theme-${themeName} min-h-screen bg-gradient flex flex-col bg ${withCont ? 'cont' : ''} border with-lines page-type-${finalPageType}`
     style={cssVars}
   >
-    <header class=``>
+    <header class="">
       {
-        isProject ? (
+        finalPageType === "page" ? (
           <>
             <a href="/" class="back-links mobile-only">
               ← home
             </a>
           </>
         ) : (
-          <Header currentPath={currentPath} />
+          <Header currentPath={currentPath} pageType={pageType} />
         )
       }
     </header>
-    <main class=`${withDiagonalLines ? 'with-lines' : 'white-bg'}`>
+    <main
+      class=`${withDiagonalLines ? 'with-lines' : 'white-bg'} ${finalPageType === 'experiment' ? 'experiment-layout' : ''}`
+    >
       <slot />
     </main>
     <footer class="border-t border-b">
@@ -81,9 +91,11 @@ const cssVars = Object.entries(themeVars)
       display: block;
     }
   }
+
   .white-bg {
     background-color: #ffffff !important;
   }
+
   .theme-home,
   .theme-about,
   .theme-feed,

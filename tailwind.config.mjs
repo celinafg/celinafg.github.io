@@ -13,7 +13,7 @@ module.exports = {
           home: themeConfig.themes.home.color.hex,
           about: themeConfig.themes.about.color.hex,
           feed: themeConfig.themes.feed.color.hex,
-          playground: themeConfig.themes.playground.color.hex,
+          experiments: themeConfig.themes.experiments.color.hex,
         },
 
         // Base colors

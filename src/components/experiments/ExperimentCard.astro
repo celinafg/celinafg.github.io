@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  experiment: CollectionEntry<"experiments">;
+  isActive?: boolean;
+}
+
+const { experiment, isActive = false } = Astro.props;
+const isThreeJS = experiment.data.type === "threejs";
+---
+
+<div
+  class:list={["experiment-card", { active: isActive }]}
+  data-slug={experiment.slug}
+  data-title={experiment.data.title}
+  data-type={experiment.data.type}
+  data-project-url={isThreeJS ? experiment.data.githubUrl : undefined}
+>
+  <div class="card-inner">
+    {
+      experiment.data.imageCover ? (
+        <img
+          src={experiment.data.imageCover}
+          alt={experiment.data.title}
+          loading="lazy"
+        />
+      ) : (
+        <div class="text-preview">
+          <h3>{experiment.data.title}</h3>
+          {isThreeJS && <span class="threejs-badge">Three.js</span>}
+        </div>
+      )
+    }
+  </div>
+</div>

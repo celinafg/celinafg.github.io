@@ -1,6 +1,6 @@
 import themeConfig from "../config/themes.json";
 
-type ThemeName = "home" | "about" | "feed" | "playground";
+type ThemeName = "home" | "about" | "feed" | "experiments";
 
 export const generateThemeVars = (themeName: ThemeName) => {
   const theme = themeConfig.themes[themeName];
@@ -46,7 +46,7 @@ export const getThemeName = (path: string): ThemeName => {
   if (path === "/") return "home";
   if (path.startsWith("/about")) return "about";
   if (path.startsWith("/feed")) return "feed";
-  if (path.startsWith("/playground")) return "playground";
+  if (path.startsWith("/experiments")) return "experiments";
   return "home";
 };
 

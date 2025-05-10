@@ -24,16 +24,16 @@ const links: NavLink[] = [
   //   theme: "feed",
   // },
   // {
-  //   href: "/playground/",
-  //   label: "/playground/",
-  //   color: themeConfig.themes.playground.color.rgba,
-  //   theme: "playground",
+  //   href: "/experiments/",
+  //   label: "/experiments/",
+  //   color: themeConfig.themes.experiments.color.rgba,
+  //   theme: "experiments",
   // },
 ];
 ---
 
 <nav id="header" class="border-t border-b">
-  <div class="nav-container">
+  <div class:list={["nav-container"]}>
     {
       links.map((link) => (
         <a
@@ -52,8 +52,6 @@ const links: NavLink[] = [
 <style>
   .nav-container {
     background-color: #ffffff;
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
     display: flex;
     min-width: inherit;
     height: 20vh;
@@ -99,8 +97,8 @@ const links: NavLink[] = [
   .theme-feed::after {
     background-color: var(--theme-feed-rgb);
   }
-  .theme-playground::after {
-    background-color: var(--theme-playground-rgb);
+  .theme-experiments::after {
+    background-color: var(--theme-experiments-rgb);
   }
 
   .nav-link[aria-current="page"] {
@@ -135,9 +133,9 @@ const links: NavLink[] = [
     box-shadow: 0 0 12px rgba(var(--theme-feed-rgb), 0.4);
   }
 
-  .theme-playground[aria-current="page"]::before {
-    background-color: rgb(var(--theme-playground-rgb));
-    box-shadow: 0 0 12px rgba(var(--theme-playground-rgb), 0.4);
+  .theme-experiments[aria-current="page"]::before {
+    background-color: rgb(var(--theme-experiments-rgb));
+    box-shadow: 0 0 12px rgba(var(--theme-experiments-rgb), 0.4);
   }
 
   @media (max-width: 768px) {
@@ -149,6 +147,14 @@ const links: NavLink[] = [
 
     .nav-link {
       margin-right: 0;
+    }
+
+    /* Override page type padding on mobile */
+    .page-type-home,
+    .page-type-about,
+    .page-type-experiments,
+    .page-type-feed {
+      padding-left: var(--spacing-unit);
     }
   }
 </style>

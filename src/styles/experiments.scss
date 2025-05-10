@@ -1,0 +1,139 @@
+// src/styles/experiments.scss
+
+// Layout styles
+.experiments-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+// Content panel on the left
+.content-panel {
+  flex: 0 0 40%;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 2rem;
+  background-color: #170d0d;
+  border-right: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+
+.content-wrapper {
+  padding-top: 50px;
+  max-width: 100%;
+}
+
+#experimentTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-body {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+// Experiments grid on the right
+.experiments-grid-container {
+  flex: 0 0 60%;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.experiments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  padding-top: 50px;
+}
+
+.experiment-card {
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  min-height: 200px; /* Add minimum height */
+  margin-bottom: 1rem; /* Ensure space between cards */
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.experiment-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.experiment-card:hover img {
+  transform: scale(1.05);
+}
+
+.text-preview {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #e0e0e0;
+  text-align: center;
+}
+
+.threejs-badge {
+  background-color: #222;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.experiment-card.active {
+  border: 2px solid #000;
+}
+
+/* Ensure the container takes full width */
+.experiments-layout,
+.content-panel,
+.experiments-grid-container {
+  width: 100%;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .experiments-layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .content-panel {
+    flex: 0 0 auto;
+    position: relative;
+    height: auto;
+    min-height: 50vh;
+    width: 100%;
+  }
+
+  .experiments-grid-container {
+    flex: 0 0 auto;
+    width: 100%;
+    max-height: none;
+  }
+}

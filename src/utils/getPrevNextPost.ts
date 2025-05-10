@@ -1,11 +1,11 @@
 import type { CollectionEntry } from "astro:content";
 
 export function getPrevNextPost(
-  allProjects: CollectionEntry<"projects">[],
+  allProjects: CollectionEntry<"projects">[] | CollectionEntry<"experiments">[],
   currentSlug: string
 ): {
-  prev: CollectionEntry<"projects"> | null;
-  next: CollectionEntry<"projects"> | null;
+  prev: CollectionEntry<"projects"> | CollectionEntry<"experiments"> | null;
+  next: CollectionEntry<"projects"> | CollectionEntry<"experiments"> | null;
 } {
   const sortedPosts = [...allProjects].sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()

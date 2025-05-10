@@ -9,13 +9,13 @@ import { PrevNext } from "../../components";
 import Layout from "../../layouts/Layout.astro";
 
 export const getStaticPaths = (async () => {
-  const allProjects = await getCollection("projects");
+  const allExperiments = await getCollection("experiments");
 
-  const filteredProjects = import.meta.env.PROD
-    ? allProjects.filter((project) => !project.data.draft)
-    : allProjects;
+  const filteredExperiments = import.meta.env.PROD
+    ? allExperiments.filter((experiment) => !experiment.data.draft)
+    : allExperiments;
 
-  return filteredProjects.map((entry, i) => ({
+  return filteredExperiments.map((entry, i) => ({
     params: { slug: entry.slug },
     props: {
       entry,
@@ -25,11 +25,11 @@ export const getStaticPaths = (async () => {
 
 const { entry } = Astro.props;
 const { slug } = Astro.params;
-const allProjects = await getCollection("projects");
+const allExperiments = await getCollection("experiments");
 
 const { Content, headings } = await entry.render();
 
-const { prev, next } = getPrevNextPost(allProjects, slug);
+const { prev, next } = getPrevNextPost(allExperiments, slug);
 
 interface Heading {
   depth: number;
@@ -60,7 +60,7 @@ function groupHeadingsByHierarchy(headings: Heading[]): GroupedHeading[] {
 const groupedHeadings = groupHeadingsByHierarchy(headings);
 ---
 
-<Layout withDiagonalLines={false} withCont={false} type="project">
+<Layout withDiagonalLines={false} withCont={false} type="experiment">
   <div>
     {
       entry.data.imageCover && (
@@ -93,7 +93,7 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
                   entry.data.role && (
                     <div class="meta-block">
                       <h2 class="section-title">My Role</h2>
-                      {entry.data.role.map((role) => (
+                      {entry.data.role.map((role: string[]) => (
                         <p class="role">{role}</p>
                       ))}
                     </div>
@@ -101,7 +101,7 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
                 }
 
                 {
-                  entry.data.project && (
+                  entry.data.experiment && (
                     <div class="meta-block fade-in" style="--delay: 0.2s">
                       <h2 class="section-title">Project</h2>
                       <p>{entry.data.project}</p>
@@ -112,7 +112,7 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
                   entry.data.specs && (
                     <div class="meta-block fade-in" style="--delay: 0.3s">
                       <h2 class="section-title">Specs</h2>
-                      {entry.data.specs.map((spec) => (
+                      {entry.data.specs.map((spec: string[]) => (
                         <p class="role">{spec}</p>
                       ))}
                     </div>
@@ -127,9 +127,11 @@ const groupedHeadings = groupHeadingsByHierarchy(headings);
                     style="--delay: 0.4s"
                   >
                     <h2 class="section-title">Summary</h2>
-                    {entry.data.summary.split("\n\n").map((paragraph) => (
-                      <p>{paragraph}</p>
-                    ))}
+                    {entry.data.summary
+                      .split("\n\n")
+                      .map((paragraph: string[]) => (
+                        <p>{paragraph}</p>
+                      ))}
                   </div>
                 )
               }

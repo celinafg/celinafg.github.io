@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ExperimentCard from "./ExperimentCard.astro";
+
+export interface Props {
+  experiments: CollectionEntry<"experiments">[];
+  activeSlug?: string;
+}
+
+const { experiments, activeSlug } = Astro.props;
+---
+
+<div class="experiments-grid" id="experimentsGrid">
+  {
+    experiments.map((experiment) => (
+      <ExperimentCard
+        experiment={experiment}
+        isActive={activeSlug === experiment.slug}
+      />
+    ))
+  }
+</div>

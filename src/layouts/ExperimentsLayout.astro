@@ -1,0 +1,172 @@
+---
+import "../styles/main.scss";
+import { generateThemeVars, getThemeName } from "../utils/themes";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  currentSlug = "",
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const themeName = getThemeName(currentPath);
+const themeVars = generateThemeVars(themeName);
+const cssVars = Object.entries(themeVars)
+  .map(([key, value]) => `${key}: ${value}`)
+  .join(";");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+
+  <body class=`theme-${themeName} min-h-screen bg-gradient` style={cssVars}>
+    <!-- Compact Experiments Header -->
+    <header class="experiments-header">
+      <a href="/" class="header-logo">Celina Garcia</a>
+      <nav class="header-nav">
+        <a
+          href="/"
+          class="nav-link"
+          aria-current={currentPath === "/" ? "page" : undefined}
+          data-theme="home"
+        >
+          /home/
+        </a>
+        <a
+          href="/about/"
+          class="nav-link"
+          aria-current={currentPath === "/about/" ? "page" : undefined}
+          data-theme="about"
+        >
+          /about/
+        </a>
+        <a
+          href="/experiments/"
+          class="nav-link"
+          aria-current={currentPath.includes("/experiments/") ||
+          currentPath.includes("/experiments/")
+            ? "page"
+            : undefined}
+          data-theme="experiments"
+        >
+          /experiments/
+        </a>
+      </nav>
+    </header>
+
+    <main class="experiments-container">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  /* Experiments-specific styling */
+  .experiments-header {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20; /* Higher z-index to stay above sidebar */
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(214, 161, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.03);
+  }
+
+  .header-logo {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .header-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-family: "Space Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  .nav-link[aria-current="page"] {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .nav-link[aria-current="page"]::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--theme-current);
+    box-shadow: 0 0 8px var(--theme-current);
+  }
+
+  .experiments-container {
+    width: 100%;
+    /* margin-top: 50px; */
+    min-height: calc(100vh - 50px);
+    position: relative;
+  }
+
+  /* Theme-specific dot colors */
+  .nav-link[data-theme="home"][aria-current="page"]::before {
+    background-color: rgb(var(--theme-home-rgb));
+    box-shadow: 0 0 8px rgba(var(--theme-home-rgb), 0.4);
+  }
+
+  .nav-link[data-theme="about"][aria-current="page"]::before {
+    background-color: rgb(var(--theme-about-rgb));
+    box-shadow: 0 0 8px rgba(var(--theme-about-rgb), 0.4);
+  }
+
+  .nav-link[data-theme="experiments"][aria-current="page"]::before {
+    background-color: rgb(var(--theme-experiments-rgb));
+    box-shadow: 0 0 8px rgba(var(--theme-experiments-rgb), 0.4);
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 600px) {
+    .experiments-header {
+      padding: 0 1rem;
+    }
+
+    .header-nav {
+      gap: 1rem;
+    }
+
+    .nav-link {
+      font-size: 0.8rem;
+    }
+  }
+</style>

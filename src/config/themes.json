@@ -36,8 +36,8 @@
         "secondary": "rgba(253, 179, 166, 0.05)"
       }
     },
-    "playground": {
-      "name": "playground",
+    "experiments": {
+      "name": "experiments",
       "color": {
         "hex": "#ecd2ffdb",
         "rgb": "236, 210, 255",

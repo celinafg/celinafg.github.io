@@ -1,9 +1,13 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { generateThemeVars, getThemeName } from "../utils/themes";
+
+const currentPath = Astro.url.pathname;
+const themeName = getThemeName(currentPath);
 
 interface Props {
-  prev: CollectionEntry<"projects"> | null;
-  next: CollectionEntry<"projects"> | null;
+  prev: CollectionEntry<"projects"> | CollectionEntry<"experiments"> | null;
+  next: CollectionEntry<"projects"> | CollectionEntry<"experiments"> | null;
 }
 
 const { prev, next } = Astro.props;
@@ -13,7 +17,7 @@ const { prev, next } = Astro.props;
   <div class="prev-next-container">
     {
       prev && (
-        <a href={`/projects/${prev.slug}`} class="nav-card prev-post">
+        <a href={`/${themeName}/${prev.slug}`} class="nav-card prev-post">
           <div class="nav-content">
             <span class="nav-arrow">←</span>
             <div class="nav-text">
