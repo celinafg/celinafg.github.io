@@ -107,10 +107,6 @@ const experiments = import.meta.env.PROD
       margin: 3rem 0 2rem;
     }
 
-    .header-title {
-      font-size: 1.75rem;
-    }
-
     .gallery-grid {
       column-count: 2;
     }
@@ -119,6 +115,10 @@ const experiments = import.meta.env.PROD
   @media (max-width: 480px) {
     .gallery-grid {
       column-count: 1;
+    }
+
+    .header-title {
+      height: auto;
     }
   }
 </style>
