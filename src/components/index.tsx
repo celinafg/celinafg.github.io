@@ -13,3 +13,8 @@ export { default as BeforeAfterSlider } from "./ImageSlider.astro";
 export { default as ImageCarousel } from "./ImageCarousel.astro";
 export { default as PrevNext } from "./PrevNext.astro";
 export { default as CallOut } from "./CallOut.astro";
+export { default as Tags } from "./Tags.astro";
+
+export { default as GalleryGrid } from "./GalleryGrid.astro";
+
+export { default as Modal } from "./Modal.astro";

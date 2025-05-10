@@ -1,0 +1,51 @@
+---
+const { experiment, index } = Astro.props;
+---
+
+<div
+  class="gallery-item"
+  data-experiment-index={index}
+  data-tags={JSON.stringify(experiment.data.tags || [])}
+>
+  <div class="item-inner">
+    {
+      experiment.data.imageCover && (
+        <img
+          src={experiment.data.imageCover}
+          alt={experiment.data.title}
+          loading="lazy"
+          class="gallery-image"
+        />
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover {
+    opacity: 0.85;
+  }
+
+  .gallery-item.hidden {
+    display: none;
+  }
+
+  .item-inner {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0px;
+  }
+</style>
