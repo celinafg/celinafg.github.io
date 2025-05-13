@@ -31,10 +31,10 @@ const { prev, next } = Astro.props;
 
     {
       next && (
-        <a href={`/projects/${next.slug}`} class="nav-card next-post">
+        <a href={`/${themeName}/${next.slug}`} class="nav-card next-post">
           <div class="nav-content">
             <div class="nav-text">
-              <span class="nav-label">Next Project</span>
+              <span class="nav-label">Next {themeName}</span>
               <span class="post-title">{next.data.title}</span>
             </div>
             <span class="nav-arrow">→</span>

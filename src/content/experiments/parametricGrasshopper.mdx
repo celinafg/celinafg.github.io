@@ -1,0 +1,92 @@
+---
+title: "Parametric containers"
+description: "Designing and lasercutting parametric bowls to scale at any size"
+pubDate: "Apr 10 2024"
+imageCover: "https://res.cloudinary.com/digifab/image/upload/v1713996675/digital-fab/a2/bowl_uclrcx.jpg"
+sourcefile: "https://res.cloudinary.com/digifab/raw/upload/v1713996672/digital-fab/a2/assign2waffle_smtzbp.gh"
+tags:
+  [
+    grasshopper,
+    lasercutting,
+    3d design,
+    physical prototyping,
+    digital fabrication,
+  ]
+---
+
+## Design Requirements
+
+1. Must be parametric (use grasshopper)
+2. Parts should clip together and connect to other pieces without the use of glue or fasteners
+3. Allow varying thickness of materials
+4. Laser cut at least 30 parts
+
+The assignmet this week was to learn and explore rhino and grasshopper. After last weeks assignment, watching over 3 hours of _ basic _ rhino tutorials (which don't seem to exist), I strategized this weeks assignment by looking for a grasshopper tutorial then applying those steps to a similar idea of my own.
+
+## Research and Design ideas
+
+### Modeling (and tears...)
+
+I watched the following tutorials (<cite>[^1]</cite>, <cite>[^2]</cite>, <cite>[^3]</cite>, <cite>[^4]</cite>, <cite>[^5]</cite>, <cite>[^6]</cite>, <cite>[^7]</cite>, <cite>[^8]</cite>), I wanted to recreate a project I had done before in school, where we made a life-size chair "ergonomic" chair that we made out of cardboard that should ideally hold the weight of a person without using screws / fasteners, and be made to specifically fit my body/height. I initally wanted to recreate a miniature version of the cardboard chair but with a "wave" effect, but I ran into multiple issues with the software.
+
+[^1]: wood bowl waffle_rhino grasshopper [tutorial](https://www.youtube.com/watch?v=tx5fwsjF65A)
+[^2]: Layout Lasercut Sheets with Grasshopper [tutorial](https://www.youtube.com/watch?v=Js7OpOuQLk8&t=30s)
+[^3]: Grasshopper Waffle Script [tutorial](https://www.youtube.com/watch?v=gmsrgbPTmjQ&t=337s)
+[^4]: Grasshopper Waffle Script [tutorial](https://www.youtube.com/watch?v=v9EwZLVIWsQ&t=307s)
+[^5]: Grasshopper Waffle Script [tutorial](https://www.youtube.com/watch?v=KtKNuogoYKc&t=1080s)
+[^6]: Grasshopper Waffle Script [tutorial](https://www.youtube.com/watch?v=_UdUZMeCScE&t=295s)
+[^7]: Grasshopper Waffle Script [tutorial](https://www.youtube.com/watch?v=H622kgtJ-tw&t=223s)
+[^8]: Grasshopper Waffle Script [tutorial](https://www.youtube.com/watch?v=9_SOHg3dmu0)
+
+![image](https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/2A18E5FB-FDE7-4E37-8B1B-FFA74A31FE45/78A70077-8EE5-4397-843E-F083BFA06BB6_2/LCJk6zrTx0kWMckklZbuIPuVGD1t1tKG5RNDyZF4cX8z/img_4591_27489267091_o.jpeg)
+
+I wanted to use the "waffle" effect, where you could have any shape and basically connect them to fit together. I wanted to start out with something simple, and see if it would work. I thought I was on the right track until I tried applying the grasshopper script to the shape.
+
+![image](https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/2A18E5FB-FDE7-4E37-8B1B-FFA74A31FE45/4CF2F5DE-9E9A-4A80-AC58-775F3ECCB1BF_2/wm0Sw7fbxImh7ScmwLGmy3TesuBwRgRgAf0wKDXz0nAz/Screenshot%202024-04-07%20at%2010.58.44PM.png)
+
+This was the chair I was trying to project the grasshopper script to. I thought it was "simple" untile I tried replacing sphere in grasshopper with this closed solid polysurface. My recipe didn't end up working and I could figure out how to convert a polysurface to a regular surface (like the sphere). I went down a long rabbit hole of attempting convert it, but with the stress and timing, I couldn't figure it out.
+
+![image](https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/2A18E5FB-FDE7-4E37-8B1B-FFA74A31FE45/DC88A3D9-BA0F-4677-B0ED-5978FE034152_2/WUhpwliykJO2vR2C5IS02LGQ9wSaHE9SmzDZf2rGIaAz/Screenshot%202024-04-10%20at%203.15.51PM.png)
+
+After a few _hours_ and multiple tutorials where I just watch people click icons on rhino and grasshopper, I ended up pivoting and simplifying what I wanted to do. At this point, I sort of had the waffle set up, it just didn't really work on the shapes I didn't know how to work on. I attempted to print this shape even with the grasshopper file not being 100% working, and I faced a LOT of issues. I wasn't able to take a photo of the inital prints of this mini-chair, but they came out SO mall!
+
+> Don't export SVGs from grasshopper! You WILL regret it!
+
+Every time I tried exporting this chair and setting the mm in grasshopper, the svgs were coming out extremely small, and if I resized them in illustrator... well what was the point of parametric design if I had to do that? After frustration and multiple attemtpts I ended up abandoning this shape and just try and get the waffle effect. I had done so much work on the waffle model that I couldn't abandon it at this point, and I was (stupidly) determined to make it work.
+
+I watched over 5 tutorials on waffle structures, and finally was able to implement one. I was worried about running out of cardboard so I kept it small. This was a sample of how it looked in Rhino:
+
+![image](https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/2A18E5FB-FDE7-4E37-8B1B-FFA74A31FE45/4918D1FE-59AC-4F19-B016-03C61E35CFDD_2/F4u5NirkLsOrv7cYTN1aPZvExdYAhVjJPZNrv0KQUq8z/Screenshot%202024-04-10%20at%203.22.41PM.png)
+
+With that finally settled, I decided to attempt the print once again! (BONUS: my file naming after I realized Rhino doesn't auto-save)
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1713996677/digital-fab/a2/file_kdyuqh.png)
+
+### Printing (round 2)
+
+I thought I was off the hook from getting the dimensions wrong on grasshopper. Until i tried printing this, and it came out MINIATURE again! So frustrating! After multiple attempts at "reworking" the model, flo found out that svgs exported from rhino sometimes change dimensions when there are extra objects in the frame. One of the forums she found mentioned exporting to pdf to preserve dimensions, and that exporting svgs from rhino was generally not great. Lots of people with this issue. So, in desperation I did export it as pdf.
+
+![image](https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/2A18E5FB-FDE7-4E37-8B1B-FFA74A31FE45/4B7937BF-0EE7-4EC3-B43E-7526392451CD_2/9uVusugIZ7Lo4BPGECEOUzYlO3S9egKN7QmHe4uQA3kz/Screenshot%202024-04-09%20at%204.52.21PM.png)
+
+I didn't realize how complicated it would be to remember which piece had to go where, but I went to print it anyway. It finally came out as expected! Yay! (_tears_)
+
+![image](https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/2A18E5FB-FDE7-4E37-8B1B-FFA74A31FE45/FC2DAC7C-AC0A-4A59-90EB-807458527B2D_2/WWvxDnH2W2ROzaBSZAuzihmEpqgjd5PkSPzyKa9JOdUz/IMG_1221.jpeg)
+
+The first join was loose. If I shook it a little, it came off. I was thinking about scaling the slots down a bit (this was already set at 2.5mm the size of my cardboard material), but after my multiple experiments with the tiny chair that failed, I figured that the characteristic of cardboard not being stiff enough to hold a tight join, it would be fine.
+
+### Assembling the print
+
+![image](https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/2A18E5FB-FDE7-4E37-8B1B-FFA74A31FE45/06104CA2-71E9-4685-900E-D17C84BC11D2_2/pIl8gRQm7a6VytDBN7ncb8p5eynxky077GWQHNy4Q0wz/IMG_1230.jpeg)
+
+I forgot it would matter what order i slot them together. I laid them out on the floor and just eyeballed which came first. It took some time to assemble, but my hypothesis turned out too be true. By the time I was assembling the parts near the edge, it became harder to fit the cardboard pieces together. Multiple cardboard pieces slotted together take up more space - which I realize for this kind of shape wood would have been a better and more predictable option.
+
+## Final Result
+
+![image](https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/2A18E5FB-FDE7-4E37-8B1B-FFA74A31FE45/E75A1422-B8CC-4AC5-A350-A5F29D07DE8A_2/yDmaRvCuIxyyXqnPmyEqDuU5WoFnAMqQGOgoSW2dbfIz/IMG_1244.jpeg)
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1713996679/digital-fab/a2/keys_kvnzpe.jpg)
+
+### Shout outs
+
+- Should out to flo for moral support and answering everytime I asked if she set her mm size in grasshopper
+- Shout out to the people in the mill! Someone gave me advice on using my pdf export in ai and I didn't have to cry over the resized svg again

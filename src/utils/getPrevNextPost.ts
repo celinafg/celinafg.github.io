@@ -7,7 +7,9 @@ export function getPrevNextPost(
   prev: CollectionEntry<"projects"> | CollectionEntry<"experiments"> | null;
   next: CollectionEntry<"projects"> | CollectionEntry<"experiments"> | null;
 } {
-  const sortedPosts = [...allProjects].sort(
+  const nonDraftPosts = [...allProjects].filter((post) => !post.data.draft);
+
+  const sortedPosts = nonDraftPosts.sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
   );
 

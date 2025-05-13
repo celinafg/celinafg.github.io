@@ -6,38 +6,1344 @@ imageCover: https://res.cloudinary.com/digifab/image/upload/v1746795696/portfoli
 tags: [physical prototyping, hardware, software]
 order: 1
 date: 2023-02-02
+sourcefile: https://github.com/celinafg/tinygg
 ---
 
-Keyboard
+![s](https://res.cloudinary.com/digifab/image/upload/v1717028587/digital-fab/a8/Screenshot_2024-05-29_at_5.22.37_PM_tldmy9.png)
+![IMG_1073_Large_cp1o2i](https://res.cloudinary.com/digifab/image/upload/v1715817978/digital-fab/a8/IMG_1073_Large_cp1o2i.jpg)
 
-![pcb with multimeter](https://res.cloudinary.com/digifab/image/upload/v1746792163/portfolio/experiments/keyboard/R0000040_Large_zvoulh.jpg)
+I have really small hands and have developed bad wrist pain over recent years despite trying to fix my posture, setup etc. Most mechanical keyboards aren’t really designed for smaller hand sizes like mine. I felt the most pain in-between my pinky and ring finger, which I found was because of how far key travel is. This is what got me into the keyboard hobby, unfortunately.
 
-![pcb in package](https://res.cloudinary.com/digifab/image/upload/v1746792163/portfolio/experiments/keyboard/R0000021_Large_e0bm5r.jpg)
+#### My first keyboard
 
-![pcb on table with nano](https://res.cloudinary.com/digifab/image/upload/v1746792163/portfolio/experiments/keyboard/R0000040_Large_zvoulh.jpg)
+![IMG_2623_a47mbs](https://res.cloudinary.com/digifab/image/upload/v1715818701/digital-fab/a8/IMG_2623_a47mbs.jpg)
+My first keyboard was a ducky shine ii (a very old keyboard!) with a full 108 key layout. This is the keyboard that got me into the hobby and interest in testing out different layouts, switches, and switch weights.
 
-![pcb mockup 3d](https://res.cloudinary.com/digifab/image/upload/v1746791913/portfolio/experiments/keyboard/tinygg_s2dheq.png)
+#### My current keyboard
 
-![testing diodes with multimeter](https://res.cloudinary.com/digifab/image/upload/v1746791920/portfolio/experiments/keyboard/IMG_1577_2_tycbe4.jpg)
+![R0000020_ybux9z](https://res.cloudinary.com/digifab/image/upload/v1715818323/digital-fab/a8/R0000020_ybux9z.jpg)
+(Boba u4t silent switches + DSA keycaps)
 
-![hand placement on pcb](https://res.cloudinary.com/digifab/image/upload/v1746791911/portfolio/experiments/keyboard/2024-05-22-13.30.10.850_sakqxy.jpg)
+This is my current keyboard! It looks goofy but it’s probably one of the things I’d save if my house caught on fire. It’s actually made to my hand size, it’s 3d printed resin and one of the reasons I’m in this class!
 
-![final output of keyboard](https://res.cloudinary.com/digifab/image/upload/v1746791907/portfolio/experiments/keyboard/2024-05-29-21.03.13.133_yijgsp.jpg)
+Unfortunately… I can only use it at home. The material isn’t as sturdy as other easily purchased keyboards, so I really don’t want to transport this around. So… I decided for my final project to create a portable ergo keyboard!
 
-![one half of keyboard without case](https://res.cloudinary.com/digifab/image/upload/v1746791905/portfolio/experiments/keyboard/2024-05-30-10.08.36.390_byk1r2.jpg)
+---
 
-![half of keyboard with case](https://res.cloudinary.com/digifab/image/upload/v1746791904/portfolio/experiments/keyboard/2024-05-30-10.08.37.350_x3mcjk.jpg)
+To get the requirements out of the way, I’ve highlighted the techniques that I used for this project. The rest of this will be a chronological account of building the keyboard.
 
-![bill of materials](https://res.cloudinary.com/digifab/image/upload/v1746794268/portfolio/experiments/keyboard/IMG_1556_Large_ouctgx_vcxbac.jpg)
+## My requirements
 
-![3d render of keyboard case design](https://res.cloudinary.com/digifab/image/upload/v1746703312/portfolio/experiments/keyboard/Screenshot_2024-05-29_at_7.32.55_PM_l6apij_v4ru10.png)
+1. It should “portable”
+2. Wired
+3. Ergo
+4. Sturdy enough to bring around
 
-![pcb editor without errors](https://res.cloudinary.com/digifab/image/upload/v1746703309/portfolio/experiments/keyboard/Screenshot_2024-05-19_at_11.51.38_AM_iylmhm_spmffm.png)
+### Project requirements
 
-![pcb editor with errors](https://res.cloudinary.com/digifab/image/upload/v1746703300/portfolio/experiments/keyboard/Screenshot_2024-05-16_at_11.05.35_PM_ccmggf_ihepeo.png)
+1. Use four of the following:
+   - Laser cutting
+   - <mark>Rhino</mark>
+   - <mark>Grasshopper (kicad in my case)</mark>
+   - CNC milling
+   - <mark>3D printing</mark>
+   - Interference fits (press-fit)
+   - <mark>Incorporating stock parts</mark>
+   - Mold design
+2. Combination of:
+   - <mark>Coherent concept</mark>
+   - Good execution (hopefully)
+   - <mark>2D/3D designs</mark>
+   - <mark>additively fabricated parts</mark>
+   - subtractively fabricated parts
+   - cast parts
+   - high quality finish (hopefully)
 
-![ergogen web page](https://res.cloudinary.com/digifab/image/upload/v1746703303/portfolio/experiments/keyboard/Screenshot_2024-05-15_at_5.32.57_PM_kc8dor_kfuccs.png)
+## Goal
 
-![first design keyboard](https://res.cloudinary.com/digifab/image/upload/v1746703293/portfolio/experiments/keyboard/IMG_1506_iucqss_zg0fhd.jpg)
+- Design and fabricate a keyboard for my hand size
+- Fulfill requirements for the assignment through iterating materials in the process
+- Does not include:
+  - ZMK working config - as long as the keyboard is assembled the project would be “complete”
+- Contingency: keyboard case
 
-![second design of keyboard](https://res.cloudinary.com/digifab/image/upload/v1746703289/portfolio/experiments/keyboard/IMG_1507_hednay_ilkhbm.jpg)
+---
+
+### Inspiration
+
+#### Elora
+
+![Keyboard_3_1050x700](https://splitkb.com/cdn/shop/files/Keyboard_3_1050x700.jpg?v=1702819476)
+
+I was going to buy this keyboard to take around, but like most great keyboards…
+
+![Screenshot_2024-05-15_at_5.26.33_PM_abnjaj](https://res.cloudinary.com/digifab/image/upload/v1715819301/digital-fab/a8/Screenshot_2024-05-15_at_5.26.33_PM_abnjaj.png)
+
+#### So…. DIY?
+
+At first, I was contemplating buying one of the PCBs of kyria v1 (one of their older keyboards) but I came across this video:
+
+![“The REAL Ergonomic Keyboard Endgame!” - How To Design & Make A Totally Custom Keyboard](https://www.youtube.com/watch?v=UKfeJrRIcxw)
+
+The creator used an open-source package called [Ergogen](https://ergogen.xyz/) to generate their own keyboard layout. The output files also generate a PCB file you can open in KiCad to finish routing then send out to have manufactured.
+
+## Designing with Ergogen
+
+[tsteffek/Ergogen-V4-Migration-Guide: Migration guide from Ergogen v3 to v4](https://github.com/tsteffek/Ergogen-V4-Migration-Guide)
+
+So far, I’ve iterated over the shape I want and decided what specs I want my keyboard to have.
+
+![Screenshot_2024-05-15_at_5.32.57_PM_kc8dor](https://res.cloudinary.com/digifab/image/upload/v1715819601/digital-fab/a8/Screenshot_2024-05-15_at_5.32.57_PM_kc8dor.png)
+
+Unsurprisingly, getting the layout was only the start of a lot of googling. I ended up joining their [discord](https://discord.gg/NBZscn53) and I practically lived in that server for two weeks.
+
+As I continued designing the shape of the keyboard, there were some limitations - it was difficult to get the extra parts added to the pcb. Things like the power switch, the microcontroller and the battery dimensions had to be added to the design of the board. So, I ended up installing ergogen locally:
+
+```
+npm i ergogen
+```
+
+Once I installed it, I created a new folder for this project, initialized git, and added the following community created footprints as submodules I could use:
+
+```
+git submodule add git@github.com:infused-kim/kb_ergogen_fp.git ergogen/footprints/infused-kim/
+
+git submodule add https://github.com/ceoloide/ergogen-footprints.git ergogen/footprints/ceoloide
+
+```
+
+Then I created a config.yaml file in the folder project and running:
+
+```
+ergogen . config.yaml
+```
+
+My layout config can be found at the end of this page.
+
+I then used KiCad to view the pcb and start routing. I should probably disclaim this again and say I have no experience whatsoever in electronics… at all. Like zero. Don’t know what a ground and short is. So I decided I would just learn what I needed to get this working.
+
+This was my first layout:
+![Screenshot_2024-05-16_at_10.34.26_PM_h0ckuu](https://res.cloudinary.com/digifab/image/upload/v1716143869/digital-fab/a8/Screenshot_2024-05-16_at_10.34.26_PM_h0ckuu.png)
+To start, I copied someone else’s routing file, and just changed it by adding an extra number row just to get myself started. I was feeling pretty confident until I ran Design Rule Checker…
+
+![Screenshot_2024-05-16_at_11.05.35_PM_ccmggf](https://res.cloudinary.com/digifab/image/upload/v1716144075/digital-fab/a8/Screenshot_2024-05-16_at_11.05.35_PM_ccmggf.png)
+109 violations. OOF. I went off to discord to ask the community about these errors - turns out a lot of them were about the clearance issues that I setup in board constraints, and some unconnected items of front and back plate. In an effort to save money, I decided to design a **reversible** pcb - which means I could use front side as left side, and back side as right side. This gave me a LOT of heartburn. There are things that ned to be set up and decided - is the mcu facing up or down, is the battery facing up or down. Aside from this, I forgot to add mounting holes to my pcb. Rookie mistake.
+
+![IMG_1506_iucqss](https://res.cloudinary.com/digifab/image/upload/v1716336311/digital-fab/a8/IMG_1506_iucqss.jpg)
+After I got the violations fixed, someone on discord advised to double check the thumb keys - I ended up printing the layout and deciding a different thumb cluster layout (which meant I started from 0 again).
+
+#### The improved thumb placement
+
+![Screenshot_2024-05-19_at_11.17.34_AM_oyulji](https://res.cloudinary.com/digifab/image/upload/v1716142667/digital-fab/a8/Screenshot_2024-05-19_at_11.17.34_AM_oyulji.png)
+![IMG_1507_hednay](https://res.cloudinary.com/digifab/image/upload/v1716336309/digital-fab/a8/IMG_1507_hednay.jpg)
+
+Starting from zero again this far into the process was difficult, but I guess that’s the point. Anyway, as shown in the photos, I fixed the stagger units for ring->middle and middle -> index, as well as extended the thumb keys to the side and removed one of the cluster keys.
+
+I also rearranged the mcu, power switch, reset switch, battery pack and added mounting holes near the bottom of the mcu so I could place a cute arcylic cover over it when I make the case.
+
+![Screenshot_2024-05-19_at_11.48.26_AM_uxhzrz](https://res.cloudinary.com/digifab/image/upload/v1716144524/digital-fab/a8/Screenshot_2024-05-19_at_11.48.26_AM_uxhzrz.png)
+
+The switch size for 1.25u keys is the same as 1u so it’s not so obvious yet that the keys in the thumb portion will be bigger (but they will be!). I ended up adding another via per key to fix the unconnected portion of the front and back plate.
+
+![Screenshot_2024-05-19_at_11.51.38_AM_iylmhm](https://res.cloudinary.com/digifab/image/upload/v1716144708/digital-fab/a8/Screenshot_2024-05-19_at_11.51.38_AM_iylmhm.png)
+
+Woohoo!! Finally no unconnected items. The 12 violations are about the mcu clearance violations but that can be ignored. I switched up the layout of the mcu, power button, reset switch and battery after looking at even **more** pcbs.
+
+> IMPORTANT: DO **NOT\*** FORGET TO SET UP THE BOARD TO CONSIDER MANUFACTURER CONSTRAINTS!
+
+So pretty!!
+![m](https://res.cloudinary.com/digifab/video/upload/v1716145482/digital-fab/a8/Screen_Recording_2024-05-19_at_12.01.09_PM_bijcwo.mp4)
+
+After running all the checks, I did run to discord once more to see if anyone was willing too check my board pcb. The ergogen community is SO supportive and welcoming (unlike other keyboard communities), and someone actually was able to download my pcb file and check my routing. I appreciate them so much.
+
+After finishing my main board, I toyed between printing the backplate and switch plate in FR4 and and adding them to my order, but I decided to keep it simple instead and use those plates to try different fabrication techniques required for the project.
+
+I uploaded to JLCPCB, and now the waiting time begins!
+
+##### The final keyboard specs:
+
+1. Choc v2 switches
+2. Split, aggressive column stagger layout
+3. Wireless
+4. Nice nano mcu, nice nano display
+
+---
+
+## Deciding mounting
+
+##### Different mounting styles
+
+![20190407_KeyboardMountingStylesCheatSheet](https://thomasbaart.nl/wp-content/uploads/2019/04/20190407_KeyboardMountingStylesCheatSheet.png)
+
+![From the ErgoMechKeyboards community on Reddit: Custom cased Kyria](https://www.reddit.com/r/ErgoMechKeyboards/comments/s5elmg/custom_cased_kyria/)
+
+Ideally I would’ve had RGB but I decided not to complicate my life even more, so I kept it out of this build. I plan to do the simplest mounting style (the sandwich), which consists of attaching the pcb to a top plate (switch plate) and bottom plate.
+
+### Keycaps
+
+While waiting for the PCB to arrive, I decided to 3d pint some keycaps. I went to a keyboard meetup with flo once, where someone had keycaps that had a depression in the center, making it easier to “feel” the keys. It looked something similar to this:
+
+![Screenshot_2024-05-21_at_5.12.13_PM_glcyto](https://res.cloudinary.com/digifab/image/upload/v1716336753/digital-fab/a8/Screenshot_2024-05-21_at_5.12.13_PM_glcyto.png)
+
+Of course naturally, I didn’t want to pay $54 for the key set. I figured if I’m not the first person to want to buy these keycaps, so I went in search for a project on GitHub that might have stls for this. I did find a few like the https://github.com/infused-kim/kb_keycaps_chicago_stenographer, but unfortunately nothing like what is seen in the top photo.
+
+I was able to prototype something close to those, but due to the interest of time, I only printed one. I will print the rest when I have time to figure out the right settings to get the lines less obvious.
+
+![img](https://res.cloudinary.com/digifab/image/upload/v1717028628/digital-fab/a8/IMG_1587_2_Large_c6yfsw.jpg)
+
+The keycaps feel nice with a dip in the center, but i'm not satisfied with the thickness.
+
+### Assembling the keyboard ... almost a tragedy
+
+![](https://res.cloudinary.com/digifab/image/upload/v1717028848/digital-fab/a8/IMG_1556_Large_ouctgx.jpg)
+
+I'm not sure why I attempted to build this. I have no electronics background!!!! By the time I felt like giving up I decided to just push through because there was nothing else I could do anyway and I had already gotten this far.
+
+#### Questionable routes among other things
+
+![s](https://res.cloudinary.com/digifab/image/upload/v1717028902/digital-fab/a8/image_kh7vti.png)
+
+ALMOST made a huge mistake. It looked like CL was ocnnected to BATP which would have made my board unusable. I didn't have a TRRS jack setup and my main goal was to have a wireless keyboard. Thankfully, after hours of thinking about the routes and my silks, it turned out all I had to do was to bridge the jumpers on the back to make the mcu mount as I wanted it.
+
+![s](https://res.cloudinary.com/digifab/image/upload/v1717028977/digital-fab/a8/IMG_1567_izydiy.jpg)
+
+I had no electrical tape so I used leftover clay from another proejct. It was actually really useful.
+![s](https://res.cloudinary.com/digifab/image/upload/v1717029522/digital-fab/a8/IMG_1581_fdje5w.jpg)
+
+##### The real MVP - multimeter
+
+I had never used a multimeter till last week. I can't believe I was going to attempt this project without getting one. Thanks to the lovely folks at the ergogen discord, I did get one and I ended up relying on the meter over my silks.
+
+![multimeter](https://res.cloudinary.com/digifab/image/upload/v1717029269/digital-fab/a8/IMG_1577_2_ap5dfc.jpg)
+
+##### The battery...
+
+![d](https://res.cloudinary.com/digifab/image/upload/v1717029399/digital-fab/a8/IMG_1580_2_yzfaqo.jpg)
+I almost routed the battery wrong. While I was lost figuring out how to mount the mcu, for some reason I thought my battery silks were flipped over. so i ended up removing them from the connector and ALMOST killing my batteries! DO NOT let the two wires touch!!!
+
+## Case
+
+Attached with magnets so I can fabricate a transportation piece and also add tenting legs.
+
+![](https://res.cloudinary.com/digifab/image/upload/v1717036393/digital-fab/a8/Screenshot_2024-05-29_at_7.32.55_PM_l6apij.png)
+
+## Flashing the firmware
+
+It was complicated but TLDR I got it working and now I can type with my keyboard!
+
+Things to do:
+
+- [x] Decide minimum acceptable specs for keyboard
+- [x] Iterate over different board shapes and decide which shape is most comfortable for my hands
+- [x] Learn / use ergogen to generate output file
+- [x] Route left hand in KiCad
+- [x] Route right hand in KiCad
+- [x] Send to manufacturer
+- [x] Purchase materials
+- [ ] Iterate over case designs with laser cutting and 3d printing
+- [x] Solder switches and mcu to PCB
+- [ ] Assemble cases
+- [x] Write documentation
+
+```
+units:
+  kx: cx
+  ky: cy
+  px: kx + 4
+  py: ky + 4
+  mcu_spacing_left: 1.25
+  mcu_spacing_right: 1.5
+  mcu_x: 17.78
+  mcu_y: 33.0
+  mcu_xo: 0.5 * mcu_x
+  mcu_yo: 0.5 * mcu_y
+  disp_x: 14
+  disp_y: 36
+  disp_jumper_y: 2.6
+  disp_xo: 0.5 * disp_x
+  disp_yo: 0.5 * disp_y
+
+points:
+  zones:
+    matrix:
+      key:
+        padding: 1ky
+        spread: 1kx
+      columns:
+        outer:
+          key:
+            column_net: P10
+        pinky:
+          key:
+            stagger: 0
+            column_net: P16
+        ring:
+          key:
+            splay:
+            stagger: 22
+            column_net: P14
+        middle:
+          key:
+            splay:
+            stagger: 9
+            column_net: P19
+        index:
+          key:
+            stagger: -11
+            column_net: P18
+        inner:
+          key:
+            stagger: -3
+            column_net: P15
+      rows:
+        bottom:
+          row_net: P8
+        home:
+          row_net: P7
+        top:
+          row_net: P6
+        num:
+          row_net: P5
+      anchor:
+        shift: [140, -160]
+
+    thumbs:
+      key:
+        padding: 1ky
+        spread: 1kx
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [15, -12]
+      columns:
+        layer:
+          key:
+            splay: -18
+            shift: [4, -2.3]
+            column_net: P18
+            size: 1.5kx
+            rotate: 90
+            width: 1.5kx
+
+        space:
+          key:
+            splay: -9
+            width: 1.5kx
+            rotate: 90
+            shift: [8.4, -3.3]
+            column_net: P15
+      rows:
+        cluster:
+          row_net: P9
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      size: [px, py]
+  keys:
+    - what: rectangle
+      where: true
+      size: [kx-0.5, ky-0.5]
+
+  board:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: matrix_outer_bottom
+          shift: [-0.7kx, -0.7ky]
+        - ref: matrix_outer_num
+          shift: [-0.7kx, 0.69ky]
+        - ref: matrix_ring_num
+          shift: [-0.7kx, 0.69ky]
+
+        - ref: matrix_middle_num
+          shift: [-0.65kx, 0.69ky]
+        - ref: matrix_middle_num
+          shift: [0.65kx, 0.69ky]
+        - ref: matrix_index_num
+          shift: [1.6kx, 0.8ky]
+
+        - ref: matrix_inner_num
+          shift: [0.8kx, 0.47ky]
+        - ref: matrix_inner_num
+          shift: [1.7kx, 0.47ky]
+        - ref: matrix_inner_num
+          shift: [2kx, 0.1ky]
+        - ref: matrix_inner_bottom
+          shift: [2kx, 0.3ky]
+        - ref: thumbs_space_cluster
+          shift: [1.5kx, -0.8ky]
+        - ref: thumbs_space_cluster
+          shift: [1.32kx, -0.84ky]
+        - ref: thumbs_space_cluster
+          shift: [-0.8kx, -0.9ky]
+
+        - ref: thumbs_layer_cluster
+          shift: [-0.8kx, -0.5ky]
+
+        - ref: matrix_inner_bottom
+          shift: [0.2kx, -1.8ky]
+        - ref: matrix_inner_bottom
+          shift: [-0.7kx, -1.09ky]
+        - ref: matrix_middle_bottom
+          shift: [-0.9kx, -1.9ky]
+        - ref: matrix_ring_bottom
+          shift: [-0.2kx, -2ky]
+      fillet: 3
+
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
+  board_cut:
+    - what: polygon
+      fillet: 3
+      points:
+        - ref: matrix_outer_bottom
+          shift: [-0.7kx, -0.7ky]
+        - ref: matrix_outer_num
+          shift: [-0.7kx, 0.69ky]
+        - ref: matrix_ring_num
+          shift: [-0.7kx, 0.69ky]
+
+        - ref: matrix_middle_num
+          shift: [-0.65kx, 0.69ky]
+        - ref: matrix_middle_num
+          shift: [0.65kx, 0.69ky]
+        - ref: matrix_index_num
+          shift: [1.6kx, 0.8ky]
+
+        - ref: matrix_inner_home
+          shift: [0.6kx, 0.47ky]
+
+        - ref: matrix_inner_bottom
+          shift: [0.6kx, 0.47ky]
+        - ref: matrix_inner_bottom
+          shift: [1kx, 0.4ky]
+        - ref: thumbs_space_cluster
+          shift: [1.5kx, -0.8ky]
+        - ref: thumbs_space_cluster
+          shift: [1.32kx, -0.84ky]
+        - ref: thumbs_space_cluster
+          shift: [-0.8kx, -0.9ky]
+
+        - ref: thumbs_layer_cluster
+          shift: [-0.8kx, -0.5ky]
+
+        - ref: matrix_inner_bottom
+          shift: [0.2kx, -1.8ky]
+        - ref: matrix_inner_bottom
+          shift: [-0.7kx, -1.09ky]
+        - ref: matrix_middle_bottom
+          shift: [-0.9kx, -1.9ky]
+        - ref: matrix_ring_bottom
+          shift: [-0.2kx, -2ky]
+  screwss:
+    - what: circle
+      radius: screw_d
+      adjust:
+        ref: [matrix_outer_num]
+        shift: [9, -8.5]
+    - what: circle
+      radius: screw_d
+      adjust:
+        ref: [matrix_outer_bottom]
+        shift: [9, 7.5]
+    - what: circle
+      radius: screw_d
+      where:
+        ref: [matrix_ring_num]
+        shift: [6.7, 9.5]
+    - what: circle
+      radius: screw_d
+      where:
+        ref: [thumbs_space_cluster]
+        shift: [-8, 10]
+
+    - what: circle
+      radius: screw_d
+      where:
+        ref: [matrix_inner_home]
+        shift: [13, -4]
+    - what: circle
+      radius: screw_d
+      where:
+        ref: [matrix_inner_bottom]
+        shift: [33, 6]
+  _switch_cutouts:
+    - what: rectangle
+      where: true
+      size: 14
+      bound: false
+
+  _controller_cutout:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: matrix_inner_num
+          shift: [1kx, 1ky]
+        - ref: matrix_inner_num
+          shift: [0.2ky, 0.4ky]
+      where:
+        shift: [22.5, -12.5]
+
+  frontplate:
+    - what: outline
+      name: board
+    - what: outline
+      name: _switch_cutouts
+      operation: subtract
+    - what: outline
+      name: screwss
+      operation: subtract
+    - what: outline
+      name: _controller_cutout
+      operation: subtract
+
+  backplate:
+    - what: outline
+      name: board
+    - what: outline
+      name: screwss
+      operation: subtract
+  huh:
+    - name: board_cut
+    - operation: subtract
+      name: _switch_cutouts
+    - operation: subtract
+      name: screwss
+combo:
+  - name: board
+  - operation: subtract
+    name: keys
+
+pcbs:
+  tinygg:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      holeTopLeft:
+        what: mounting_hole
+        where:
+          ref: [matrix_outer_num]
+          shift: [9, -8.5]
+      holeBottomLeft:
+        what: mounting_hole
+        where:
+          ref: [matrix_outer_bottom]
+          shift: [9, 7.5]
+      holeRingLeft:
+        what: mounting_hole
+        where:
+          ref: [matrix_middle_bottom]
+          shift: [19, -27.5]
+      holeEmpty:
+        what: mounting_hole
+        where:
+          ref: [matrix_pinky_num]
+          shift: [0, 16]
+      holeEmptyIndex:
+        what: mounting_hole
+        where:
+          ref: [matrix_index_num]
+          shift: [0, 12]
+      holeMidlelLeft:
+        what: mounting_hole
+        where:
+          ref: [matrix_ring_num]
+          shift: [6.7, 9.5]
+      holeThumbFar:
+        what: mounting_hole
+        where:
+          ref: [thumbs_space_cluster]
+          shift: [-8, 10]
+      holeThumbFarther:
+        what: mounting_hole
+        where:
+          ref: [thumbs_space_cluster]
+          shift: [20, -8]
+      holeScreen:
+        what: mounting_hole
+        where:
+          ref: [matrix_inner_home]
+          shift: [13, -4]
+      holeScreenE:
+        what: mounting_hole
+        where:
+          ref: [matrix_inner_bottom]
+          shift: [33, 6]
+      choc_hotswap:
+        what: choc
+        where: true
+        params:
+          reverse: true
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode_front:
+        what: diode_tht_sod123
+        where: true
+        params:
+          side: F
+          reversible: false
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [-8.275, -1]
+          rotate: 90
+      diode_back:
+        what: diode_tht_sod123
+        where: true
+        params:
+          side: B
+          reversible: false
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [8.275, -1]
+          rotate: 90
+
+      mcu:
+        what: nice_nano_pretty
+        params:
+          traces: true
+          show_via_labels: true
+          show_silk_labels: true
+          show_instructions: true
+          RAW: RAW
+          GND: GND
+          RST: RST
+          VCC: VCC
+          P21: P21
+          P20: P20
+          P19: P19
+          P18: P18
+          P15: P15
+          P14: P14
+          P16: P16
+          P10: P10
+
+          P1: CS
+          P0: P0
+          P2: MOSI
+          P3: SCK
+          P4: P4
+          P5: P5
+          P6: P6
+          P7: P7
+          P8: P8
+          P9: P9
+        where:
+          ref: matrix_inner_num
+          shift: [22.5, -12.5]
+          rotate: 0
+      nice_view:
+        what: display_nice_view
+        params:
+          reversible: true
+          invert_jumpers_position: true
+          MOSI: MOSI
+          SCK: SCK
+          VCC: VCC
+          GND: GND
+          CS: CS
+        where:
+          ref: matrix_inner_num
+          shift: [22.5, -16.5]
+          rotate: 0
+      reset:
+        what: reset_switch_smd_side
+        params:
+          reversible: true
+          from: GND
+          to: RST
+        where:
+          ref: matrix_inner_num
+          shift: [4, 16.5]
+          rotate: -13
+
+      batteryconnector:
+        what: battery_connector_jst_ph_2
+        params:
+          BAT_P: BAT_P
+          BAT_N: GND
+          reversible: true
+          include_courtyard: true
+        where:
+          ref: matrix_inner_home
+          shift: [18, -9]
+          rotate: 90
+      powerswitch:
+        what: power_switch_smd_side
+        params:
+          from: BAT_P
+          to: RAW
+          reversible: true
+        where:
+          ref: matrix_inner_num
+          shift: [21.5, 6]
+          rotate: 90
+
+      via_outer_0:
+        what: via
+        where:
+          ref: matrix_outer_bottom
+        params:
+          net: P10
+        adjust:
+          shift: [0, 3]
+      via_outer_1:
+        what: via
+        where:
+          ref: matrix_outer_bottom
+        params:
+          net: P8
+        adjust:
+          shift: [0, -6]
+      via_outer_10:
+        what: via
+        where:
+          ref: matrix_outer_bottom
+        params:
+          net: outer_bottom
+        adjust:
+          shift: [0, -4]
+
+      via_outer_2:
+        what: via
+        where:
+          ref: matrix_outer_home
+        params:
+          net: P10
+        adjust:
+          shift: [0, 3]
+      via_outer_3:
+        what: via
+        where:
+          ref: matrix_outer_home
+        params:
+          net: P7
+        adjust:
+          shift: [0, -6]
+      via_outer_30:
+        what: via
+        where:
+          ref: matrix_outer_home
+        params:
+          net: outer_home
+        adjust:
+          shift: [0, -4]
+
+      via_outer_4:
+        what: via
+        where:
+          ref: matrix_outer_top
+        params:
+          net: P10
+        adjust:
+          shift: [0, 3]
+      via_outer_5:
+        what: via
+        where:
+          ref: matrix_outer_top
+        params:
+          net: P6
+        adjust:
+          shift: [0, -6]
+      via_outer_50:
+        what: via
+        where:
+          ref: matrix_outer_top
+        params:
+          net: outer_top
+        adjust:
+          shift: [0, -4]
+
+      via_outer_6:
+        what: via
+        where:
+          ref: matrix_outer_num
+        params:
+          net: P10
+        adjust:
+          shift: [0, 3]
+      via_outer_7:
+        what: via
+        where:
+          ref: matrix_outer_num
+        params:
+          net: P5
+        adjust:
+          shift: [0, -6]
+      via_outer_70:
+        what: via
+        where:
+          ref: matrix_outer_num
+        params:
+          net: outer_num
+        adjust:
+          shift: [0, -4]
+
+      via_pinky_0:
+        what: via
+        where:
+          ref: matrix_pinky_bottom
+        params:
+          net: P16
+        adjust:
+          shift: [0, 3]
+      via_pinky_1:
+        what: via
+        where:
+          ref: matrix_pinky_bottom
+        params:
+          net: P8
+        adjust:
+          shift: [0, -6]
+      via_pinky_10:
+        what: via
+        where:
+          ref: matrix_pinky_bottom
+        params:
+          net: pinky_bottom
+        adjust:
+          shift: [0, -4]
+
+      via_pinky_2:
+        what: via
+        where:
+          ref: matrix_pinky_home
+        params:
+          net: P16
+        adjust:
+          shift: [0, 3]
+      via_pinky_3:
+        what: via
+        where:
+          ref: matrix_pinky_home
+        params:
+          net: P7
+        adjust:
+          shift: [0, -6]
+      via_pinky_30:
+        what: via
+        where:
+          ref: matrix_pinky_home
+        params:
+          net: pinky_home
+        adjust:
+          shift: [0, -4]
+
+      via_pinky_4:
+        what: via
+        where:
+          ref: matrix_pinky_top
+        params:
+          net: P16
+        adjust:
+          shift: [0, 3]
+      via_pinky_5:
+        what: via
+        where:
+          ref: matrix_pinky_top
+        params:
+          net: P6
+        adjust:
+          shift: [0, -6]
+      via_pinky_50:
+        what: via
+        where:
+          ref: matrix_pinky_top
+        params:
+          net: pinky_top
+        adjust:
+          shift: [0, -4]
+
+      via_pinky_6:
+        what: via
+        where:
+          ref: matrix_pinky_num
+        params:
+          net: P16
+        adjust:
+          shift: [0, 3]
+      via_pinky_7:
+        what: via
+        where:
+          ref: matrix_pinky_num
+        params:
+          net: P5
+        adjust:
+          shift: [0, -6]
+      via_pinky_70:
+        what: via
+        where:
+          ref: matrix_pinky_num
+        params:
+          net: pinky_num
+        adjust:
+          shift: [0, -4]
+
+      via_ring_0:
+        what: via
+        where:
+          ref: matrix_ring_bottom
+        params:
+          net: P14
+        adjust:
+          shift: [0, 3]
+      via_ring_1:
+        what: via
+        where:
+          ref: matrix_ring_bottom
+        params:
+          net: P8
+        adjust:
+          shift: [0, -6]
+      via_ring_10:
+        what: via
+        where:
+          ref: matrix_ring_bottom
+        params:
+          net: ring_bottom
+        adjust:
+          shift: [0, -4]
+
+      via_ring_2:
+        what: via
+        where:
+          ref: matrix_ring_home
+        params:
+          net: P14
+        adjust:
+          shift: [0, 3]
+      via_ring_3:
+        what: via
+        where:
+          ref: matrix_ring_home
+        params:
+          net: P7
+        adjust:
+          shift: [0, -6]
+      via_ring_30:
+        what: via
+        where:
+          ref: matrix_ring_home
+        params:
+          net: ring_home
+        adjust:
+          shift: [0, -4]
+
+      via_ring_4:
+        what: via
+        where:
+          ref: matrix_ring_top
+        params:
+          net: P14
+        adjust:
+          shift: [0, 3]
+      via_ring_5:
+        what: via
+        where:
+          ref: matrix_ring_top
+        params:
+          net: P6
+        adjust:
+          shift: [0, -6]
+      via_ring_50:
+        what: via
+        where:
+          ref: matrix_ring_top
+        params:
+          net: ring_top
+        adjust:
+          shift: [0, -4]
+      via_ring_6:
+        what: via
+        where:
+          ref: matrix_ring_num
+        params:
+          net: P14
+        adjust:
+          shift: [0, 3]
+      via_ring_7:
+        what: via
+        where: matrix_ring_num
+        params:
+          net: P5
+        adjust:
+          shift: [0, -6]
+      via_ring_70:
+        what: via
+        where: matrix_ring_num
+        params:
+          net: ring_num
+        adjust:
+          shift: [0, -4]
+
+      via_middle_0:
+        what: via
+        where:
+          ref: matrix_middle_bottom
+        params:
+          net: P19
+        adjust:
+          shift: [0, 3]
+      via_middle_1:
+        what: via
+        where:
+          ref: matrix_middle_bottom
+        params:
+          net: P8
+        adjust:
+          shift: [0, -6]
+      via_middle_10:
+        what: via
+        where:
+          ref: matrix_middle_bottom
+        params:
+          net: middle_bottom
+        adjust:
+          shift: [0, -4]
+
+      via_middle_2:
+        what: via
+        where:
+          ref: matrix_middle_home
+        params:
+          net: P19
+        adjust:
+          shift: [0, 3]
+      via_middle_3:
+        what: via
+        where:
+          ref: matrix_middle_home
+        params:
+          net: P7
+        adjust:
+          shift: [0, -6]
+      via_middle_30:
+        what: via
+        where:
+          ref: matrix_middle_home
+        params:
+          net: middle_home
+        adjust:
+          shift: [0, -4]
+
+      via_middle_4:
+        what: via
+        where:
+          ref: matrix_middle_top
+        params:
+          net: P19
+        adjust:
+          shift: [0, 3]
+      via_middle_5:
+        what: via
+        where:
+          ref: matrix_middle_top
+        params:
+          net: P6
+        adjust:
+          shift: [0, -6]
+      via_middle_50:
+        what: via
+        where:
+          ref: matrix_middle_top
+        params:
+          net: middle_top
+        adjust:
+          shift: [0, -4]
+
+      via_middle_6:
+        what: via
+        where: matrix_middle_num
+        params:
+          net: P19
+        adjust:
+          shift: [0, 3]
+      via_midle_7:
+        what: via
+        where: matrix_middle_num
+        params:
+          net: P5
+        adjust:
+          shift: [0, -6]
+      via_midle_70:
+        what: via
+        where: matrix_middle_num
+        params:
+          net: middle_num
+        adjust:
+          shift: [0, -4]
+
+      via_index_0:
+        what: via
+        where:
+          ref: matrix_index_bottom
+        params:
+          net: P18
+        adjust:
+          shift: [0, 3]
+      via_index_1:
+        what: via
+        where:
+          ref: matrix_index_bottom
+        params:
+          net: P8
+        adjust:
+          shift: [0, -6]
+      via_index_10:
+        what: via
+        where:
+          ref: matrix_index_bottom
+        params:
+          net: index_bottom
+        adjust:
+          shift: [0, -4]
+
+      via_index_2:
+        what: via
+        where:
+          ref: matrix_index_home
+        params:
+          net: P18
+        adjust:
+          shift: [0, 3]
+      via_index_3:
+        what: via
+        where:
+          ref: matrix_index_home
+        params:
+          net: P7
+        adjust:
+          shift: [0, -6]
+      via_index_30:
+        what: via
+        where:
+          ref: matrix_index_home
+        params:
+          net: index_home
+        adjust:
+          shift: [0, -4]
+
+      via_index_4:
+        what: via
+        where:
+          ref: matrix_index_top
+        params:
+          net: P18
+        adjust:
+          shift: [0, 3]
+      via_index_5:
+        what: via
+        where:
+          ref: matrix_index_top
+        params:
+          net: P6
+        adjust:
+          shift: [0, -6]
+      via_index_50:
+        what: via
+        where:
+          ref: matrix_index_top
+        params:
+          net: index_top
+        adjust:
+          shift: [0, -4]
+
+      via_index_6:
+        what: via
+        where:
+          ref: matrix_index_num
+        params:
+          net: P18
+        adjust:
+          shift: [0, 3]
+      via_index_7:
+        what: via
+        where:
+          ref: matrix_index_num
+        params:
+          net: P5
+        adjust:
+          shift: [0, -6]
+      via_index_70:
+        what: via
+        where:
+          ref: matrix_index_num
+        params:
+          net: index_num
+        adjust:
+          shift: [0, -4]
+
+      via_inner_0:
+        what: via
+        where:
+          ref: matrix_inner_bottom
+        params:
+          net: P15
+        adjust:
+          shift: [0, 3]
+      via_inner_1:
+        what: via
+        where:
+          ref: matrix_inner_bottom
+        params:
+          net: P8
+        adjust:
+          shift: [0, -6]
+      via_inner_10:
+        what: via
+        where:
+          ref: matrix_inner_bottom
+        params:
+          net: inner_bottom
+        adjust:
+          shift: [0, -4]
+
+      via_inner_2:
+        what: via
+        where:
+          ref: matrix_inner_home
+        params:
+          net: P15
+        adjust:
+          shift: [0, 3]
+      via_inner_3:
+        what: via
+        where:
+          ref: matrix_inner_home
+        params:
+          net: P7
+        adjust:
+          shift: [0, -6]
+      via_inner_30:
+        what: via
+        where:
+          ref: matrix_inner_home
+        params:
+          net: inner_home
+        adjust:
+          shift: [0, -4]
+
+      via_inner_4:
+        what: via
+        where:
+          ref: matrix_inner_top
+        params:
+          net: P15
+        adjust:
+          shift: [0, 3]
+      via_inner_5:
+        what: via
+        where:
+          ref: matrix_inner_top
+        params:
+          net: P6
+        adjust:
+          shift: [0, -6]
+      via_inner_50:
+        what: via
+        where:
+          ref: matrix_inner_top
+        params:
+          net: inner_top
+        adjust:
+          shift: [0, -4]
+
+      via_inner_6:
+        what: via
+        where:
+          ref: matrix_inner_num
+        params:
+          net: P15
+        adjust:
+          shift: [0, 3]
+      via_inner_7:
+        what: via
+        where:
+          ref: matrix_inner_num
+        params:
+          net: P5
+        adjust:
+          shift: [0, -6]
+      via_inner_70:
+        what: via
+        where:
+          ref: matrix_inner_num
+        params:
+          net: inner_num
+        adjust:
+          shift: [0, -4]
+
+      via_thumb_2:
+        what: via
+        where:
+          ref: thumbs_layer_cluster
+        params:
+          net: P18
+        adjust:
+          shift: [0, 3]
+      via_thumb_3:
+        what: via
+        where:
+          ref: thumbs_layer_cluster
+        params:
+          net: P9
+        adjust:
+          shift: [0, -6]
+      via_thumb_30:
+        what: via
+        where:
+          ref: thumbs_layer_cluster
+        params:
+          net: layer_cluster
+        adjust:
+          shift: [0, -4]
+
+      via_thumb_4:
+        what: via
+        where:
+          ref: thumbs_space_cluster
+        params:
+          net: P15
+        adjust:
+          shift: [0, 3]
+      via_thumb_5:
+        what: via
+        where:
+          ref: thumbs_space_cluster
+        params:
+          net: P9
+        adjust:
+          shift: [0, -6]
+      via_thumb_50:
+        what: via
+        where:
+          ref: thumbs_space_cluster
+        params:
+          net: space_cluster
+        adjust:
+          shift: [0, -4]
+
+      via_power:
+        what: via
+        where:
+          ref: matrix_inner_num
+        params:
+          net: BAT_P
+        adjust:
+          shift: [19, 2.5]
+  tinyggswitch:
+    outlines:
+      main:
+        outline: huh
+  tinyggbackplate:
+    outlines:
+      main:
+        outline: backplate
+
+
+```

@@ -1,0 +1,129 @@
+---
+title: "Filament clip"
+description: "Designing and printing a clip for filament rolls"
+pubDate: "Apr 15 2024"
+imageCover: "https://res.cloudinary.com/digifab/image/upload/v1713996859/digital-fab/a3/filamentclip_bhr4ep.png"
+sourcefile: "https://res.cloudinary.com/digifab/raw/upload/v1713996851/digital-fab/a3/assignment3clip_jwz5fi.3dm"
+---
+
+## General Hygeine
+
+1. Wipe the bed with alcohol every print - don't use the towel at the mill, use your own CLEAN paper towel
+2. Clean the nozzle every print
+3. Only leave prints once the brim and initial few layers are printed
+4. Don't use cura. Use the prusa slicer to get more professional and headache free prints.
+
+## Exporting from rhino
+
+I exported prints with a tolerance of 0.04 just in case. Most of my prints were still within the threshold which was good!
+
+## Documenting sizes of prints
+
+![image](https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/F0514F16-E895-4EF1-919A-2A0BBC6B90CB/CAB97C9E-BC72-42D9-AA40-8AB021F726FB_2/IZkHtD8zSvZkxpexIMWrkEXU98C8lN7DBvh9jDgEJcQz/IMG_1274.jpeg)
+(credit to flo for this post-it set up)
+
+### Cube
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1713996853/digital-fab/a3/cubes_rxgyho.jpg)
+
+|            | Width (mm) | Height (mm) |
+| ---------- | ---------- | ----------- |
+| Low        | 20.32      | 20.27       |
+| Normal     | 20.06      | 20.00       |
+| Superior   | 21.77      | 21,7        |
+| Concentric | 19.88      | 19.94       |
+
+### Tube
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1713996864/digital-fab/a3/tubes_hnud4j.jpg)
+
+|                  | Width (mm) | Height (mm) |
+| ---------------- | ---------- | ----------- |
+| Single extrusion | 29.64      | 30.20       |
+| Double extrusion | 29.81      | 29.98       |
+
+### Cylinder
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1713996856/digital-fab/a3/cylinder_q48xze.jpg)
+
+|                         | Width (mm) | Height (mm) |
+| ----------------------- | ---------- | ----------- |
+| Spiraling outer contour | 29.60      | 30.23       |
+| Printed on the side     | 30.00      | 30.17       |
+
+### Notes
+
+Printing with cura was difficult. I arrived at the mill at 6pm and was not finished at midnight. Given the limited amount of time to do this class, it would have been useful to know that Prusa has its own slicer that might better set proper configurations on the machine. Aside from that, I didn’t know that the spiralize outer contour cylinder is likely not to have a top. I printed that 3x until Nathan noted on discord that using that setting will result to a print without a top.
+
+#### Special mention to my fail prints:
+
+![image](https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/F0514F16-E895-4EF1-919A-2A0BBC6B90CB/439A05FF-E6BA-4F1B-A521-0A599065D116_2/9ngk3EpahnyyHjLjfugqh1bl38xPEeZSNzbVxjELuZkz/IMG_1273%202.jpeg)
+
+## Clip design
+
+#### Requirements:
+
+1. can clip multiple cardboard pieces together
+2. pass a shake test
+3. print at least 15 pieces
+
+I was able to print one cube successfully last Wednesday, but my second cube was ruined half way because my filament got tangled so much that it was ejected from the printer. I decided for this assignment, I wanted to create a clip that could attach to my filament spool and fit the filament through a hole at the end (and hopefully avoid tangling again).
+
+I figured it would work with this assignment, even if my clips came out really small. Thinking about attaching the clips to the material, I knew I wanted a snug fit, so I curved one of the sides of the clip to allow for easier use.
+
+I measured the width of the filament spool and added a few cm to account for tolerance, then drew the curves for the clip and extruded the object. The filament hole also has around 1cm added to make sure it was a loose fit.
+
+I made the overall size a bit smaller to make sure it fit on a full spool of filament.
+
+<div class="sbs">
+  <img
+    src="https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/F0514F16-E895-4EF1-919A-2A0BBC6B90CB/683596A7-7ACF-44D9-9E27-BE1CADD3F930_2/oaCyTfy0v5tMQYPswrq0RrLvaBGddFJjd5xtuCc7p6gz/Screenshot%202024-04-15%20at%203.47.40PM.png"
+    alt="rhino file"
+  />
+  <img
+    src="https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/F0514F16-E895-4EF1-919A-2A0BBC6B90CB/F07C43D5-1C39-460C-A54E-D34B5FF3F87A_2/qxAyv9sGaTxqOtUW1iHqT30mTRdpUCS0c85WMsHLMscz/Screenshot%202024-04-15%20at%203.47.12PM.png"
+    alt="rhino file"
+  />
+</div>
+
+```
+## Measurements
+Infill: no
+Print setting: normal
+Total printing time for 15 pcs: 1h35min
+Fits filament size 1.7mm and spool size 3.5mm.
+Print speed: 90m/s
+Print all at once
+```
+
+## Printing
+
+I set up the file in Cura, and printed 15 all at once with brims. In retrospect, the clips were so small I don't think it was necessary to use a brim, and I would just print these without adhesion support. I did one test print to see if it could clip to multiple pieces of cardboard, then on my successful print, I printed all at 15 at once. It took a total of 1h30m. I didn't run into any issues printing these (unlike what I had with my cube).
+
+![image](https://res.craft.do/user/full/e6c1ab16-39b1-5498-e0ac-a793797b3dff/doc/F0514F16-E895-4EF1-919A-2A0BBC6B90CB/BFC49AEA-1269-427C-9AF8-9447212B9394_2/woY9cLLqlzUA0Dxlm1RlfxgXvBNriAKpN7B85xmnHssz/R0000739%20Large.jpeg)
+
+## On my filament
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1713996859/digital-fab/a3/filamentclip_bhr4ep.png)
+
+Perfect fit!
+
+## Shake test
+
+<video height="400" controls>
+  <source
+    src="https://res.cloudinary.com/digifab/video/upload/v1713996862/digital-fab/a3/shaketesta3_oxqwgk.mp4"
+    type="video/mp4"
+  />
+</video>
+
+## Thoughts
+
+I wish I knew that using Prusa slicer would save me hours of headaches. Slicer software matters.
+
+## Shout outs
+
+- flo - moral support and help debugging printer issues
+- brian - for the tip to use prusa slicer and not cura
+- day - helping with my concentric cube
+- raveena - moral support and help with removing the brim from my clips

@@ -4,10 +4,11 @@ import Layout from "../../layouts/Layout.astro";
 import { Tags, GalleryGrid, Modal } from "../../components";
 
 const allExperiments = await getCollection("experiments");
+const { showDrafts = false } = Astro.props;
 
-const experiments = import.meta.env.PROD
-  ? allExperiments.filter((experiment) => !experiment.data.draft)
-  : allExperiments;
+const experiments = allExperiments.filter((project) => {
+  return showDrafts || project.data.draft !== true;
+});
 ---
 
 <Layout title="experiments & Experiments" withCont={true} pageType="experiment">

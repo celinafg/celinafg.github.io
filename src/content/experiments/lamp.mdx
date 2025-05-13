@@ -2,28 +2,97 @@
 title: modular lamp
 description: exploring different lighting scenes
 imageCover: https://res.cloudinary.com/digifab/image/upload/v1746703345/portfolio/experiments/lamp/R0000938_Large_lllnds_wgwiww.jpg
-tags: [physical prototyping, digital fabrication, hardware]
+tags: [physical prototyping, digital fabrication, 3d design]
 date: 2023-02-02
+specs: [‘feb 2023, ‘freelance’]
 ---
 
-![top view of lamp](https://res.cloudinary.com/digifab/image/upload/v1746791634/portfolio/experiments/lamp/2024-05-09-01.47.02.707_snvxvv.heic)
+<video width="100%" controls>
+  <source
+    src="https://res.cloudinary.com/digifab/video/upload/v1715214520/digital-fab/a6/lampvid_kn0kfl.mp4
+  "
+    type="video/mp4"
+  />
+</video>
 
-![modular lamp in 3 ways](https://res.cloudinary.com/digifab/image/upload/v1746791631/portfolio/experiments/lamp/2024-05-09-01.42.47.813_blgpde.gif)
+### Initial material testing
 
-![shaking lamp bulb](https://res.cloudinary.com/digifab/image/upload/v1746703364/portfolio/experiments/lamp/LIGHTSON_RL_t4vpzh_wkrz9e.gif)
+![image](https://res.cloudinary.com/digifab/image/upload/v1714612599/digital-fab/a6/LIGHTSON_RL_t4vpzh.gif)
 
-![lamp holder and lamp assembled](https://res.cloudinary.com/digifab/image/upload/v1746703355/portfolio/experiments/lamp/sideview1_cmzq6g_tnzphf.png)
+I started out by testing lighting effects of different materials. I was choosing between white PLA, clear PETG and PLA wood.
 
-![clear material exploration](https://res.cloudinary.com/digifab/image/upload/v1746703353/portfolio/experiments/lamp/R0000904_zmgkrz_ewb4cy.jpg)
+Bench model credit: [BENCHY Shared by JayRay](https://makerworld.com/en/models/15106?from=search#profileId-14865)
 
-![testing materials with benchies](https://res.cloudinary.com/digifab/image/upload/v1746703351/portfolio/experiments/lamp/R0000898_obw4vc_bv6xzv.jpg)
+![image](https://res.cloudinary.com/digifab/image/upload/v1715206427/digital-fab/a6/R0000882_nv5hkh.jpg)
 
-![testing materials with benches side view](https://res.cloudinary.com/digifab/image/upload/v1746703349/portfolio/experiments/lamp/R0000882_nv5hkh_rbsimk.jpg)
+![image](https://res.cloudinary.com/digifab/image/upload/v1715206428/digital-fab/a6/R0000898_obw4vc.jpg)
 
-![textured pei plate finishes](https://res.cloudinary.com/digifab/image/upload/v1746703348/portfolio/experiments/lamp/R0000900_d8dhpy_jtljx6.jpg)
+I printed all of them with a 0.6 nozzle, as recommended in online forums. As expected, the clear PETG didn’t end up so clear.
 
-![first version of lamp](https://res.cloudinary.com/digifab/image/upload/v1746703346/portfolio/experiments/lamp/R0000916_Large_aznhnt_xazmgy.jpg)
+#### Clear PETG woes
 
-![lamp with one cover](https://res.cloudinary.com/digifab/image/upload/v1746703341/portfolio/experiments/lamp/R0000942_Large_nc8wtv_joph3k.jpg)
+![image](https://res.cloudinary.com/digifab/image/upload/v1715206430/digital-fab/a6/R0000900_d8dhpy.jpg)
 
-![lamp with two covers](https://res.cloudinary.com/digifab/image/upload/v1746703345/portfolio/experiments/lamp/R0000938_Large_lllnds_wgwiww.jpg)
+Printing clear / translucent was as complicated as I expected. I followed these [tutorials](https://makerworld.com/en/models/38421?from=search#profileId-37238)
+and was able to get something closer to clear. The tradeoff was how long it took to print these - even though I did use the 0.6 nozzle, these small ice cube samples took over 3 hours to print.
+
+Factors affecting clear PETG print:
+
+1. Slicer settings (fan, print speed, nozzle)
+2. PETG quality
+3. Bed plate material (textured PEI gave a more frosty look vs. the smooth PEI plate)
+4. Time
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1715206438/digital-fab/a6/R0000904_zmgkrz.jpg)
+
+Even though I was able to get some prints closer to clear, I realized for the tight deadline it wouldn’t be a top priority material given how long it takes to print and how many mistakes I probably would make.
+
+#### Testing lighting effects
+
+After printing out a few samples of material (frosty PETG, 1mm thin white PLA, 2mm thin white PLA), I tested how it might look layered together and on it’ own with my light source. At the beginning of my project, I set out to make a garlic lamp but realized I wanted to concentrate on lighting effect vs. form factor for the lamp (which is why I probably shouldn’t do so much planning for future projects - almost always I never follow the detailed plan).
+
+<video width="100%" controls>
+  <source
+    src="https://res.cloudinary.com/digifab/video/upload/v1715152345/digital-fab/a6/lighttestt_srjxkb.mp4"
+    type="video/mp4"
+  />
+</video>
+
+(It’s in this video I’m reminded I have no space left for another desk lamp and pushed me to consider a wall mounted lamp)
+
+#### Prototype 1 (Desk Lamp)
+
+I used [this template](https://www.printables.com/model/724204-lamp-base/files) from printables as a lamp holder, and ended up going back and forth between designs (big mistake). I wasn’t very happy with the standing lamp setup, but it at least fulfilled the lamp requirement for this assignment without fasteners.
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1715207246/digital-fab/a6/lamp1_iskzr4.png)
+
+#### Prototype 2 (Wall Lamp)
+
+##### Iteration 1
+
+A lamp I actually need is a bedside lamp. After seeing how the light diffused on the desk lamp setup, I decided to give a wall lamp a go.
+I used [this simple wall lamp mount](https://www.thingiverse.com/thing:2138676) from thingiverse that I ended up remixing. I was also facing issues with the small size of my printer, and it did become a huge limitation I had to design around. Since I couldn’t decide what kind of cover I wanted to do, I decided to make the cover interchangeable / replaceable so I could make different versions of the lamp shade in different shapes and materials.
+
+##### Iteration 2
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1715207525/digital-fab/a6/R0000916_Large_aznhnt.jpg)
+I printed out a modified version of the wall mount with a snap-fit attachment. Initially I thought it might be useful to make things removable etc., but I realized for this lamp, it doesn’t have to be entirely modular.
+
+##### Iteration 3
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1715207748/digital-fab/a6/sideview1_cmzq6g.png)
+
+I decided to use 3m double sided tape to mount to the wall, when I realized that it probably counts as a “fastener” which we weren’t supposed to use for this assignment. I figured since the first lamp passed the test, I could just do what I wanted with this second prototype. The lamp technically isn’t held together by the double sided tape, it’s just used to mount on the wall.
+
+After seeing how nice the wood PLA finish was, I decided to try and use Blender to add a 3d texture to the lamp holder (for fun). I watched this tutorial (https://www.youtube.com/watch?v=MezOnZN1x18) and followed all the steps, and used this free 3d grain (https://3dtextures.me/2022/09/16/wood-metal-platform-001/) to create a wood grain effect on my holder. I did have to decimate it a few times because the file was too large for my slicer to process.
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1715208336/digital-fab/a6/lampgif_xnitj3.gif)
+
+![image](https://res.cloudinary.com/digifab/image/upload/v1715208467/digital-fab/a6/R0000938_Large_lllnds.jpg)
+
+#### Takeaways
+
+1. Clear PETG is a pain, I would only use it if I had multiple printers at the ready.
+2. Don’t reinvent the wheel - one of the things I did right from the get go was using someone else’s stl file and building on that. Why make things harder when more prototyping can be done in a shorter amount of time?
+3. Pinterest is a great place to get ideas from, but I won’t be looking at Pinterest anymore if I’m using a material I haven’t worked with before. Focusing on form can make the perfectionist itch take over.
+4. Don’t plan too much! I got too caught up trying to execute what I had in mind. I realized I prefer to go straight into making things with a general design idea and just tweaking it through multiple iterations.
